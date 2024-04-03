@@ -1,0 +1,1 @@
+from djoser.views import RegistrationView

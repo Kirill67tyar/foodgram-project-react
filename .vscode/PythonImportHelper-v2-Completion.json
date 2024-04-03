@@ -56,7 +56,39 @@
         "documentation": {}
     },
     {
+        "label": "RegistrationView",
+        "importPath": "djoser.views",
+        "description": "djoser.views",
+        "isExtraImport": true,
+        "detail": "djoser.views",
+        "documentation": {}
+    },
+    {
+        "label": "UserViewSet",
+        "importPath": "djoser.views",
+        "description": "djoser.views",
+        "isExtraImport": true,
+        "detail": "djoser.views",
+        "documentation": {}
+    },
+    {
         "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "connection",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "reset_queries",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -109,6 +141,38 @@
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "importPath": "djoser.serializers",
+        "description": "djoser.serializers",
+        "isExtraImport": true,
+        "detail": "djoser.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "djoser.conf",
+        "description": "djoser.conf",
+        "isExtraImport": true,
+        "detail": "djoser.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "djoser.conf",
+        "description": "djoser.conf",
+        "isExtraImport": true,
+        "detail": "djoser.conf",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
         "documentation": {}
     },
     {
@@ -270,6 +334,22 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
+        "isExtraImport": true,
+        "detail": "rest_framework.routers",
+        "documentation": {}
+    },
+    {
+        "label": "UserViewSet",
+        "importPath": "api.views",
+        "description": "api.views",
+        "isExtraImport": true,
+        "detail": "api.views",
         "documentation": {}
     },
     {
@@ -437,7 +517,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class UserSerializer(Serializer):\n    email = EmailField(\n        max_length=150,\n        required=True,\n    )\n    email = EmailField(\n        max_length=150,\n        required=True,\n    )\n    email = EmailField(",
+        "peekOfCode": "class UserSerializer(serializers.Serializer):\n    username = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    first_name = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    last_name = CharField(",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -446,8 +526,26 @@
         "kind": 5,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "User = get_user_model()\nclass UserSerializer(Serializer):\n    email = EmailField(\n        max_length=150,\n        required=True,\n    )\n    email = EmailField(\n        max_length=150,\n        required=True,\n    )",
+        "peekOfCode": "User = get_user_model()\n# class UserSerializer(DjoserUserSerializer):\nclass UserSerializer(serializers.Serializer):\n    username = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    first_name = CharField(\n        max_length=150,\n        read_only=True,",
         "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "backend.api.urls",
+        "description": "backend.api.urls",
+        "peekOfCode": "app_name = 'api'\nrouter = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
+        "detail": "backend.api.urls",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.api.urls",
+        "description": "backend.api.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
+        "detail": "backend.api.urls",
         "documentation": {}
     },
     {
@@ -455,8 +553,26 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "urlpatterns = [\n    path('auth/', include('djoser.urls')),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
         "detail": "backend.api.urls",
+        "documentation": {}
+    },
+    {
+        "label": "UserViewSet",
+        "kind": 6,
+        "importPath": "backend.api.views",
+        "description": "backend.api.views",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user    \n        return super().get_serializer_class()",
+        "detail": "backend.api.views",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "backend.api.views",
+        "description": "backend.api.views",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user    ",
+        "detail": "backend.api.views",
         "documentation": {}
     },
     {
@@ -572,7 +688,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\nLANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
+        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\nLANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -581,7 +697,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -590,7 +706,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ]",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -599,7 +715,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ]\n}",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -608,7 +724,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ]\n}",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -617,7 +733,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_TZ = True\nSTATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ]\n}",
+        "peekOfCode": "USE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -626,7 +742,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ]\n}",
+        "peekOfCode": "STATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ],",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -635,7 +751,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ]\n}",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ],\n    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',\n    'PAGE_SIZE': 6,",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -644,7 +760,16 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ]\n}",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ],\n    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',\n    'PAGE_SIZE': 6,\n}",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DJOSER",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'user': 'api.serializers.UserSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        # 'activation': ['rest_framework.permissions.AllowAny'],\n        # 'password_reset': ['rest_framework.permissions.AllowAny'],\n        # 'password_reset_confirm': ['rest_framework.permissions.AllowAny'],",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },

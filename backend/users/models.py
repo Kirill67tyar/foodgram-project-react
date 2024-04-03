@@ -64,6 +64,13 @@ class User(AbstractUser):
         blank=False,
         verbose_name='Фамилия',
     )
+    # following_field = models.ManyToManyField(
+    #     to='self',
+    #     through='users.Follow',
+    #     related_name='followers',
+    #     symmetrical=False,
+    #     verbose_name='Подписан на'
+    # )
 
     class Meta:
         ordering = (

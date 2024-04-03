@@ -1,0 +1,64 @@
+
+username: k3
+email: k3@ya.ru
+first_name: имя3 
+last_name: фамилия3
+password: alskdjfhg
+подписан на:
+k5, k9
+
+
+username: k4
+email: k4@ya.ru
+first_name: имя4 
+last_name: фамилия4
+password: alskdjfhg
+подписан на:
+k5, k6
+
+username: k5
+email: k5@ya.ru
+first_name: имя5 
+last_name: фамилия5
+password: alskdjfhg
+подписан на:
+k3, k4, k7
+
+
+username: k6
+email: k6@ya.ru
+first_name: имя6 
+last_name: фамилия6
+password: alskdjfhg
+
+username: k7
+email: k7@ya.ru
+first_name: имя7 
+last_name: фамилия7
+password: alskdjfhg
+
+username: k8
+email: k8@ya.ru
+first_name: имя8 
+last_name: фамилия8
+password: alskdjfhg
+
+username: k9
+email: k9@ya.ru
+first_name: имя9 
+last_name: фамилия9
+password: alskdjfhg
+
+username: k10
+email: k10@ya.ru
+first_name: имя10 
+last_name: фамилия10
+password: alskdjfhg
+
+username: k11
+email: k11@ya.ru
+first_name: имя11 
+last_name: фамилия11
+password: alskdjfhg
+
+

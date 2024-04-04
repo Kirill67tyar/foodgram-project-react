@@ -1,5 +1,6 @@
 from djoser.views import RegistrationView
-
+from djoser.constants import Messages
+from rest_framework import validators
 
 """
 Список используемых ссылок
@@ -61,4 +62,16 @@ sources:
 						записи из первого запроса (WHERE id IN (1))
 
 ---------------------------------------------------------------------------------------------
+
+
+from pprint import pprint as pp
+from django.db import connection, reset_queries
+connection.queries
+pp(connection.queries)
+reset_queries()
+
+
 """
+
+
+

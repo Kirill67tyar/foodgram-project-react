@@ -41,13 +41,12 @@ class UserSerializer(serializers.Serializer):
         read_only=True
     )
 
-    # is_subscribed = serializers.SerializerMethodField(read_only=True)
+    is_subscribed = serializers.SerializerMethodField(read_only=True)
 
-    # def get_is_subscribed(self, obj):  # obj - экземпляр Note
-    #     user = serializers.CurrentUserDefault()
-    #     if obj:
-    #         return obj.marks.split(', ')
-    #     return []
+    def get_is_subscribed(self, obj):
+        user = serializers.CurrentUserDefault()
+        return user in obj.following.all()
+        # return user in obj.followers.all()
 
     # class Meta:
     #     model = User

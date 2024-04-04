@@ -72,6 +72,54 @@
         "documentation": {}
     },
     {
+        "label": "Messages",
+        "importPath": "djoser.constants",
+        "description": "djoser.constants",
+        "isExtraImport": true,
+        "detail": "djoser.constants",
+        "documentation": {}
+    },
+    {
+        "label": "validators",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "connection",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "reset_queries",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -214,14 +262,6 @@
         "description": "django.contrib.auth.validators",
         "isExtraImport": true,
         "detail": "django.contrib.auth.validators",
-        "documentation": {}
-    },
-    {
-        "label": "serializers",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
         "documentation": {}
     },
     {
@@ -688,7 +728,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\nLANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
+        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\nLANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -697,7 +737,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [",
+        "peekOfCode": "LANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -823,7 +863,7 @@
         "kind": 6,
         "importPath": "backend.users.migrations.0001_initial",
         "description": "backend.users.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('auth', '0012_alter_user_first_name_max_length'),\n        ('recipes', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='User',\n            fields=[",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('recipes', '0001_initial'),\n        ('auth', '0012_alter_user_first_name_max_length'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='User',\n            fields=[",
         "detail": "backend.users.migrations.0001_initial",
         "documentation": {}
     },
@@ -850,7 +890,7 @@
         "kind": 6,
         "importPath": "backend.users.models",
         "description": "backend.users.models",
-        "peekOfCode": "class Follow(models.Model):\n    # https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/models.py\n    user = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='followers',\n        verbose_name='Пользователь подписан'\n    )\n    following = models.ForeignKey(\n        to=User,",
+        "peekOfCode": "class Follow(models.Model):\n    # https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/models.py\n    from_user = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='subscribed_to',\n        verbose_name='Пользователь подписан'\n    )\n    to_user = models.ForeignKey(\n        to=User,",
         "detail": "backend.users.models",
         "documentation": {}
     },

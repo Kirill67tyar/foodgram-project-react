@@ -64,13 +64,13 @@ class User(AbstractUser):
         blank=False,
         verbose_name='Фамилия',
     )
-    # following_field = models.ManyToManyField(
-    #     to='self',
-    #     through='users.Follow',
-    #     related_name='followers',
-    #     symmetrical=False,
-    #     verbose_name='Подписан на'
-    # )
+    following = models.ManyToManyField(
+        to='self',
+        through='users.Follow',
+        related_name='followers',
+        symmetrical=False,
+        verbose_name='Подписан на'
+    )
 
     class Meta:
         ordering = (
@@ -84,28 +84,28 @@ class User(AbstractUser):
 
 class Follow(models.Model):
     # https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/models.py
-    user = models.ForeignKey(
+    from_user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
-        related_name='followers',
+        related_name='subscribed_to',
         verbose_name='Пользователь подписан'
     )
-    following = models.ForeignKey(
+    to_user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
-        related_name='followings',
+        related_name='from_subscribed',
         verbose_name='На пользователя подписан'
     )
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['user', 'following', ],
+                fields=['from_user', 'to_user', ],
                 name='unique_key_user_following'
             ),
             models.CheckConstraint(
                 name='%(app_label)s_%(class)s_prevent_self_follow',
-                check=~models.Q(user=models.F('following')),
+                check=~models.Q(from_user=models.F('to_user')),
             ),
         ]
 

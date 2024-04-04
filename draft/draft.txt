@@ -1,3 +1,12 @@
+username: kiril
+email: kir@ya.ru
+first_name: Кирилл
+last_name: Богомолов
+password: alskdjfhg
+{
+    "auth_token": "72a083fe16806c5374da522dc0493dab90319c14"
+}
+Authorization   Token 72a083fe16806c5374da522dc0493dab90319c14
 
 username: k3
 email: k3@ya.ru
@@ -6,7 +15,8 @@ last_name: фамилия3
 password: alskdjfhg
 подписан на:
 k5, k9
-
+    k4.following.add(k5, k9)
+    k4.save()
 
 username: k4
 email: k4@ya.ru
@@ -15,6 +25,8 @@ last_name: фамилия4
 password: alskdjfhg
 подписан на:
 k5, k6
+    k4.following.add(k5, k6)
+    k4.save()
 
 username: k5
 email: k5@ya.ru
@@ -23,7 +35,8 @@ last_name: фамилия5
 password: alskdjfhg
 подписан на:
 k3, k4, k7
-
+     k5.following.add(k3, k3, k7)
+     k5.save()
 
 username: k6
 email: k6@ya.ru
@@ -60,5 +73,10 @@ email: k11@ya.ru
 first_name: имя11 
 last_name: фамилия11
 password: alskdjfhg
+
+
+for i in range(3, 12):
+    User.objects.create(username=f'k{i}', email=f'k{i}@ya.ru', first_name=f'имя{i}', last_name=f'фамилия{i}', password='alskdjfhg')
+
 
 

@@ -104,6 +104,14 @@
         "documentation": {}
     },
     {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
         "label": "connection",
         "importPath": "django.db",
         "description": "django.db",
@@ -213,6 +221,14 @@
         "description": "djoser.conf",
         "isExtraImport": true,
         "detail": "djoser.conf",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
         "documentation": {}
     },
     {
@@ -544,6 +560,15 @@
         "documentation": {}
     },
     {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
         "label": "ApiConfig",
         "kind": 6,
         "importPath": "backend.api.apps",
@@ -854,7 +879,43 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class Recipe(models.Model):\n    \"\"\"\n    -- Рецепт\n    Атрибуты модели:\n        Автор публикации (пользователь).\n        Название.\n        Картинка.\n        Текстовое описание.\n        Ингредиенты — продукты для приготовления блюда по рецепту. Множественное поле с выбором из предустановленного списка и с указанием количества и единицы измерения.\n        Тег. Можно установить несколько тегов на один рецепт.",
+        "peekOfCode": "class Recipe(models.Model):\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    author = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='recipes',",
+        "detail": "backend.recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Ingredient",
+        "kind": 6,
+        "importPath": "backend.recipes.models",
+        "description": "backend.recipes.models",
+        "peekOfCode": "class Ingredient(models.Model):\n    # MEASUREMENT_UNIT_CHOICES = ()\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название ингредиента',\n    )\n    amount = models.PositiveSmallIntegerField(\n        verbose_name='Количество'\n    )",
+        "detail": "backend.recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "kind": 6,
+        "importPath": "backend.recipes.models",
+        "description": "backend.recipes.models",
+        "peekOfCode": "class Tag(models.Model):\n    \"\"\"\n    -- Тег\n    Атрибуты модели:\n        Название.\n        Цветовой код, например, #49B64E.\n        Slug.\n    Все поля обязательны для заполнения и уникальны.\n    \"\"\"\n    name = models.CharField(",
+        "detail": "backend.recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeTag",
+        "kind": 6,
+        "importPath": "backend.recipes.models",
+        "description": "backend.recipes.models",
+        "peekOfCode": "class RecipeTag(models.Model):\n    recipe = models.ForeignKey(\n        Recipe,\n        on_delete=models.CASCADE,\n        related_name='recipes',\n    )\n    tag = models.ForeignKey(\n        Tag,\n        on_delete=models.CASCADE,\n        related_name='tags',",
+        "detail": "backend.recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "backend.recipes.models",
+        "description": "backend.recipes.models",
+        "peekOfCode": "User = get_user_model()\n# Теги для рецептов (завтрак, обед, ужин) - many to many\n# Подписки на пользователей - many to many\n# Добавление рецепта в избранное - many to many\n# Рецепт по отношению к автору - foreign key\n# фронт приложения:\n# http://localhost/\n# спецификацию (доки) API:\n# http://localhost/api/docs/redoc.html\nclass Recipe(models.Model):",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -910,6 +971,15 @@
         "description": "backend.manage",
         "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'foodgram_backend.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
         "detail": "backend.manage",
+        "documentation": {}
+    },
+    {
+        "label": "measures",
+        "kind": 5,
+        "importPath": "data.define_measure",
+        "description": "data.define_measure",
+        "peekOfCode": "measures = {}\nwith open('ingredients.json', 'r') as file_json:\n    data = json.load(file_json)\nfor ingredient in data:\n    measurement_unit = ingredient['measurement_unit']\n    measures[measurement_unit] = measures.get(measurement_unit, 0) + 1\nwith open('measures.json', 'w', encoding='utf-8') as file_json:\n    data = json.dump(\n        obj=measures,\n        fp=file_json,",
+        "detail": "data.define_measure",
         "documentation": {}
     }
 ]

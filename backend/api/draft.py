@@ -16,7 +16,7 @@ https://stackoverflow.com/questions/71735934/djoser-override-perform-create-meth
 
 
 
-
+django-debug-toolbar==3.5
 """
 
 

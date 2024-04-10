@@ -16,14 +16,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
-    'recipes.apps.RecipesConfig',
-    'api.apps.ApiConfig',
     'rest_framework',
-    # 'rest_framework.authtoken',
     'rest_framework.authtoken',
     'djoser',
     'django_extensions',
+    # 'django_extensions',
+    'recipes.apps.RecipesConfig',
+    'users.apps.UsersConfig',
+    'orders.apps.OrdersConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.User'
+# AUTH_USER_MODEL = 'users.models.User'
 
 LANGUAGE_CODE = 'ru-RU'  # 'en-us'
 

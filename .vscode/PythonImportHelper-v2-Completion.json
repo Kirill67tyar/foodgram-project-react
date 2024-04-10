@@ -32,6 +32,22 @@
         "documentation": {}
     },
     {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
@@ -152,6 +168,14 @@
         "documentation": {}
     },
     {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -161,6 +185,38 @@
     },
     {
         "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -361,6 +417,14 @@
         "documentation": {}
     },
     {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
         "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -406,6 +470,14 @@
         "description": "api.views",
         "isExtraImport": true,
         "detail": "api.views",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
@@ -482,6 +554,23 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
         "label": "django.contrib.auth.models",
         "kind": 6,
         "isExtraImport": true,
@@ -496,15 +585,6 @@
         "description": "django.contrib.auth.models",
         "isExtraImport": true,
         "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "django.db.models.deletion",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.db.models.deletion",
-        "description": "django.db.models.deletion",
-        "detail": "django.db.models.deletion",
         "documentation": {}
     },
     {
@@ -526,11 +606,11 @@
         "documentation": {}
     },
     {
-        "label": "Recipe",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
+        "label": "User",
+        "importPath": "users.models",
+        "description": "users.models",
         "isExtraImport": true,
-        "detail": "recipes.models",
+        "detail": "users.models",
         "documentation": {}
     },
     {
@@ -672,7 +752,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'users.apps.UsersConfig',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -681,7 +761,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'users.apps.UsersConfig',\n    'recipes.apps.RecipesConfig',",
+        "peekOfCode": "ALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework.authtoken',",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -690,7 +770,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'users.apps.UsersConfig',\n    'recipes.apps.RecipesConfig',\n    'api.apps.ApiConfig',",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework.authtoken',\n    'djoser',",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -753,7 +833,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\nLANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
+        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\n# AUTH_USER_MODEL = 'users.models.User'\nLANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -857,12 +937,30 @@
         "documentation": {}
     },
     {
+        "label": "OrdersConfig",
+        "kind": 6,
+        "importPath": "backend.orders.apps",
+        "description": "backend.orders.apps",
+        "peekOfCode": "class OrdersConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'orders'",
+        "detail": "backend.orders.apps",
+        "documentation": {}
+    },
+    {
         "label": "Migration",
         "kind": 6,
         "importPath": "backend.recipes.migrations.0001_initial",
         "description": "backend.recipes.migrations.0001_initial",
         "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Recipe',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=150, unique=True, verbose_name='Название рецепта')),",
         "detail": "backend.recipes.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.recipes.migrations.0002_auto_20240409_1644",
+        "description": "backend.recipes.migrations.0002_auto_20240409_1644",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('recipes', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Tag',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "backend.recipes.migrations.0002_auto_20240409_1644",
         "documentation": {}
     },
     {
@@ -888,7 +986,16 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class Ingredient(models.Model):\n    # MEASUREMENT_UNIT_CHOICES = ()\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название ингредиента',\n    )\n    amount = models.PositiveSmallIntegerField(\n        verbose_name='Количество'\n    )",
+        "peekOfCode": "class Ingredient(models.Model):\n    # MEASUREMENT_UNIT_CHOICES = ()\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название ингредиента',\n    )\n    measure = models.CharField(\n        max_length=50,\n        db_index=True,",
+        "detail": "backend.recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeIngredient",
+        "kind": 6,
+        "importPath": "backend.recipes.models",
+        "description": "backend.recipes.models",
+        "peekOfCode": "class RecipeIngredient(models.Model):\n    recipe = models.ForeignKey(\n        to=Recipe,\n        on_delete=models.CASCADE,\n        related_name='ingredients',\n        verbose_name='Рецепт'\n    )\n    ingredient = models.ForeignKey(\n        to=Ingredient,\n        on_delete=models.CASCADE,",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -915,7 +1022,7 @@
         "kind": 5,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "User = get_user_model()\n# Теги для рецептов (завтрак, обед, ужин) - many to many\n# Подписки на пользователей - many to many\n# Добавление рецепта в избранное - many to many\n# Рецепт по отношению к автору - foreign key\n# фронт приложения:\n# http://localhost/\n# спецификацию (доки) API:\n# http://localhost/api/docs/redoc.html\nclass Recipe(models.Model):",
+        "peekOfCode": "User = get_user_model()\n# # Теги для рецептов (завтрак, обед, ужин) - many to many\n# # Подписки на пользователей - many to many\n# # Добавление рецепта в избранное - many to many\n# # Рецепт по отношению к автору - foreign key\n# # фронт приложения:\n# # http://localhost/\n# # спецификацию (доки) API:\n# # http://localhost/api/docs/redoc.html\nclass Recipe(models.Model):",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -926,6 +1033,15 @@
         "description": "backend.users.migrations.0001_initial",
         "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('recipes', '0001_initial'),\n        ('auth', '0012_alter_user_first_name_max_length'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='User',\n            fields=[",
         "detail": "backend.users.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.users.migrations.0002_user_favorite",
+        "description": "backend.users.migrations.0002_user_favorite",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('recipes', '0002_auto_20240409_1644'),\n        ('users', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='user',\n            name='favorite',\n            field=models.ManyToManyField(related_name='in_favorite', through='users.UserFavoriteRecipe', to='recipes.Recipe', verbose_name='Рецепты в избранном'),",
+        "detail": "backend.users.migrations.0002_user_favorite",
         "documentation": {}
     },
     {
@@ -960,7 +1076,7 @@
         "kind": 6,
         "importPath": "backend.users.models",
         "description": "backend.users.models",
-        "peekOfCode": "class UserFavoriteRecipe(models.Model):\n    user = models.ForeignKey(\n        User,\n        on_delete=models.CASCADE,\n        related_name='favorite_recipes',\n    )\n    recipe = models.ForeignKey(\n        Recipe,\n        on_delete=models.CASCADE,\n        related_name='users_to_favorite',",
+        "peekOfCode": "class UserFavoriteRecipe(models.Model):\n    user = models.ForeignKey(\n        User,\n        on_delete=models.CASCADE,\n        related_name='favorite_recipes',\n    )\n    recipe = models.ForeignKey(\n        # Recipe,\n        'recipes.Recipe',\n        on_delete=models.CASCADE,",
         "detail": "backend.users.models",
         "documentation": {}
     },

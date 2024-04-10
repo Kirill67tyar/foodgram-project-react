@@ -21,7 +21,7 @@
 
 from django.db import models
 
-from recipes.models import Recipe
+# from recipes.models import Recipe
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
@@ -70,6 +70,13 @@ class User(AbstractUser):
         related_name='followers',
         symmetrical=False,
         verbose_name='Подписан на'
+    )
+    favorite = models.ManyToManyField(
+        to='recipes.Recipe',
+        through='users.UserFavoriteRecipe',
+        related_name='in_favorite',
+        # symmetrical=False,
+        verbose_name='Рецепты в избранном'
     )
 
     class Meta:
@@ -120,7 +127,8 @@ class UserFavoriteRecipe(models.Model):
         related_name='favorite_recipes',
     )
     recipe = models.ForeignKey(
-        Recipe,
+        # Recipe,
+        'recipes.Recipe',
         on_delete=models.CASCADE,
         related_name='users_to_favorite',
     )

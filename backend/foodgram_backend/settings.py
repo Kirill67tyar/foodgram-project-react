@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'django_extensions',
+    'debug_toolbar',
     'recipes.apps.RecipesConfig',
     'users.apps.UsersConfig',
     'orders.apps.OrdersConfig',
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,3 +141,4 @@ DJOSER = {
     # 'SERIALIZERS': {},
 
 }
+INTERNAL_IPS = ['127.0.0.1',]

@@ -20,6 +20,9 @@ https://stackoverflow.com/questions/66036497/djoser-override-registration
 https://stackoverflow.com/questions/66036497/djoser-override-registration
 https://stackoverflow.com/questions/71735934/djoser-override-perform-create-method-of-class-userviewset
 
+ -- api.serializers:
+https://stackoverflow.com/questions/73616831/serializer-with-m2m-field-with-through-model-got-attributeerror
+
  -- users.models:
 https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/models.py
 

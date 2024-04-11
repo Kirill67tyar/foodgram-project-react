@@ -12,6 +12,7 @@ from api.serializers import (
     TagModelSerializer,
     IngredientModelSerializer,
     RecipeReadModelSerializer,
+    RecipeWriteModelSerializer,
 )
 from recipes.models import (
     Ingredient,
@@ -34,7 +35,10 @@ class UserViewSet(DjoserUserViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.action == 'list':
-            queryset = queryset.prefetch_related('followers')
+            # queryset = queryset.prefetch_related('followers')
+            queryset = queryset.prefetch_related('following')
+            # queryset = queryset.prefetch_related('follow_set__to_user')
+            # queryset = queryset.prefetch_related('follow_set__from_user')
         return queryset
 
     def get_serializer_class(self):
@@ -54,6 +58,19 @@ class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):
     serializer_class = IngredientModelSerializer
     pagination_class = None
 
+
 class RecipeModelViewSet(ModelViewSet):
-    queryset = Recipe.objects.all()
-    serializer_class = RecipeReadModelSerializer
+    queryset = Recipe.objects.select_related(
+        'author',
+    ).prefetch_related(
+        'tags',
+        'ingredients',
+        'recipeingredient_set__ingredient',
+        'author__following',
+    )
+    def get_serializer_class(self):
+        if self.action in ('list', 'retrieve'):
+            return RecipeReadModelSerializer
+        return RecipeWriteModelSerializer
+    
+

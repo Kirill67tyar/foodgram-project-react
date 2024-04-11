@@ -49,7 +49,7 @@ class Recipe(models.Model):
 
 class Ingredient(models.Model):
     # MEASUREMENT_UNIT_CHOICES = ()
-
+    
     name = models.CharField(
         max_length=150,
         unique=True,

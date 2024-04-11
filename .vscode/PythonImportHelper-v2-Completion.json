@@ -248,6 +248,15 @@
         "documentation": {}
     },
     {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
         "label": "UserSerializer",
         "importPath": "djoser.serializers",
         "description": "djoser.serializers",
@@ -269,6 +278,14 @@
         "description": "djoser.conf",
         "isExtraImport": true,
         "detail": "djoser.conf",
+        "documentation": {}
+    },
+    {
+        "label": "ContentFile",
+        "importPath": "django.core.files.base",
+        "description": "django.core.files.base",
+        "isExtraImport": true,
+        "detail": "django.core.files.base",
         "documentation": {}
     },
     {
@@ -329,6 +346,31 @@
         "documentation": {}
     },
     {
+        "label": "django.contrib.auth.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AnonymousUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
         "label": "get_object_or_404",
         "importPath": "rest_framework.generics",
         "description": "rest_framework.generics",
@@ -385,6 +427,14 @@
         "documentation": {}
     },
     {
+        "label": "IntegerField",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
         "label": "Ingredient",
         "importPath": "recipes.models",
         "description": "recipes.models",
@@ -402,6 +452,14 @@
     },
     {
         "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeIngredient",
         "importPath": "recipes.models",
         "description": "recipes.models",
         "isExtraImport": true,
@@ -609,6 +667,14 @@
         "documentation": {}
     },
     {
+        "label": "RecipeWriteModelSerializer",
+        "importPath": "api.serializers",
+        "description": "api.serializers",
+        "isExtraImport": true,
+        "detail": "api.serializers",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -634,6 +700,30 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -648,39 +738,6 @@
         "importPath": "django.db.models.deletion",
         "description": "django.db.models.deletion",
         "detail": "django.db.models.deletion",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "django.contrib.auth.models",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "AbstractUser",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
         "documentation": {}
     },
     {
@@ -812,7 +869,16 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class UserSerializer(serializers.Serializer):\n    username = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    first_name = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    last_name = CharField(",
+        "peekOfCode": "class UserSerializer(serializers.Serializer):\n    email = EmailField(\n        max_length=150,\n        read_only=True\n    )\n    id = IntegerField(\n        read_only=True\n    )\n    username = CharField(\n        max_length=150,",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ThinTagModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class ThinTagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag\n        fields = (\n            'id',\n        )\n        extra_kwargs = {'id': {'write_only': True}}\nclass TagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -830,7 +896,16 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class IngredientModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Ingredient\n        fields = (\n            'id',\n            'name',\n            'measurement_unit',\n        )\nclass RecipeReadModelSerializer(serializers.ModelSerializer):\n    author = UserSerializer(",
+        "peekOfCode": "class IngredientModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Ingredient\n        fields = (\n            'id',\n            'name',\n            'measurement_unit',\n        )\nclass RecipeIngredientModelSerializer(serializers.ModelSerializer):\n    id = serializers.SerializerMethodField(read_only=True)",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeIngredientModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class RecipeIngredientModelSerializer(serializers.ModelSerializer):\n    id = serializers.SerializerMethodField(read_only=True)\n    def get_id(self, obj):\n        return obj.ingredient.pk\n        # return obj.ingredient_id\n    name = serializers.SerializerMethodField(read_only=True)\n    def get_name(self, obj):\n        return obj.ingredient.name\n    measurement_unit = serializers.SerializerMethodField(read_only=True)\n    def get_measurement_unit(self, obj):",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -844,11 +919,29 @@
         "documentation": {}
     },
     {
+        "label": "Base64ImageField",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class Base64ImageField(serializers.ImageField):\n    def to_internal_value(self, data):\n        if isinstance(data, str) and data.startswith('data:image'):\n            format, imgstr = data.split(';base64,')\n            ext = format.split('/')[-1]\n            data = ContentFile(base64.b64decode(imgstr), name='temp.' + ext)\n        return super().to_internal_value(data)\nclass RecipeWriteModelSerializer(serializers.ModelSerializer):\n    \"\"\"\n    {",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeWriteModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class RecipeWriteModelSerializer(serializers.ModelSerializer):\n    \"\"\"\n    {\n        \"ingredients\": [\n            {\n            \"id\": 1123,\n            \"amount\": 10\n            }\n        ],\n        \"tags\": [",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "kind": 5,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "User = get_user_model()\n# class UserSerializer(DjoserUserSerializer):\nclass UserSerializer(serializers.Serializer):\n    username = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    first_name = CharField(\n        max_length=150,\n        read_only=True,",
+        "peekOfCode": "User = get_user_model()\n# class UserSerializer(DjoserUserSerializer):\nclass UserSerializer(serializers.Serializer):\n    email = EmailField(\n        max_length=150,\n        read_only=True\n    )\n    id = IntegerField(\n        read_only=True\n    )",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -884,7 +977,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user\n        return super().get_serializer_class()",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n            # queryset = queryset.prefetch_related('follow_set__to_user')\n            # queryset = queryset.prefetch_related('follow_set__from_user')\n        return queryset\n    def get_serializer_class(self):",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -893,7 +986,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Tag.objects.all()\n    serializer_class = TagModelSerializer\n    pagination_class = None\nclass IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.all()",
+        "peekOfCode": "class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Tag.objects.all()\n    serializer_class = TagModelSerializer\n    pagination_class = None\nclass IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -902,7 +995,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.all()\n    serializer_class = RecipeReadModelSerializer",
+        "peekOfCode": "class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(\n        'author',\n    ).prefetch_related(\n        'tags',\n        'ingredients',",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -911,7 +1004,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.all()\n    serializer_class = RecipeReadModelSerializer",
+        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(\n        'author',\n    ).prefetch_related(\n        'tags',\n        'ingredients',\n        'recipeingredient_set__ingredient',\n        'author__following',\n    )\n    def get_serializer_class(self):",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -920,7 +1013,7 @@
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n            # queryset = queryset.prefetch_related('follow_set__to_user')\n            # queryset = queryset.prefetch_related('follow_set__from_user')\n        return queryset",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -983,7 +1076,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'foodgram_backend.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    'debug_toolbar.middleware.DebugToolbarMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1123,11 +1216,20 @@
         "documentation": {}
     },
     {
+        "label": "INTERNAL_IPS",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "INTERNAL_IPS = ['127.0.0.1',]",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "backend.foodgram_backend.urls",
         "description": "backend.foodgram_backend.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include('api.urls', namespace='api')),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    # path('__debug__/', include('debug_toolbar.urls')),\n    path('api/', include('api.urls', namespace='api')),\n]\nif settings.DEBUG:\n    urlpatterns.append(\n        path('__debug__/', include('debug_toolbar.urls')),\n    )",
         "detail": "backend.foodgram_backend.urls",
         "documentation": {}
     },

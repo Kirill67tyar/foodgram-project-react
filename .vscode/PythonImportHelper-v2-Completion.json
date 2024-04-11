@@ -208,14 +208,6 @@
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -393,6 +385,54 @@
         "documentation": {}
     },
     {
+        "label": "Ingredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Ingredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -473,11 +513,27 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "TagReadOnlyModelViewSet",
+        "importPath": "api.views",
+        "description": "api.views",
         "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "detail": "api.views",
+        "documentation": {}
+    },
+    {
+        "label": "IngredientReadOnlyModelViewSet",
+        "importPath": "api.views",
+        "description": "api.views",
+        "isExtraImport": true,
+        "detail": "api.views",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeModelViewSet",
+        "importPath": "api.views",
+        "description": "api.views",
+        "isExtraImport": true,
+        "detail": "api.views",
         "documentation": {}
     },
     {
@@ -502,6 +558,54 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ReadOnlyModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "TagModelSerializer",
+        "importPath": "api.serializers",
+        "description": "api.serializers",
+        "isExtraImport": true,
+        "detail": "api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "IngredientModelSerializer",
+        "importPath": "api.serializers",
+        "description": "api.serializers",
+        "isExtraImport": true,
+        "detail": "api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeReadModelSerializer",
+        "importPath": "api.serializers",
+        "description": "api.serializers",
+        "isExtraImport": true,
+        "detail": "api.serializers",
         "documentation": {}
     },
     {
@@ -538,36 +642,28 @@
         "documentation": {}
     },
     {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
         "label": "django.db.models.deletion",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "django.db.models.deletion",
         "description": "django.db.models.deletion",
         "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -658,11 +754,92 @@
         "documentation": {}
     },
     {
+        "label": "r1",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "r1 = Recipe.objects.create(name='r1', text='r1-text', author=k, cooking_time=50, image='asd')\nr1.tags.add(t1, t2)\nri1 = RI(recipe=r1, ingredient=i1, amount=24)\nri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "ri1",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "ri1 = RI(recipe=r1, ingredient=i1, amount=24)\nri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "ri2",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "ri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,\n        unique=True,",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "r2",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "r2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "ri3",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "ri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(\n        verbose_name='Описание рецепта'\n    )",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "\tname",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "\tname = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(\n        verbose_name='Описание рецепта'\n    )\n    author = models.ForeignKey(\n        to=User,",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
         "label": "UserSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
         "peekOfCode": "class UserSerializer(serializers.Serializer):\n    username = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    first_name = CharField(\n        max_length=150,\n        read_only=True,\n    )\n    last_name = CharField(",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TagModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class TagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag\n        fields = (\n            'id',\n            'name',\n            'color',\n            'slug',\n        )\nclass IngredientModelSerializer(serializers.ModelSerializer):",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "IngredientModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class IngredientModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Ingredient\n        fields = (\n            'id',\n            'name',\n            'measurement_unit',\n        )\nclass RecipeReadModelSerializer(serializers.ModelSerializer):\n    author = UserSerializer(",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeReadModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class RecipeReadModelSerializer(serializers.ModelSerializer):\n    author = UserSerializer(\n        # read_only=True,\n        many=False,\n    )\n    tags = TagModelSerializer(\n        read_only=True,\n        many=True,\n    )\n    # \"is_in_shopping_cart\": true,",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -680,7 +857,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "app_name = 'api'\nrouter = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
+        "peekOfCode": "app_name = 'api'\nrouter = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet, basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -689,7 +866,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet, basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -707,7 +884,34 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user    \n        return super().get_serializer_class()",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user\n        return super().get_serializer_class()",
+        "detail": "backend.api.views",
+        "documentation": {}
+    },
+    {
+        "label": "TagReadOnlyModelViewSet",
+        "kind": 6,
+        "importPath": "backend.api.views",
+        "description": "backend.api.views",
+        "peekOfCode": "class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Tag.objects.all()\n    serializer_class = TagModelSerializer\n    pagination_class = None\nclass IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.all()",
+        "detail": "backend.api.views",
+        "documentation": {}
+    },
+    {
+        "label": "IngredientReadOnlyModelViewSet",
+        "kind": 6,
+        "importPath": "backend.api.views",
+        "description": "backend.api.views",
+        "peekOfCode": "class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.all()\n    serializer_class = RecipeReadModelSerializer",
+        "detail": "backend.api.views",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeModelViewSet",
+        "kind": 6,
+        "importPath": "backend.api.views",
+        "description": "backend.api.views",
+        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.all()\n    serializer_class = RecipeReadModelSerializer",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -716,7 +920,7 @@
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user    ",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            queryset = queryset.prefetch_related('followers')\n        return queryset\n    def get_serializer_class(self):\n        if self.action == 'list':\n            return settings.SERIALIZERS.user",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -950,17 +1154,26 @@
         "kind": 6,
         "importPath": "backend.recipes.migrations.0001_initial",
         "description": "backend.recipes.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Recipe',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=150, unique=True, verbose_name='Название рецепта')),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Ingredient',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=150, unique=True, verbose_name='Название ингредиента')),",
         "detail": "backend.recipes.migrations.0001_initial",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "backend.recipes.migrations.0002_auto_20240409_1644",
-        "description": "backend.recipes.migrations.0002_auto_20240409_1644",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('recipes', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Tag',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
-        "detail": "backend.recipes.migrations.0002_auto_20240409_1644",
+        "importPath": "backend.recipes.migrations.0002_initial",
+        "description": "backend.recipes.migrations.0002_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('recipes', '0001_initial'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='recipe',\n            name='author',",
+        "detail": "backend.recipes.migrations.0002_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.recipes.migrations.0003_rename_measure_ingredient_measurement_unit",
+        "description": "backend.recipes.migrations.0003_rename_measure_ingredient_measurement_unit",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('recipes', '0002_initial'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='ingredient',\n            old_name='measure',\n            new_name='measurement_unit',\n        ),",
+        "detail": "backend.recipes.migrations.0003_rename_measure_ingredient_measurement_unit",
         "documentation": {}
     },
     {
@@ -977,7 +1190,7 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class Recipe(models.Model):\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    author = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='recipes',",
+        "peekOfCode": "class Recipe(models.Model):\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(\n        verbose_name='Описание рецепта'\n    )\n    author = models.ForeignKey(",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -986,7 +1199,7 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class Ingredient(models.Model):\n    # MEASUREMENT_UNIT_CHOICES = ()\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название ингредиента',\n    )\n    measure = models.CharField(\n        max_length=50,\n        db_index=True,",
+        "peekOfCode": "class Ingredient(models.Model):\n    # MEASUREMENT_UNIT_CHOICES = ()\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название ингредиента',\n    )\n    measurement_unit = models.CharField(\n        max_length=50,\n        db_index=True,",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -995,7 +1208,7 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class RecipeIngredient(models.Model):\n    recipe = models.ForeignKey(\n        to=Recipe,\n        on_delete=models.CASCADE,\n        related_name='ingredients',\n        verbose_name='Рецепт'\n    )\n    ingredient = models.ForeignKey(\n        to=Ingredient,\n        on_delete=models.CASCADE,",
+        "peekOfCode": "class RecipeIngredient(models.Model):\n    recipe = models.ForeignKey(\n        to=Recipe,\n        on_delete=models.CASCADE,\n        verbose_name='Рецепт'\n    )\n    ingredient = models.ForeignKey(\n        to=Ingredient,\n        on_delete=models.CASCADE,\n        verbose_name='Ингредиенты'",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -1013,7 +1226,7 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class RecipeTag(models.Model):\n    recipe = models.ForeignKey(\n        Recipe,\n        on_delete=models.CASCADE,\n        related_name='recipes',\n    )\n    tag = models.ForeignKey(\n        Tag,\n        on_delete=models.CASCADE,\n        related_name='tags',",
+        "peekOfCode": "class RecipeTag(models.Model):\n    recipe = models.ForeignKey(\n        Recipe,\n        on_delete=models.CASCADE,\n    )\n    tag = models.ForeignKey(\n        Tag,\n        on_delete=models.CASCADE,\n    )\n    class Meta:",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -1022,7 +1235,7 @@
         "kind": 5,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "User = get_user_model()\n# # Теги для рецептов (завтрак, обед, ужин) - many to many\n# # Подписки на пользователей - many to many\n# # Добавление рецепта в избранное - many to many\n# # Рецепт по отношению к автору - foreign key\n# # фронт приложения:\n# # http://localhost/\n# # спецификацию (доки) API:\n# # http://localhost/api/docs/redoc.html\nclass Recipe(models.Model):",
+        "peekOfCode": "User = get_user_model()\n# # фронт приложения:\n# # http://localhost/\n# # спецификацию (доки) API:\n# # http://localhost/api/docs/redoc.html\nclass Recipe(models.Model):\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -1033,15 +1246,6 @@
         "description": "backend.users.migrations.0001_initial",
         "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('recipes', '0001_initial'),\n        ('auth', '0012_alter_user_first_name_max_length'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='User',\n            fields=[",
         "detail": "backend.users.migrations.0001_initial",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "backend.users.migrations.0002_user_favorite",
-        "description": "backend.users.migrations.0002_user_favorite",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('recipes', '0002_auto_20240409_1644'),\n        ('users', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='user',\n            name='favorite',\n            field=models.ManyToManyField(related_name='in_favorite', through='users.UserFavoriteRecipe', to='recipes.Recipe', verbose_name='Рецепты в избранном'),",
-        "detail": "backend.users.migrations.0002_user_favorite",
         "documentation": {}
     },
     {
@@ -1067,16 +1271,16 @@
         "kind": 6,
         "importPath": "backend.users.models",
         "description": "backend.users.models",
-        "peekOfCode": "class Follow(models.Model):\n    # https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/models.py\n    from_user = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='subscribed_to',\n        verbose_name='Пользователь подписан'\n    )\n    to_user = models.ForeignKey(\n        to=User,",
+        "peekOfCode": "class Follow(models.Model):\n    from_user = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='subscribed_to',\n        verbose_name='Пользователь подписан'\n    )\n    to_user = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,",
         "detail": "backend.users.models",
         "documentation": {}
     },
     {
-        "label": "UserFavoriteRecipe",
+        "label": "Favorite",
         "kind": 6,
         "importPath": "backend.users.models",
         "description": "backend.users.models",
-        "peekOfCode": "class UserFavoriteRecipe(models.Model):\n    user = models.ForeignKey(\n        User,\n        on_delete=models.CASCADE,\n        related_name='favorite_recipes',\n    )\n    recipe = models.ForeignKey(\n        # Recipe,\n        'recipes.Recipe',\n        on_delete=models.CASCADE,",
+        "peekOfCode": "class Favorite(models.Model):\n    user = models.ForeignKey(\n        User,\n        on_delete=models.CASCADE,\n    )\n    recipe = models.ForeignKey(\n        'recipes.Recipe',\n        on_delete=models.CASCADE,\n    )\n    class Meta:",
         "detail": "backend.users.models",
         "documentation": {}
     },

@@ -4,13 +4,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-# # Теги для рецептов (завтрак, обед, ужин) - many to many
-# # Подписки на пользователей - many to many
-# # Добавление рецепта в избранное - many to many
-
-# # Рецепт по отношению к автору - foreign key
-
-
 # # фронт приложения:
 # # http://localhost/
 
@@ -24,21 +17,23 @@ class Recipe(models.Model):
         unique=True,
         verbose_name='Название рецепта',
     )
+    text = models.TextField(
+        verbose_name='Описание рецепта'
+    )
     author = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
         related_name='recipes',
         verbose_name='Автор рецепта'
     )
-    minutes = models.PositiveSmallIntegerField(
+    cooking_time = models.PositiveSmallIntegerField(
         verbose_name='Минут готовить'
     )
     image = models.ImageField(
-        upload_to='recipes/images/',
-        null=True,
-        default=None
+        upload_to='recipes/images/'
     )
     tags = models.ManyToManyField(
+        # Теги для рецептов (завтрак, обед, ужин)
         'recipes.Tag',
         through='recipes.RecipeTag',
         related_name='recipes',
@@ -47,6 +42,7 @@ class Recipe(models.Model):
     ingredients = models.ManyToManyField(
         'recipes.Ingredient',
         through='recipes.RecipeIngredient',
+        related_name='recipes',
         verbose_name='Ингредиенты'
     )
 
@@ -60,7 +56,7 @@ class Ingredient(models.Model):
         verbose_name='Название ингредиента',
     )
     
-    measure = models.CharField(
+    measurement_unit = models.CharField(
         max_length=50,
         db_index=True,
         verbose_name="Мера измерения",
@@ -78,18 +74,24 @@ class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(
         to=Recipe,
         on_delete=models.CASCADE,
-        related_name='ingredients',
         verbose_name='Рецепт'
     )
     ingredient = models.ForeignKey(
         to=Ingredient,
         on_delete=models.CASCADE,
-        related_name='recipes',
         verbose_name='Ингредиенты'
     )
     amount = models.PositiveSmallIntegerField(
         verbose_name='Количество'
     )
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['recipe', 'ingredient', ],
+                name='unique_key_recipe_ingredient'
+            ),
+        ]
+
 
 
 
@@ -122,12 +124,10 @@ class RecipeTag(models.Model):
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
-        related_name='recipes',
     )
     tag = models.ForeignKey(
         Tag,
         on_delete=models.CASCADE,
-        related_name='tags',
     )
 
     class Meta:
@@ -142,9 +142,6 @@ class RecipeTag(models.Model):
         return f'{self.user} {self.recipe}'
 
 
-# class Order(models.Model):
-#     owner = ...
-#     pass
 
 
 # """

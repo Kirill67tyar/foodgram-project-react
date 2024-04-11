@@ -2,6 +2,14 @@ from djoser.views import RegistrationView
 from djoser.constants import Messages
 from rest_framework import validators
 
+
+# # фронт приложения:
+# # http://localhost/
+
+# # спецификацию (доки) API:
+# # http://localhost/api/docs/redoc.html
+
+
 """
 Список используемых ссылок
 
@@ -12,11 +20,10 @@ https://stackoverflow.com/questions/66036497/djoser-override-registration
 https://stackoverflow.com/questions/66036497/djoser-override-registration
 https://stackoverflow.com/questions/71735934/djoser-override-perform-create-method-of-class-userviewset
 
+ -- users.models:
+https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/models.py
 
 
-
-
-django-debug-toolbar==3.5
 """
 
 
@@ -70,6 +77,82 @@ connection.queries
 pp(connection.queries)
 reset_queries()
 
+ =-=-= Tag =-=-=
+Tag.objects.create(name='Завтрак', color='#E26C2D', slug='breakfast')
+Tag.objects.create(name='Обед', color='#ba2020', slug='lunch')
+Tag.objects.create(name='Ужин', color='#2753ab', slug='dinner')
+
+=-=-= Ingredient =-=-=
+Ingredient.objects.create(name='Капуста', measurement_unit='кг')
+Ingredient.objects.create(name='Оливковое масло', measurement_unit='ст. л.')
+Ingredient.objects.create(name='Соль', measurement_unit='щепотка')
+
+=-=-= Recipe =-=-=
+r1 = Recipe.objects.create(name='r1', text='r1-text', author=k, cooking_time=50, image='asd')
+r1.tags.add(t1, t2)
+ri1 = RI(recipe=r1, ingredient=i1, amount=24)
+ri2 = RI(recipe=r1, ingredient=i2, amount=3)
+ri1.save()
+ri2.save()
+
+r2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )
+r2.tags.add(t3)
+ri3 = RI(recipe=r2, ingredient=i2, amount=70)
+ri3.save()
+
+
+	name = models.CharField(
+        max_length=150,
+        unique=True,
+        verbose_name='Название рецепта',
+    )
+    text = models.TextField(
+        verbose_name='Описание рецепта'
+    )
+    author = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        related_name='recipes',
+        verbose_name='Автор рецепта'
+    )
+    cooking_time = models.PositiveSmallIntegerField(
+        verbose_name='Минут готовить'
+    )
+    image = models.ImageField(
+        upload_to='recipes/images/'
+    )
+    tags = models.ManyToManyField(
+        # Теги для рецептов (завтрак, обед, ужин)
+        'recipes.Tag',
+        through='recipes.RecipeTag',
+        related_name='recipes',
+        verbose_name='Тэги'
+    )
+    ingredients = models.ManyToManyField(
+        'recipes.Ingredient',
+        through='recipes.RecipeIngredient',
+        related_name='recipes',
+        verbose_name='Ингредиенты'
+    )
+
+
+
+{
+  "ingredients": [
+    {
+      "id": 1123,
+      "amount": 10
+    }
+  ],
+  "tags": [
+    1,
+    2
+  ],
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==",
+  "name": "string",
+  "text": "string",
+  "cooking_time": 1
+}
 
 """
 

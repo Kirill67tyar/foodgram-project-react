@@ -1,28 +1,5 @@
-
-"""
-Подписки на пользователей - many to many
-Добавление рецепта в избранное - many to many
-
-
-Система регистрации и авторизации
-В проекте должна быть доступна система регистрации и авторизации пользователей. 
-Обязательные поля для пользователя:
-    логин,
-    пароль,
-    email,
-    имя,
-    фамилия.
-
-Уровни доступа пользователей:
-    гость (неавторизованный пользователь),
-    авторизованный пользователь,
-    администратор
-"""
-
 from django.db import models
 
-# from recipes.models import Recipe
-from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
 
@@ -41,7 +18,7 @@ class User(AbstractUser):
         max_length=150,
         verbose_name='Логин',
         unique=True,
-        help_text=f'Обязательное. Символов <= {150}',
+        help_text=f'Обязательное. Количество символов <= {150}',
         validators=[
             username_validator,
         ],
@@ -71,11 +48,10 @@ class User(AbstractUser):
         symmetrical=False,
         verbose_name='Подписан на'
     )
-    favorite = models.ManyToManyField(
+    favorites = models.ManyToManyField(
         to='recipes.Recipe',
-        through='users.UserFavoriteRecipe',
-        related_name='in_favorite',
-        # symmetrical=False,
+        through='users.Favorite',
+        related_name='in_favorites',
         verbose_name='Рецепты в избранном'
     )
 
@@ -90,7 +66,6 @@ class User(AbstractUser):
 
 
 class Follow(models.Model):
-    # https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/models.py
     from_user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
@@ -120,17 +95,14 @@ class Follow(models.Model):
         return f'Пользователь (id {self.user_id}) - Подписчик (id {self.following_id})'
 
 
-class UserFavoriteRecipe(models.Model):
+class Favorite(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='favorite_recipes',
     )
     recipe = models.ForeignKey(
-        # Recipe,
         'recipes.Recipe',
         on_delete=models.CASCADE,
-        related_name='users_to_favorite',
     )
 
     class Meta:

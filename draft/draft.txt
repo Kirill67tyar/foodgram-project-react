@@ -4,9 +4,9 @@ first_name: Кирилл
 last_name: Богомолов
 password: alskdjfhg
 {
-    "auth_token": "72a083fe16806c5374da522dc0493dab90319c14"
+    "auth_token": "c6b7931cb42e25bc2d08089a061729192038704c"
 }
-Authorization   Token 72a083fe16806c5374da522dc0493dab90319c14
+Authorization   Token c6b7931cb42e25bc2d08089a061729192038704c
 
 username: k3
 email: k3@ya.ru

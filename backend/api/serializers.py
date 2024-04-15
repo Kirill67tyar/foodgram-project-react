@@ -21,6 +21,7 @@ from rest_framework.serializers import (
     Serializer,
     ValidationError,
     IntegerField,
+    ListField,
 )
 
 from recipes.models import (
@@ -28,6 +29,7 @@ from recipes.models import (
     Tag,
     Recipe,
     RecipeIngredient,
+    RecipeTag,
 )
 
 
@@ -67,10 +69,8 @@ class UserSerializer(serializers.Serializer):
 class ThinTagModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = (
-            'id',
-        )
-        extra_kwargs = {'id': {'write_only': True}}
+        fields = ('id',)
+        # extra_kwargs = {'id': {'write_only': True}}
 
 
 class TagModelSerializer(serializers.ModelSerializer):
@@ -176,38 +176,39 @@ class Base64ImageField(serializers.ImageField):
         return super().to_internal_value(data)
 
 
+class ThinRecipeIngredientSerializer(Serializer):
+    id = serializers.IntegerField(
+        required=True,
+        min_value=1,
+        max_value=9223372036854775807,
+    )
+    amount = serializers.IntegerField(
+        required=True,
+        min_value=1,
+        max_value=32767,
+    )
+
+
 class RecipeWriteModelSerializer(serializers.ModelSerializer):
-    """
-    {
-        "ingredients": [
-            {
-            "id": 1123,
-            "amount": 10
-            }
-        ],
-        "tags": [
-            1,
-            2
-        ],
-        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==",
-        "name": "string",
-        "text": "string",
-        "cooking_time": 1
-        }
-    """
-    # image - https://github.com/Kirill67tyar/kittygram_backend/blob/main/cats/serializers.py#L32
-    # tags = serializers.SlugRelatedField(
-    #     queryset=Tag.objects.all(),
-    #     slug_field='id',
+
+    # tags = ThinTagModelSerializer(
+    #     required=True,
     #     many=True,
     # )
-    tags = ThinTagModelSerializer(
-        many=True,
+    tags = ListField(
+        # required=True,
+        # many=True,
     )
-    image = Base64ImageField(required=False, allow_null=False)
-    ingredients = IngredientModelSerializer(
-        # required=False,
+    ingredients = ThinRecipeIngredientSerializer(
+        required=True,
         many=True
+    )
+    # image - https://github.com/Kirill67tyar/kittygram_backend/blob/main/cats/serializers.py#L32
+    image = Base64ImageField(
+        required=True,
+        allow_null=True,
+        # required=False,
+        # allow_null=False
     )
 
     class Meta:
@@ -221,38 +222,36 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
             'cooking_time',
         )
 
-    """
-    {
-    "id": 0,
-    "tags": [
-      {
-        "id": 0,
-        "name": "Завтрак",
-        "color": "#E26C2D",
-        "slug": "breakfast"
-      }
-    ],
-    "author": {
-      "email": "user@example.com",
-      "id": 0,
-      "username": "string",
-      "first_name": "Вася",
-      "last_name": "Пупкин",
-      "is_subscribed": false
-    },
-    "ingredients": [
-      {
-        "id": 0,
-        "name": "Картофель отварной",
-        "measurement_unit": "г",
-        "amount": 1
-      }
-    ],
-    "is_favorited": true,
-    "is_in_shopping_cart": true,
-    "name": "string",
-    "image": "http://foodgram.example.org/media/recipes/images/image.jpeg",
-    "text": "string",
-    "cooking_time": 1
-  }
-    """
+    def create(self, validated_data):
+        tags_ids = validated_data.pop('tags')
+        ingredients_data = validated_data.pop('ingredients')
+        ingredients_ids = {
+            ingredient['id']: ingredient for ingredient in ingredients_data}
+        recipe = Recipe.objects.create(**validated_data)
+        #! под вопросом насчёт list
+        tags = list(Tag.objects.filter(id__in=tags_ids))
+        ingredients = list(Ingredient.objects.filter(
+            id__in=ingredients_ids.keys()))
+        RecipeTag.objects.bulk_create(
+            [
+                RecipeTag(
+                    recipe=recipe,
+                    tag=tag
+                )
+                for tag in tags
+            ]
+        )
+        RecipeIngredient.objects.bulk_create(
+            [
+                RecipeIngredient(
+                    recipe=recipe,
+                    ingredient=ingredient,
+                    amount=ingredients_ids[ingredient.pk]['amount']
+                )
+                for ingredient in ingredients
+            ]
+        )
+        return recipe
+
+    # def to_representation(self, recipe):
+    #     return RecipeReadModelSerializer(recipe).data

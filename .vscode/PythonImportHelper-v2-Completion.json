@@ -435,6 +435,14 @@
         "documentation": {}
     },
     {
+        "label": "ListField",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
         "label": "Ingredient",
         "importPath": "recipes.models",
         "description": "recipes.models",
@@ -460,6 +468,14 @@
     },
     {
         "label": "RecipeIngredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeTag",
         "importPath": "recipes.models",
         "description": "recipes.models",
         "isExtraImport": true,
@@ -824,7 +840,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "ri1 = RI(recipe=r1, ingredient=i1, amount=24)\nri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,",
+        "peekOfCode": "ri1 = RI(recipe=r1, ingredient=i1, amount=24)\nri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -833,7 +849,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "ri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,\n        unique=True,",
+        "peekOfCode": "ri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [\n    {",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -842,7 +858,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "r2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(",
+        "peekOfCode": "r2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [\n    {\n      \"id\": 3,\n      \"amount\": 10\n    },",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -851,16 +867,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "ri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n\tname = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(\n        verbose_name='Описание рецепта'\n    )",
-        "detail": "backend.api.draft",
-        "documentation": {}
-    },
-    {
-        "label": "\tname",
-        "kind": 5,
-        "importPath": "backend.api.draft",
-        "description": "backend.api.draft",
-        "peekOfCode": "\tname = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(\n        verbose_name='Описание рецепта'\n    )\n    author = models.ForeignKey(\n        to=User,",
+        "peekOfCode": "ri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [\n    {\n      \"id\": 3,\n      \"amount\": 10\n    },\n    {\n      \"id\": 1,",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -878,7 +885,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class ThinTagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag\n        fields = (\n            'id',\n        )\n        extra_kwargs = {'id': {'write_only': True}}\nclass TagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag",
+        "peekOfCode": "class ThinTagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag\n        fields = ('id',)\n        # extra_kwargs = {'id': {'write_only': True}}\nclass TagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag\n        fields = (\n            'id',",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -923,7 +930,16 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class Base64ImageField(serializers.ImageField):\n    def to_internal_value(self, data):\n        if isinstance(data, str) and data.startswith('data:image'):\n            format, imgstr = data.split(';base64,')\n            ext = format.split('/')[-1]\n            data = ContentFile(base64.b64decode(imgstr), name='temp.' + ext)\n        return super().to_internal_value(data)\nclass RecipeWriteModelSerializer(serializers.ModelSerializer):\n    \"\"\"\n    {",
+        "peekOfCode": "class Base64ImageField(serializers.ImageField):\n    def to_internal_value(self, data):\n        if isinstance(data, str) and data.startswith('data:image'):\n            format, imgstr = data.split(';base64,')\n            ext = format.split('/')[-1]\n            data = ContentFile(base64.b64decode(imgstr), name='temp.' + ext)\n        return super().to_internal_value(data)\nclass ThinRecipeIngredientSerializer(Serializer):\n    id = serializers.IntegerField(\n        required=True,",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ThinRecipeIngredientSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class ThinRecipeIngredientSerializer(Serializer):\n    id = serializers.IntegerField(\n        required=True,\n        min_value=1,\n        max_value=9223372036854775807,\n    )\n    amount = serializers.IntegerField(\n        required=True,\n        min_value=1,\n        max_value=32767,",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -932,7 +948,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class RecipeWriteModelSerializer(serializers.ModelSerializer):\n    \"\"\"\n    {\n        \"ingredients\": [\n            {\n            \"id\": 1123,\n            \"amount\": 10\n            }\n        ],\n        \"tags\": [",
+        "peekOfCode": "class RecipeWriteModelSerializer(serializers.ModelSerializer):\n    # tags = ThinTagModelSerializer(\n    #     required=True,\n    #     many=True,\n    # )\n    tags = ListField(\n        # required=True,\n        # many=True,\n    )\n    ingredients = ThinRecipeIngredientSerializer(",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1076,7 +1092,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'debug_toolbar.middleware.DebugToolbarMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
+        "peekOfCode": "MIDDLEWARE = [\n    'debug_toolbar.middleware.DebugToolbarMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1220,7 +1236,25 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "INTERNAL_IPS = ['127.0.0.1',]",
+        "peekOfCode": "INTERNAL_IPS = ['127.0.0.1',]\nCORS_ORIGIN_ALLOW_ALL = True\nCORS_URLS_REGEX = r'^/api/.*$'",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ORIGIN_ALLOW_ALL",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\nCORS_URLS_REGEX = r'^/api/.*$'",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_URLS_REGEX",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "CORS_URLS_REGEX = r'^/api/.*$'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },

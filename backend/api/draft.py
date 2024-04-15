@@ -104,39 +104,27 @@ ri3 = RI(recipe=r2, ingredient=i2, amount=70)
 ri3.save()
 
 
-	name = models.CharField(
-        max_length=150,
-        unique=True,
-        verbose_name='Название рецепта',
-    )
-    text = models.TextField(
-        verbose_name='Описание рецепта'
-    )
-    author = models.ForeignKey(
-        to=User,
-        on_delete=models.CASCADE,
-        related_name='recipes',
-        verbose_name='Автор рецепта'
-    )
-    cooking_time = models.PositiveSmallIntegerField(
-        verbose_name='Минут готовить'
-    )
-    image = models.ImageField(
-        upload_to='recipes/images/'
-    )
-    tags = models.ManyToManyField(
-        # Теги для рецептов (завтрак, обед, ужин)
-        'recipes.Tag',
-        through='recipes.RecipeTag',
-        related_name='recipes',
-        verbose_name='Тэги'
-    )
-    ingredients = models.ManyToManyField(
-        'recipes.Ingredient',
-        through='recipes.RecipeIngredient',
-        related_name='recipes',
-        verbose_name='Ингредиенты'
-    )
+
+{
+  "ingredients": [
+    {
+      "id": 3,
+      "amount": 10
+    },
+    {
+      "id": 1,
+      "amount": 15
+    }
+  ],
+  "tags": [
+    1,
+    2
+  ],
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==",
+  "name": "string1",
+  "text": "string1",
+  "cooking_time": 1
+}
 
 
 

@@ -68,9 +68,12 @@ class RecipeModelViewSet(ModelViewSet):
         'recipeingredient_set__ingredient',
         'author__following',
     )
+
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadModelSerializer
         return RecipeWriteModelSerializer
-    
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 

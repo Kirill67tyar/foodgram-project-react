@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'djoser',
     'django_extensions',
     'debug_toolbar',
+    'corsheaders',
     'recipes.apps.RecipesConfig',
     'users.apps.UsersConfig',
     'orders.apps.OrdersConfig',
@@ -31,6 +32,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -142,3 +144,7 @@ DJOSER = {
 
 }
 INTERNAL_IPS = ['127.0.0.1',]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r'^/api/.*$'
+

@@ -61,9 +61,32 @@ class UserSerializer(serializers.Serializer):
     is_subscribed = serializers.SerializerMethodField(read_only=True)
 
     def get_is_subscribed(self, obj):
+        a = 1
         user = self.context['request'].user
         return user in obj.following.all()
         # return user in obj.followers.all()
+
+
+class UserModelSerializer(serializers.ModelSerializer):
+
+    is_subscribed = serializers.SerializerMethodField(read_only=True)
+
+    def get_is_subscribed(self, obj):
+        a = 1
+        user = self.context['request'].user
+        return user in obj.following.all()
+        # return user in obj.followers.all()
+
+    class Meta:
+        model = User
+        fields = (
+            'email',
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'is_subscribed',
+        )
 
 
 class ThinTagModelSerializer(serializers.ModelSerializer):
@@ -123,7 +146,7 @@ class RecipeIngredientModelSerializer(serializers.ModelSerializer):
 
 
 class RecipeReadModelSerializer(serializers.ModelSerializer):
-    author = UserSerializer(
+    author = UserSerializer(  # UserModelSerializer
         # read_only=True,
         many=False,
     )
@@ -253,5 +276,7 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         )
         return recipe
 
-    # def to_representation(self, recipe):
-    #     return RecipeReadModelSerializer(recipe).data
+    def to_representation(self, value):
+        serializer = RecipeReadModelSerializer(value)
+        serializer.context['request'] = self.context['request']
+        return serializer.data

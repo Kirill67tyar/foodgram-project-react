@@ -112,6 +112,14 @@
         "documentation": {}
     },
     {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "pprint",
         "importPath": "pprint",
         "description": "pprint",
@@ -611,6 +619,14 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -881,6 +897,15 @@
         "documentation": {}
     },
     {
+        "label": "UserModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class UserModelSerializer(serializers.ModelSerializer):\n    is_subscribed = serializers.SerializerMethodField(read_only=True)\n    def get_is_subscribed(self, obj):\n        a = 1\n        user = self.context['request'].user\n        return user in obj.following.all()\n        # return user in obj.followers.all()\n    class Meta:\n        model = User\n        fields = (",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
         "label": "ThinTagModelSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers",
@@ -921,7 +946,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class RecipeReadModelSerializer(serializers.ModelSerializer):\n    author = UserSerializer(\n        # read_only=True,\n        many=False,\n    )\n    tags = TagModelSerializer(\n        read_only=True,\n        many=True,\n    )\n    # \"is_in_shopping_cart\": true,",
+        "peekOfCode": "class RecipeReadModelSerializer(serializers.ModelSerializer):\n    author = UserSerializer(  # UserModelSerializer\n        # read_only=True,\n        many=False,\n    )\n    tags = TagModelSerializer(\n        read_only=True,\n        many=True,\n    )\n    # \"is_in_shopping_cart\": true,",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1227,7 +1252,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'user': 'api.serializers.UserSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        # 'activation': ['rest_framework.permissions.AllowAny'],\n        # 'password_reset': ['rest_framework.permissions.AllowAny'],\n        # 'password_reset_confirm': ['rest_framework.permissions.AllowAny'],",
+        "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'user': 'api.serializers.UserSerializer',\n        # 'user': 'api.serializers.UserModelSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        # 'activation': ['rest_framework.permissions.AllowAny'],\n        # 'password_reset': ['rest_framework.permissions.AllowAny'],",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },

@@ -120,6 +120,7 @@ DJOSER = {
     'HIDE_USERS': False,
     'SERIALIZERS': {
         'user': 'api.serializers.UserSerializer',
+        # 'user': 'api.serializers.UserModelSerializer',
     },
     'PERMISSIONS': {
         'user_list': ['rest_framework.permissions.AllowAny'],

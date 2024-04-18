@@ -70,26 +70,17 @@ class RecipeModelViewSet(ModelViewSet):
         'recipeingredient_set__ingredient',
         'author__following',
     )
+    http_method_names = [
+        "get",
+        "post",
+        "patch",
+        "delete",
+    ]
 
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadModelSerializer
         return RecipeWriteModelSerializer
-
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        # headers = self.get_success_headers(serializer.data)
-        
-        # serializer = RecipeReadModelSerializer(serializer.instance)
-        # serializer.context['request'] = self.request
-        
-        return Response(
-            serializer.data,
-            status=status.HTTP_201_CREATED,
-            # headers=headers
-        )
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

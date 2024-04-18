@@ -1045,7 +1045,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(\n        'author',\n    ).prefetch_related(\n        'tags',\n        'ingredients',\n        'recipeingredient_set__ingredient',\n        'author__following',\n    )\n    def get_serializer_class(self):",
+        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(\n        'author',\n    ).prefetch_related(\n        'tags',\n        'ingredients',\n        'recipeingredient_set__ingredient',\n        'author__following',\n    )\n    http_method_names = [",
         "detail": "backend.api.views",
         "documentation": {}
     },

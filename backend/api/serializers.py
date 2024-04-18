@@ -230,8 +230,6 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
     image = Base64ImageField(
         required=True,
         allow_null=True,
-        # required=False,
-        # allow_null=False
     )
 
     class Meta:
@@ -255,15 +253,7 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         tags = list(Tag.objects.filter(id__in=tags_ids))
         ingredients = list(Ingredient.objects.filter(
             id__in=ingredients_ids.keys()))
-        RecipeTag.objects.bulk_create(
-            [
-                RecipeTag(
-                    recipe=recipe,
-                    tag=tag
-                )
-                for tag in tags
-            ]
-        )
+        recipe.tags.set(tags)
         RecipeIngredient.objects.bulk_create(
             [
                 RecipeIngredient(
@@ -275,6 +265,39 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
             ]
         )
         return recipe
+
+    def update(self, instance, validated_data):
+        instance.text = validated_data.get('text', instance.text)
+        instance.cooking_time = validated_data.get(
+            'cooking_time',
+            instance.cooking_time
+        )
+        instance.name = validated_data.get('name', instance.name)
+        instance.image = validated_data.get('image', instance.image)
+        tags_ids = validated_data.pop('tags')
+        ingredients_data = validated_data.pop('ingredients')
+        ingredients_ids = {
+            ingredient['id']: ingredient for ingredient in ingredients_data
+        }
+        tags_lst = list(Tag.objects.filter(id__in=tags_ids))
+        instance.tags.clear()
+        instance.tags.set(tags_lst)
+
+        ingredients_lst = list(Ingredient.objects.filter(
+            id__in=ingredients_ids.keys()))
+        instance.ingredients.clear()
+        RecipeIngredient.objects.bulk_create(
+            [
+                RecipeIngredient(
+                    recipe=instance,
+                    ingredient=ingredient,
+                    amount=ingredients_ids[ingredient.pk]['amount']
+                )
+                for ingredient in ingredients_lst
+            ]
+        )
+        instance.save()
+        return instance
 
     def to_representation(self, value):
         serializer = RecipeReadModelSerializer(value)

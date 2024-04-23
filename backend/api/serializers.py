@@ -35,6 +35,17 @@ from recipes.models import (
 
 User = get_user_model()
 
+class RecipeToFavoriteModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Recipe
+        fields = (
+            'id',
+            'name',
+            'image',
+            'cooking_time',
+        )
+
 
 # class UserSerializer(DjoserUserSerializer):
 class UserSerializer(serializers.Serializer):
@@ -86,6 +97,37 @@ class UserModelSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'is_subscribed',
+        )
+
+
+class UserSubscriptionsModelSerializer(serializers.ModelSerializer):
+
+    is_subscribed = serializers.SerializerMethodField(read_only=True)
+
+    def get_is_subscribed(self, obj):
+        a = 1
+        user = self.context['request'].user
+        return user in obj.following.all()
+        # return user in obj.followers.all()
+
+    recipes_count = serializers.SerializerMethodField(read_only=True)
+
+    def get_recipes_count(self, obj):
+        return obj.recipes.count()
+    
+    recipes = RecipeToFavoriteModelSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = User
+        fields = (
+            'email',
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'is_subscribed',
+            'recipes',
+            'recipes_count',
         )
 
 
@@ -303,3 +345,7 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         serializer = RecipeReadModelSerializer(value)
         serializer.context['request'] = self.context['request']
         return serializer.data
+
+
+
+

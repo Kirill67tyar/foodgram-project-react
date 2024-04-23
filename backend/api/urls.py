@@ -6,7 +6,6 @@ from api.views import (
     TagReadOnlyModelViewSet,
     IngredientReadOnlyModelViewSet,
     RecipeModelViewSet,
-    favorites_view,
 )
 
 
@@ -22,10 +21,4 @@ urlpatterns = [
     path('', include(router.urls)),
     # url(r'^', include(router.urls)),
     path('auth/', include('djoser.urls.authtoken')),
-    path(
-        # r'recipes/(?P<recipe_id>\d+)/favorite',
-        'recipes/<int:recipe_id>/favorite/',
-        favorites_view,
-        name='add-to-favorite',
-    )
 ]

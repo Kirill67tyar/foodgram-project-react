@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from djoser.conf import settings
 from djoser.views import UserViewSet as DjoserUserViewSet
 
+import rest_framework.serializers
 from rest_framework.viewsets import (
     ModelViewSet,
     ReadOnlyModelViewSet,
@@ -16,6 +17,7 @@ from api.serializers import (
     IngredientModelSerializer,
     RecipeReadModelSerializer,
     RecipeWriteModelSerializer,
+    RecipeToFavoriteModelSerializer,
 )
 from recipes.models import (
     Ingredient,
@@ -40,8 +42,9 @@ class UserViewSet(DjoserUserViewSet):
         if self.action == 'list':
             # queryset = queryset.prefetch_related('followers')
             queryset = queryset.prefetch_related('following')
-            # queryset = queryset.prefetch_related('follow_set__to_user')
-            # queryset = queryset.prefetch_related('follow_set__from_user')
+        elif self.action == 'subscriptions':
+            user = self.request.user
+            queryset = user.following.all()
         return queryset
 
     def get_serializer_class(self):
@@ -49,6 +52,16 @@ class UserViewSet(DjoserUserViewSet):
             return settings.SERIALIZERS.user
         return super().get_serializer_class()
 
+    @action(
+        detail=False,
+        methods=['get',],
+        url_path='subscriptions',
+        # permission_classes=[
+        #     IsAuthenticated,
+        # ],
+    )
+    def subscriptions(self, request):
+        return self.list(request)
 
 class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):
     queryset = Tag.objects.all()
@@ -81,39 +94,45 @@ class RecipeModelViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadModelSerializer
+        elif self.action == 'favorite':
+            return RecipeToFavoriteModelSerializer
         return RecipeWriteModelSerializer
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
-
-@api_view(http_method_names=['POST', 'DELETE',])
-def favorites_view(request, recipe_id):
-    """
-    ! Временный вариант, скорее всего переделаю
-    """
-    user = request.user
-    recipe = Recipe.objects.filter(pk=recipe_id).first()
-    if recipe:
-        if request.method == 'POST':
-            if not user.favorites.filter(favorite__recipe=recipe).exists():
-                user.favorites.add(recipe)
-                return Response(
-                    # data=data,
-                    status=status.HTTP_201_CREATED)
-        else:
-            favorite_recipe = user.favorites.filter(favorite__recipe=recipe)
-            if favorite_recipe:
-                favorite_recipe.delete()
-                return Response(
-                    # data=data,
-                    status=status.HTTP_204_NO_CONTENT)
-    return Response(
-        # data=data,
-        # status=status.HTTP_400_BAD_REQUEST,
-        status=status.HTTP_409_CONFLICT
+    @action(
+        detail=True,
+        methods=['post', 'delete'],
+        url_path='favorite',
+        # permission_classes=[
+        #     IsAuthenticated,
+        # ],
     )
-    # serializer = UserSerializer(data=request.data)
-    # serializer.is_valid(raise_exception=True)
-    # data = serializer.save()
-    # return Response(data=data, status=status.HTTP_200_OK)
+    def favorite(self, request, pk):
+        user = request.user
+        recipe = self.get_object()
+        if recipe:
+            recipe_in_favorite = user.favorites.filter(
+                favorite__recipe=recipe).exists()
+            if request.method == 'POST':
+                if not recipe_in_favorite:
+                    user.favorites.add(recipe)
+                    serializer = self.get_serializer(
+                        # instance=recipe
+                        recipe
+                    )
+                    return Response(
+                        data=serializer.data,
+                        status=status.HTTP_201_CREATED)
+            else:
+                if recipe_in_favorite:
+                    user.favorites.remove(recipe)
+                    return Response(
+                        # data=data,
+                        status=status.HTTP_204_NO_CONTENT)
+        return Response(
+            # data=data,
+            # status=status.HTTP_400_BAD_REQUEST,
+            status=status.HTTP_409_CONFLICT
+        )

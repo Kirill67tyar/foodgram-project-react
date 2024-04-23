@@ -395,6 +395,15 @@
         "documentation": {}
     },
     {
+        "label": "rest_framework.serializers",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
         "label": "CharField",
         "importPath": "rest_framework.serializers",
         "description": "rest_framework.serializers",
@@ -619,14 +628,6 @@
         "documentation": {}
     },
     {
-        "label": "favorites_view",
-        "importPath": "api.views",
-        "description": "api.views",
-        "isExtraImport": true,
-        "detail": "api.views",
-        "documentation": {}
-    },
-    {
         "label": "Response",
         "importPath": "rest_framework.response",
         "description": "rest_framework.response",
@@ -724,6 +725,14 @@
     },
     {
         "label": "RecipeWriteModelSerializer",
+        "importPath": "api.serializers",
+        "description": "api.serializers",
+        "isExtraImport": true,
+        "detail": "api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeToFavoriteModelSerializer",
         "importPath": "api.serializers",
         "description": "api.serializers",
         "isExtraImport": true,
@@ -912,6 +921,15 @@
         "documentation": {}
     },
     {
+        "label": "RecipeToFavoriteModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Recipe\n        fields = (\n            'id',\n            'name',\n            'image',\n            'cooking_time',\n        )\n# class UserSerializer(DjoserUserSerializer):",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
         "label": "UserSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers",
@@ -926,6 +944,15 @@
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
         "peekOfCode": "class UserModelSerializer(serializers.ModelSerializer):\n    is_subscribed = serializers.SerializerMethodField(read_only=True)\n    def get_is_subscribed(self, obj):\n        a = 1\n        user = self.context['request'].user\n        return user in obj.following.all()\n        # return user in obj.followers.all()\n    class Meta:\n        model = User\n        fields = (",
+        "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserSubscriptionsModelSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class UserSubscriptionsModelSerializer(serializers.ModelSerializer):\n    is_subscribed = serializers.SerializerMethodField(read_only=True)\n    def get_is_subscribed(self, obj):\n        a = 1\n        user = self.context['request'].user\n        return user in obj.following.all()\n        # return user in obj.followers.all()\n    recipes_count = serializers.SerializerMethodField(read_only=True)\n    def get_recipes_count(self, obj):\n        return obj.recipes.count()",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1006,7 +1033,7 @@
         "kind": 5,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "User = get_user_model()\n# class UserSerializer(DjoserUserSerializer):\nclass UserSerializer(serializers.Serializer):\n    email = EmailField(\n        max_length=150,\n        read_only=True\n    )\n    id = IntegerField(\n        read_only=True\n    )",
+        "peekOfCode": "User = get_user_model()\nclass RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Recipe\n        fields = (\n            'id',\n            'name',\n            'image',\n            'cooking_time',\n        )",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1033,7 +1060,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n    path(\n        # r'recipes/(?P<recipe_id>\\d+)/favorite',\n        'recipes/<int:recipe_id>/favorite/',\n        favorites_view,\n        name='add-to-favorite',\n    )",
+        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1042,7 +1069,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n            # queryset = queryset.prefetch_related('follow_set__to_user')\n            # queryset = queryset.prefetch_related('follow_set__from_user')\n        return queryset\n    def get_serializer_class(self):",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user\n            queryset = user.following.all()\n        return queryset",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1074,20 +1101,11 @@
         "documentation": {}
     },
     {
-        "label": "favorites_view",
-        "kind": 2,
-        "importPath": "backend.api.views",
-        "description": "backend.api.views",
-        "peekOfCode": "def favorites_view(request, recipe_id):\n    \"\"\"\n    ! Временный вариант, скорее всего переделаю\n    \"\"\"\n    user = request.user\n    recipe = Recipe.objects.filter(pk=recipe_id).first()\n    if recipe:\n        if request.method == 'POST':\n            if not user.favorites.filter(favorite__recipe=recipe).exists():\n                user.favorites.add(recipe)",
-        "detail": "backend.api.views",
-        "documentation": {}
-    },
-    {
         "label": "User",
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n            # queryset = queryset.prefetch_related('follow_set__to_user')\n            # queryset = queryset.prefetch_related('follow_set__from_user')\n        return queryset",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user\n            queryset = user.following.all()",
         "detail": "backend.api.views",
         "documentation": {}
     },

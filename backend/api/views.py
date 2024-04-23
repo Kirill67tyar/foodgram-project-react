@@ -1,5 +1,6 @@
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.decorators import action, api_view
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from djoser.conf import settings
@@ -84,3 +85,35 @@ class RecipeModelViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+
+@api_view(http_method_names=['POST', 'DELETE',])
+def favorites_view(request, recipe_id):
+    """
+    ! Временный вариант, скорее всего переделаю
+    """
+    user = request.user
+    recipe = Recipe.objects.filter(pk=recipe_id).first()
+    if recipe:
+        if request.method == 'POST':
+            if not user.favorites.filter(favorite__recipe=recipe).exists():
+                user.favorites.add(recipe)
+                return Response(
+                    # data=data,
+                    status=status.HTTP_201_CREATED)
+        else:
+            favorite_recipe = user.favorites.filter(favorite__recipe=recipe)
+            if favorite_recipe:
+                favorite_recipe.delete()
+                return Response(
+                    # data=data,
+                    status=status.HTTP_204_NO_CONTENT)
+    return Response(
+        # data=data,
+        # status=status.HTTP_400_BAD_REQUEST,
+        status=status.HTTP_409_CONFLICT
+    )
+    # serializer = UserSerializer(data=request.data)
+    # serializer.is_valid(raise_exception=True)
+    # data = serializer.save()
+    # return Response(data=data, status=status.HTTP_200_OK)

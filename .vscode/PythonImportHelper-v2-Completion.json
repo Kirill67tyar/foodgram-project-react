@@ -176,6 +176,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -294,6 +310,14 @@
         "description": "django.core.files.base",
         "isExtraImport": true,
         "detail": "django.core.files.base",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
         "documentation": {}
     },
     {
@@ -517,6 +541,22 @@
     },
     {
         "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Ingredient",
         "importPath": "recipes.models",
         "description": "recipes.models",
         "isExtraImport": true,
@@ -794,6 +834,14 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -1377,12 +1425,48 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.orders.migrations.0001_initial",
+        "description": "backend.orders.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('recipes', '0003_rename_measure_ingredient_measurement_unit'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Order',\n            fields=[",
+        "detail": "backend.orders.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
         "label": "OrdersConfig",
         "kind": 6,
         "importPath": "backend.orders.apps",
         "description": "backend.orders.apps",
         "peekOfCode": "class OrdersConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'orders'",
         "detail": "backend.orders.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "kind": 6,
+        "importPath": "backend.orders.models",
+        "description": "backend.orders.models",
+        "peekOfCode": "class Order(models.Model):\n    owner = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='orders',\n        verbose_name='Заказчик',\n    )\n    downloaded = models.BooleanField(\n        default=False,\n        verbose_name='Скачан',",
+        "detail": "backend.orders.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeOrder",
+        "kind": 6,
+        "importPath": "backend.orders.models",
+        "description": "backend.orders.models",
+        "peekOfCode": "class RecipeOrder(models.Model):\n    order = models.ForeignKey(\n        to=Order,\n        on_delete=models.CASCADE,\n        related_name='items',\n        verbose_name='Заказ'\n    )\n    recipe = models.ForeignKey(\n        to=Recipe,\n        on_delete=models.CASCADE,",
+        "detail": "backend.orders.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "backend.orders.models",
+        "description": "backend.orders.models",
+        "peekOfCode": "User = get_user_model()\nclass Order(models.Model):\n    owner = models.ForeignKey(\n        to=User,\n        on_delete=models.CASCADE,\n        related_name='orders',\n        verbose_name='Заказчик',\n    )\n    downloaded = models.BooleanField(\n        default=False,",
+        "detail": "backend.orders.models",
         "documentation": {}
     },
     {

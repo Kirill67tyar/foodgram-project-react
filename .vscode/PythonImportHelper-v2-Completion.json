@@ -628,6 +628,14 @@
         "documentation": {}
     },
     {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
         "label": "Response",
         "importPath": "rest_framework.response",
         "description": "rest_framework.response",
@@ -740,6 +748,30 @@
         "documentation": {}
     },
     {
+        "label": "UserSubscriptionsModelSerializer",
+        "importPath": "api.serializers",
+        "description": "api.serializers",
+        "isExtraImport": true,
+        "detail": "api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "Follow",
+        "importPath": "users.models",
+        "description": "users.models",
+        "isExtraImport": true,
+        "detail": "users.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "users.models",
+        "description": "users.models",
+        "isExtraImport": true,
+        "detail": "users.models",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -821,14 +853,6 @@
         "importPath": "django.utils.timezone",
         "description": "django.utils.timezone",
         "detail": "django.utils.timezone",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "users.models",
-        "description": "users.models",
-        "isExtraImport": true,
-        "detail": "users.models",
         "documentation": {}
     },
     {
@@ -1069,7 +1093,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user\n            queryset = user.following.all()\n        return queryset",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user\n            queryset = user.following.all()",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1105,7 +1129,7 @@
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user\n            queryset = user.following.all()",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user",
         "detail": "backend.api.views",
         "documentation": {}
     },

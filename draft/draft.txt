@@ -7,13 +7,22 @@ password: alskdjfhg
     "auth_token": "c6b7931cb42e25bc2d08089a061729192038704c"
 }
 Authorization   Token c6b7931cb42e25bc2d08089a061729192038704c
+подписан на:
+k3, k4, k5, k6, k7
+
 
 username: k3
 email: k3@ya.ru
 first_name: имя3 
 last_name: фамилия3
 password: alskdjfhg
+{
+    "auth_token": "c4e4ef8c9a4435c336ffa23376e19739fee2a286"
+}
+
 подписан на:
+kiril
+не актуально:
 k5, k9
     k4.following.add(k5, k9)
     k4.save()

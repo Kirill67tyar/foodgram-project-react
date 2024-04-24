@@ -10,6 +10,7 @@ from rest_framework import validators
 # # http://localhost/api/docs/redoc.html
 
 # http://localhost/api/users/subscriptions/
+# http://localhost/api/users/2/subscribe/
 
 """
 Список используемых ссылок

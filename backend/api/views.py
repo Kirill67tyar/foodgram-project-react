@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import action, api_view
@@ -18,12 +19,14 @@ from api.serializers import (
     RecipeReadModelSerializer,
     RecipeWriteModelSerializer,
     RecipeToFavoriteModelSerializer,
+    UserSubscriptionsModelSerializer,
 )
 from recipes.models import (
     Ingredient,
     Tag,
     Recipe,
 )
+from users.models import Follow
 
 
 """
@@ -37,6 +40,8 @@ User = get_user_model()
 
 
 class UserViewSet(DjoserUserViewSet):
+    permission_classes = (IsAuthenticated,)  # ! как временный вариант
+
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.action == 'list':
@@ -50,6 +55,8 @@ class UserViewSet(DjoserUserViewSet):
     def get_serializer_class(self):
         if self.action == 'list':
             return settings.SERIALIZERS.user
+        if self.action in ('subscriptions', 'subscribe',):
+            return UserSubscriptionsModelSerializer
         return super().get_serializer_class()
 
     @action(
@@ -62,6 +69,44 @@ class UserViewSet(DjoserUserViewSet):
     )
     def subscriptions(self, request):
         return self.list(request)
+
+    @action(
+        detail=True,
+        methods=['post', 'delete'],
+        url_path='subscribe',
+        # permission_classes=[
+        #     IsAuthenticated,
+        # ],
+    )
+    def subscribe(self, request, id):
+        """
+        ! написать проверку, чтобы пользователь не мог подписаться на самого себя
+        """
+        user = request.user
+        user_to_follow = self.get_object()
+        user_in_following = Follow.objects.filter(
+            from_user=user,
+            to_user=user_to_follow).exists()
+        if request.method == 'POST':
+            if not user_in_following:
+                user.following.add(user_to_follow)
+                serializer = self.get_serializer(
+                    user_to_follow
+                )
+                return Response(
+                    data=serializer.data,
+                    status=status.HTTP_201_CREATED)
+        else:
+            if user_in_following:
+                user.following.remove(user_to_follow)
+                return Response(
+                    status=status.HTTP_204_NO_CONTENT)
+        return Response(
+            # data=data,
+            # status=status.HTTP_400_BAD_REQUEST,
+            status=status.HTTP_409_CONFLICT
+        )
+
 
 class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):
     queryset = Tag.objects.all()

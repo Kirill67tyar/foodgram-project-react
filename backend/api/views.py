@@ -1,7 +1,11 @@
-from rest_framework.permissions import IsAuthenticated
+from django.template import loader
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import action, api_view
+from rest_framework.decorators import action, api_view, permission_classes
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from djoser.conf import settings
@@ -194,10 +198,10 @@ class RecipeModelViewSet(ModelViewSet):
         #     IsAuthenticated,
         # ],
     )
-    def shopping_cart(self, request, id):  # pk
+    def shopping_cart(self, request, pk):  # 
         user = request.user
         recipe = self.get_object()
-        order = user.orders.filter(downloaded=True).first()
+        order = user.orders.filter(downloaded=False).first()
         if not order:
             order = user.orders.create()
         recipe_in_order_for_current_user = RecipeOrder.objects.filter(
@@ -226,3 +230,34 @@ class RecipeModelViewSet(ModelViewSet):
             # status=status.HTTP_400_BAD_REQUEST,
             status=status.HTTP_409_CONFLICT
         )
+
+# @permission_classes([IsAuthenticated,])
+@permission_classes([AllowAny,])
+@api_view(http_method_names=['GET'])
+def download_cart_view(request):
+    # user = request.user
+    # order = user.orders.filter(downloaded=False).first()
+    # if not order:
+    #     # return HttpResponse(status=200)
+    #     return HttpResponse(status=status.HTTP_200_OK)
+    data = {}  # ingredient: count
+    content = loader.render_to_string(
+        template_name='orders/order_template.html',
+        context={
+            # 'order': order,
+        }
+    )
+    response = HttpResponse(content, content_type='text/plain')
+    # response['Content-Disposition'] = f'attachment;filename=Заказ-{order.pk}.txt'
+    response['Content-Disposition'] = f'attachment;filename=Заказ-1.txt'
+    # response.write(content=content)
+    # return response
+    return render(
+        request,
+        'orders/order_template.html',
+        {}
+    )
+
+
+
+

@@ -13,6 +13,8 @@ from rest_framework import validators
 # http://localhost/api/users/2/subscribe/
 # http://localhost/api/recipes/{id}/shopping_cart/
 # http://127.0.0.1:8000/api/recipes/1/shopping_cart/
+# http://127.0.0.1:8000/api/recipes/download_shopping_cart/
+# http://127.0.0.1:8000/api/recipes-temprorary/download_shopping_cart/
 
 
 """

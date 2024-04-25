@@ -6,6 +6,7 @@ from api.views import (
     TagReadOnlyModelViewSet,
     IngredientReadOnlyModelViewSet,
     RecipeModelViewSet,
+    download_cart_view,
 )
 
 
@@ -21,4 +22,6 @@ urlpatterns = [
     path('', include(router.urls)),
     # url(r'^', include(router.urls)),
     path('auth/', include('djoser.urls.authtoken')),
+    path('recipes-temprorary/download_shopping_cart/', download_cart_view, name='download'),
 ]
+

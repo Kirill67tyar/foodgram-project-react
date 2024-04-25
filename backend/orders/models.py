@@ -35,10 +35,7 @@ class RecipeOrder(models.Model):
         related_name='orders',
         verbose_name='Рецепт'
     )
-    # quantity = models.PositiveSmallIntegerField( # ! если рецепты могут дублироваться
-    #     default=1,
-    #     verbose_name='Количество'
-    # )
+
 
 """
 3 этапа:

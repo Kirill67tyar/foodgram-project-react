@@ -21,6 +21,10 @@ from api.serializers import (
     RecipeToFavoriteModelSerializer,
     UserSubscriptionsModelSerializer,
 )
+from orders.models import (
+    Order,
+    RecipeOrder,
+)
 from recipes.models import (
     Ingredient,
     Tag,
@@ -139,7 +143,7 @@ class RecipeModelViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadModelSerializer
-        elif self.action == 'favorite':
+        elif self.action in ('favorite', 'shopping_cart', ):
             return RecipeToFavoriteModelSerializer
         return RecipeWriteModelSerializer
 
@@ -176,6 +180,47 @@ class RecipeModelViewSet(ModelViewSet):
                     return Response(
                         # data=data,
                         status=status.HTTP_204_NO_CONTENT)
+        return Response(
+            # data=data,
+            # status=status.HTTP_400_BAD_REQUEST,
+            status=status.HTTP_409_CONFLICT
+        )
+
+    @action(
+        detail=True,
+        methods=['post', 'delete'],
+        url_path='shopping_cart',
+        # permission_classes=[
+        #     IsAuthenticated,
+        # ],
+    )
+    def shopping_cart(self, request, id):  # pk
+        user = request.user
+        recipe = self.get_object()
+        order = user.orders.filter(downloaded=True).first()
+        if not order:
+            order = user.orders.create()
+        recipe_in_order_for_current_user = RecipeOrder.objects.filter(
+            recipe=recipe,
+            order=order,
+        ).first()
+        if request.method == 'POST':
+            if not recipe_in_order_for_current_user:
+                RecipeOrder.objects.create(
+                    recipe=recipe,
+                    order=order,
+                )
+                serializer = self.get_serializer(recipe)
+                return Response(
+                    data=serializer.data,
+                    status=status.HTTP_201_CREATED,
+                )
+        else:
+            if recipe_in_order_for_current_user:
+                recipe_in_order_for_current_user.delete()
+                return Response(
+                    status=status.HTTP_204_NO_CONTENT,
+                )
         return Response(
             # data=data,
             # status=status.HTTP_400_BAD_REQUEST,

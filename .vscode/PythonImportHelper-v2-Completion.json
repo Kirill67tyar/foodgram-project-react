@@ -884,6 +884,14 @@
         "documentation": {}
     },
     {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -1249,7 +1257,7 @@
         "kind": 2,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "def download_cart_view(request):\n    # user = request.user\n    # order = user.orders.filter(downloaded=False).first()\n    # if not order:\n    #     # return HttpResponse(status=200)\n    #     return HttpResponse(status=status.HTTP_200_OK)\n    data = {}  # ingredient: count\n    content = loader.render_to_string(\n        template_name='orders/order_template.html',\n        context={",
+        "peekOfCode": "def download_cart_view(request):\n    user = request.user\n    order = user.orders.filter(downloaded=False).first()\n    if not order:\n        # return HttpResponse(status=200)\n        return HttpResponse(status=status.HTTP_200_OK)\n    order.items.all()\n    data = {}  # ingredient: count\n    content = 'тааа-шааа'\n    buffer = BytesIO()",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1259,6 +1267,24 @@
         "importPath": "backend.api.views",
         "description": "backend.api.views",
         "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user",
+        "detail": "backend.api.views",
+        "documentation": {}
+    },
+    {
+        "label": "rss",
+        "kind": 5,
+        "importPath": "backend.api.views",
+        "description": "backend.api.views",
+        "peekOfCode": "rss = order.items.prefetch_related('recipe__recipeingredient_set__ingredient')\nили даже так (3 sql запроса а не 4):\nrsss = order.items.select_related('recipe').prefetch_related('recipe__recipeingredient_set__ingredient')\nIn [41]: for r in rss:\n    ...:     for i in r.recipe.recipeingredient_set.all():\n    ...:         print(i.ingredient.name, i.amount)\n\"\"\"",
+        "detail": "backend.api.views",
+        "documentation": {}
+    },
+    {
+        "label": "rsss",
+        "kind": 5,
+        "importPath": "backend.api.views",
+        "description": "backend.api.views",
+        "peekOfCode": "rsss = order.items.select_related('recipe').prefetch_related('recipe__recipeingredient_set__ingredient')\nIn [41]: for r in rss:\n    ...:     for i in r.recipe.recipeingredient_set.all():\n    ...:         print(i.ingredient.name, i.amount)\n\"\"\"",
         "detail": "backend.api.views",
         "documentation": {}
     },

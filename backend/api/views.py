@@ -230,34 +230,40 @@ class RecipeModelViewSet(ModelViewSet):
             # status=status.HTTP_400_BAD_REQUEST,
             status=status.HTTP_409_CONFLICT
         )
+from io import BytesIO
 
-# @permission_classes([IsAuthenticated,])
-@permission_classes([AllowAny,])
+
+
+# http://127.0.0.1:8000/api/recipes-temprorary/download_shopping_cart/
+@permission_classes([IsAuthenticated,])
+# @permission_classes([AllowAny,])
 @api_view(http_method_names=['GET'])
 def download_cart_view(request):
-    # user = request.user
-    # order = user.orders.filter(downloaded=False).first()
-    # if not order:
-    #     # return HttpResponse(status=200)
-    #     return HttpResponse(status=status.HTTP_200_OK)
+    user = request.user
+    order = user.orders.filter(downloaded=False).first()
+    if not order:
+        # return HttpResponse(status=200)
+        return HttpResponse(status=status.HTTP_200_OK)
+    order.items.all()
     data = {}  # ingredient: count
-    content = loader.render_to_string(
-        template_name='orders/order_template.html',
-        context={
-            # 'order': order,
-        }
-    )
-    response = HttpResponse(content, content_type='text/plain')
-    # response['Content-Disposition'] = f'attachment;filename=Заказ-{order.pk}.txt'
-    response['Content-Disposition'] = f'attachment;filename=Заказ-1.txt'
-    # response.write(content=content)
-    # return response
-    return render(
-        request,
-        'orders/order_template.html',
-        {}
-    )
+    content = 'тааа-шааа'
+    buffer = BytesIO()
+    buffer.write(bytes(content, encoding='utf-8'))
+    buffer.seek(0)
+    a = 12345
+    response = HttpResponse(buffer, content_type='application/octet-stream')
+    response['Content-Disposition'] = f'attachment; filename="file-{a}.txt"'
+    
+    return response
+    
+"""
+rss = order.items.prefetch_related('recipe__recipeingredient_set__ingredient')
+или даже так (3 sql запроса а не 4):
+rsss = order.items.select_related('recipe').prefetch_related('recipe__recipeingredient_set__ingredient')
 
-
+In [41]: for r in rss:
+    ...:     for i in r.recipe.recipeingredient_set.all():
+    ...:         print(i.ingredient.name, i.amount)
+"""
 
 

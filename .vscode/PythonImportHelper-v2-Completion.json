@@ -676,6 +676,14 @@
         "documentation": {}
     },
     {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
         "label": "loader",
         "importPath": "django.template",
         "description": "django.template",
@@ -881,14 +889,6 @@
         "description": "users.models",
         "isExtraImport": true,
         "detail": "users.models",
-        "documentation": {}
-    },
-    {
-        "label": "BytesIO",
-        "importPath": "io",
-        "description": "io",
-        "isExtraImport": true,
-        "detail": "io",
         "documentation": {}
     },
     {
@@ -1257,7 +1257,7 @@
         "kind": 2,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "def download_cart_view(request):\n    user = request.user\n    order = user.orders.filter(downloaded=False).first()\n    if not order:\n        # return HttpResponse(status=200)\n        return HttpResponse(status=status.HTTP_200_OK)\n    order.items.all()\n    data = {}  # ingredient: count\n    content = 'тааа-шааа'\n    buffer = BytesIO()",
+        "peekOfCode": "def download_cart_view(request):\n    # user = request.user\n    # order = user.orders.filter(downloaded=False).first()\n    # if not order:\n    #     # return HttpResponse(status=200)\n    #     return HttpResponse(status=status.HTTP_200_OK)\n    # recipe_order_lst = order.items.select_related(\n    #     'recipe'\n    # ).prefetch_related(\n    #     'recipe__recipeingredient_set__ingredient'",
         "detail": "backend.api.views",
         "documentation": {}
     },

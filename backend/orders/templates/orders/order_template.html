@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-
-<body>
-    Заказ № 1
-{% comment %} {{ order.pk }} {% endcomment %}
-
-</body>
-</html>
+{{ order.pk }}
+{% for item in order.items.all %}
+{{ item.recipe.name }}
+{% endfor %}

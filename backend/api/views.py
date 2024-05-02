@@ -3,6 +3,8 @@ from django.template import loader
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 from rest_framework.response import Response
@@ -50,6 +52,8 @@ User = get_user_model()
 
 class UserViewSet(DjoserUserViewSet):
     permission_classes = (IsAuthenticated,)  # ! как временный вариант
+    pagination_class = LimitOffsetPagination
+    # pagination_class = PageNumberPagination
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -238,20 +242,21 @@ class RecipeModelViewSet(ModelViewSet):
 @permission_classes([AllowAny,])
 @api_view(http_method_names=['GET'])
 def download_cart_view(request):
-    # user = request.user
-    # order = user.orders.filter(downloaded=False).first()
-    # if not order:
-    #     # return HttpResponse(status=200)
-    #     return HttpResponse(status=status.HTTP_200_OK)
-    # recipe_order_lst = order.items.select_related(
-    #     'recipe'
-    # ).prefetch_related(
-    #     'recipe__recipeingredient_set__ingredient'
-    # )
-    # data = {}
-    # for r_o in recipe_order_lst:
-    #     for i in r_o.recipe.recipeingredient_set.all():
-    #         data[i.ingredient.name] = data.get(i.ingredient.name, 0) + i.amount
+    user = request.user
+    order = user.orders.filter(downloaded=False).first()
+    if not order:
+        # return HttpResponse(status=200)
+        return HttpResponse(status=status.HTTP_200_OK)
+    recipe_order_lst = order.items.select_related(
+        'recipe'
+    ).prefetch_related(
+        'recipe__recipeingredient_set__ingredient'
+    )
+    data = {}
+    for r_o in recipe_order_lst:
+        for i in r_o.recipe.recipeingredient_set.all():
+            key = (i.ingredient.name, i.ingredient.measurement_unit,)
+            data[key] = data.get(key, 0) + i.amount
     content = loader.render_to_string(
         template_name='orders/order_template.html',
         context={

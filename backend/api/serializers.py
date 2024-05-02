@@ -24,6 +24,7 @@ from rest_framework.serializers import (
     ListField,
 )
 
+from orders.models import RecipeOrder
 from recipes.models import (
     Ingredient,
     Tag,
@@ -34,6 +35,7 @@ from recipes.models import (
 
 
 User = get_user_model()
+
 
 class RecipeToFavoriteModelSerializer(serializers.ModelSerializer):
 
@@ -114,9 +116,9 @@ class UserSubscriptionsModelSerializer(serializers.ModelSerializer):
 
     def get_recipes_count(self, obj):
         return obj.recipes.count()
-    
+
     recipes = RecipeToFavoriteModelSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = User
         fields = (
@@ -215,6 +217,18 @@ class RecipeReadModelSerializer(serializers.ModelSerializer):
             return obj in user.favorites.all()
         return False
 
+    is_in_shopping_cart = serializers.SerializerMethodField(read_only=True)
+
+    def get_is_in_shopping_cart(self, obj):
+        user = self.context['request'].user
+        order = user.orders.filter(downloaded=False).first()
+        if order:
+            return RecipeOrder.objects.filter(
+                recipe=obj,
+                order=order,
+            ).exists()
+        return False
+
     class Meta:
         model = Recipe
         fields = (
@@ -223,6 +237,7 @@ class RecipeReadModelSerializer(serializers.ModelSerializer):
             'author',
             'ingredients',
             'is_favorited',
+            'is_in_shopping_cart',
             'name',
             'image',
             'text',
@@ -345,7 +360,3 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         serializer = RecipeReadModelSerializer(value)
         serializer.context['request'] = self.context['request']
         return serializer.data
-
-
-
-

@@ -484,6 +484,30 @@
         "documentation": {}
     },
     {
+        "label": "RecipeOrder",
+        "importPath": "orders.models",
+        "description": "orders.models",
+        "isExtraImport": true,
+        "detail": "orders.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "orders.models",
+        "description": "orders.models",
+        "isExtraImport": true,
+        "detail": "orders.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeOrder",
+        "importPath": "orders.models",
+        "description": "orders.models",
+        "isExtraImport": true,
+        "detail": "orders.models",
+        "documentation": {}
+    },
+    {
         "label": "Ingredient",
         "importPath": "recipes.models",
         "description": "recipes.models",
@@ -748,6 +772,22 @@
         "documentation": {}
     },
     {
+        "label": "LimitOffsetPagination",
+        "importPath": "rest_framework.pagination",
+        "description": "rest_framework.pagination",
+        "isExtraImport": true,
+        "detail": "rest_framework.pagination",
+        "documentation": {}
+    },
+    {
+        "label": "PageNumberPagination",
+        "importPath": "rest_framework.pagination",
+        "description": "rest_framework.pagination",
+        "isExtraImport": true,
+        "detail": "rest_framework.pagination",
+        "documentation": {}
+    },
+    {
         "label": "IsAuthenticated",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
@@ -857,22 +897,6 @@
         "description": "api.serializers",
         "isExtraImport": true,
         "detail": "api.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "Order",
-        "importPath": "orders.models",
-        "description": "orders.models",
-        "isExtraImport": true,
-        "detail": "orders.models",
-        "documentation": {}
-    },
-    {
-        "label": "RecipeOrder",
-        "importPath": "orders.models",
-        "description": "orders.models",
-        "isExtraImport": true,
-        "detail": "orders.models",
         "documentation": {}
     },
     {
@@ -1221,7 +1245,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user\n            queryset = user.following.all()",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1257,7 +1281,7 @@
         "kind": 2,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "def download_cart_view(request):\n    # user = request.user\n    # order = user.orders.filter(downloaded=False).first()\n    # if not order:\n    #     # return HttpResponse(status=200)\n    #     return HttpResponse(status=status.HTTP_200_OK)\n    # recipe_order_lst = order.items.select_related(\n    #     'recipe'\n    # ).prefetch_related(\n    #     'recipe__recipeingredient_set__ingredient'",
+        "peekOfCode": "def download_cart_view(request):\n    user = request.user\n    order = user.orders.filter(downloaded=False).first()\n    if not order:\n        # return HttpResponse(status=200)\n        return HttpResponse(status=status.HTTP_200_OK)\n    recipe_order_lst = order.items.select_related(\n        'recipe'\n    ).prefetch_related(\n        'recipe__recipeingredient_set__ingredient'",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1266,7 +1290,7 @@
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':\n            user = self.request.user",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')",
         "detail": "backend.api.views",
         "documentation": {}
     },

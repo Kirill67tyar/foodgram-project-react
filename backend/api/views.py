@@ -1,3 +1,5 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
 from io import BytesIO
 from django.template import loader
 from django.shortcuts import render
@@ -20,6 +22,10 @@ from rest_framework.viewsets import (
     ReadOnlyModelViewSet,
 )
 
+from api.filters import (
+    IngredientFilter,
+    RecipeFilter,
+)
 from api.serializers import (
     TagModelSerializer,
     IngredientModelSerializer,
@@ -51,9 +57,18 @@ User = get_user_model()
 
 
 class UserViewSet(DjoserUserViewSet):
-    permission_classes = (IsAuthenticated,)  # ! как временный вариант
+    # permission_classes = (IsAuthenticated,)  # ! как временный вариант
+    permission_classes = (AllowAny,)
     pagination_class = LimitOffsetPagination
     # pagination_class = PageNumberPagination
+
+    def get_permissions(self):
+        if self.action == 'me':
+            # self.permission_classes = [
+            #     IsAuthenticated,
+            # ],
+            self.permission_classes = (IsAuthenticated,)
+        return super().get_permissions()
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -131,9 +146,20 @@ class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientModelSerializer
     pagination_class = None
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = IngredientFilter
+    filterset_fields = ('name',)
 
 
 class RecipeModelViewSet(ModelViewSet):
+    pagination_class = LimitOffsetPagination
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = RecipeFilter
+    filterset_fields = (
+        'author',
+        'tags',
+    )
+
     queryset = Recipe.objects.select_related(
         'author',
     ).prefetch_related(

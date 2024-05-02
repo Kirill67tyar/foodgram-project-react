@@ -76,7 +76,9 @@ class UserSerializer(serializers.Serializer):
     def get_is_subscribed(self, obj):
         a = 1
         user = self.context['request'].user
-        return user in obj.following.all()
+        if user.is_authenticated:
+            return user in obj.following.all()
+        return False
         # return user in obj.followers.all()
 
 
@@ -221,12 +223,13 @@ class RecipeReadModelSerializer(serializers.ModelSerializer):
 
     def get_is_in_shopping_cart(self, obj):
         user = self.context['request'].user
-        order = user.orders.filter(downloaded=False).first()
-        if order:
-            return RecipeOrder.objects.filter(
-                recipe=obj,
-                order=order,
-            ).exists()
+        if user.is_authenticated:
+            order = user.orders.filter(downloaded=False).first()
+            if order:
+                return RecipeOrder.objects.filter(
+                    recipe=obj,
+                    order=order,
+                ).exists()
         return False
 
     class Meta:

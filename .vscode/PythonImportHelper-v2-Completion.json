@@ -272,6 +272,158 @@
         "documentation": {}
     },
     {
+        "label": "ModelMultipleChoiceFilter",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "CharFilter",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "FilterSet",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "NumberFilter",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "MultipleChoiceFilter",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoFilterBackend",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "Ingredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Ingredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeIngredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeTag",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Ingredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Ingredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
         "label": "base64",
         "kind": 6,
         "isExtraImport": true,
@@ -508,86 +660,6 @@
         "documentation": {}
     },
     {
-        "label": "Ingredient",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Tag",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Recipe",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "RecipeIngredient",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "RecipeTag",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Ingredient",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Tag",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Recipe",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Recipe",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Ingredient",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -697,6 +769,14 @@
         "description": "api.views",
         "isExtraImport": true,
         "detail": "api.views",
+        "documentation": {}
+    },
+    {
+        "label": "SearchFilter",
+        "importPath": "rest_framework.filters",
+        "description": "rest_framework.filters",
+        "isExtraImport": true,
+        "detail": "rest_framework.filters",
         "documentation": {}
     },
     {
@@ -849,6 +929,22 @@
         "description": "rest_framework.viewsets",
         "isExtraImport": true,
         "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "IngredientFilter",
+        "importPath": "api.filters",
+        "description": "api.filters",
+        "isExtraImport": true,
+        "detail": "api.filters",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeFilter",
+        "importPath": "api.filters",
+        "description": "api.filters",
+        "isExtraImport": true,
+        "detail": "api.filters",
         "documentation": {}
     },
     {
@@ -1097,6 +1193,33 @@
         "documentation": {}
     },
     {
+        "label": "IngredientFilter",
+        "kind": 6,
+        "importPath": "backend.api.filters",
+        "description": "backend.api.filters",
+        "peekOfCode": "class IngredientFilter(FilterSet):\n    name = CharFilter(field_name='name', lookup_expr='icontains')\n    class Meta:\n        model = Ingredient\n        fields = [\n            'name',\n        ]\nclass TagFilter(FilterSet):\n    tags = ModelMultipleChoiceFilter(\n        field_name='slug',",
+        "detail": "backend.api.filters",
+        "documentation": {}
+    },
+    {
+        "label": "TagFilter",
+        "kind": 6,
+        "importPath": "backend.api.filters",
+        "description": "backend.api.filters",
+        "peekOfCode": "class TagFilter(FilterSet):\n    tags = ModelMultipleChoiceFilter(\n        field_name='slug',\n        queryset=Tag.objects.all(),\n    )\n    class Meta:\n        model = Tag\n        fields = ['tags',]\nclass RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')",
+        "detail": "backend.api.filters",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeFilter",
+        "kind": 6,
+        "importPath": "backend.api.filters",
+        "description": "backend.api.filters",
+        "peekOfCode": "class RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')\n    # tags = CharFilter(field_name='tags__slug', lookup_expr='icontains')\n    tags = ModelMultipleChoiceFilter(\n        field_name='tags__slug',\n        # field_name='tags',\n        to_field_name='slug',\n        # field_name='slug',\n        # lookup_expr='slug__icontains',\n        queryset=Tag.objects.all(),",
+        "detail": "backend.api.filters",
+        "documentation": {}
+    },
+    {
         "label": "RecipeToFavoriteModelSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers",
@@ -1245,7 +1368,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')\n        elif self.action == 'subscriptions':",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_permissions(self):\n        if self.action == 'me':\n            # self.permission_classes = [\n            #     IsAuthenticated,\n            # ],",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1254,7 +1377,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Tag.objects.all()\n    serializer_class = TagModelSerializer\n    pagination_class = None\nclass IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(",
+        "peekOfCode": "class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Tag.objects.all()\n    serializer_class = TagModelSerializer\n    pagination_class = None\nclass IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\n    filter_backends = (DjangoFilterBackend,)\n    filterset_class = IngredientFilter",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1263,7 +1386,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\nclass RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(\n        'author',\n    ).prefetch_related(\n        'tags',\n        'ingredients',",
+        "peekOfCode": "class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\n    filter_backends = (DjangoFilterBackend,)\n    filterset_class = IngredientFilter\n    filterset_fields = ('name',)\nclass RecipeModelViewSet(ModelViewSet):\n    pagination_class = LimitOffsetPagination\n    filter_backends = (DjangoFilterBackend,)",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1272,7 +1395,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    queryset = Recipe.objects.select_related(\n        'author',\n    ).prefetch_related(\n        'tags',\n        'ingredients',\n        'recipeingredient_set__ingredient',\n        'author__following',\n    )\n    http_method_names = [",
+        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    pagination_class = LimitOffsetPagination\n    filter_backends = (DjangoFilterBackend,)\n    filterset_class = RecipeFilter\n    filterset_fields = (\n        'author',\n        'tags',\n    )\n    queryset = Recipe.objects.select_related(\n        'author',",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1290,7 +1413,7 @@
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':\n            # queryset = queryset.prefetch_related('followers')\n            queryset = queryset.prefetch_related('following')",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_permissions(self):\n        if self.action == 'me':\n            # self.permission_classes = [\n            #     IsAuthenticated,",
         "detail": "backend.api.views",
         "documentation": {}
     },

@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     'corsheaders',
+    'django_filters',
     'recipes.apps.RecipesConfig',
     'users.apps.UsersConfig',
     'orders.apps.OrdersConfig',

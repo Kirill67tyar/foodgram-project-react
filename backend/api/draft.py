@@ -98,18 +98,35 @@ Ingredient.objects.create(name='Оливковое масло', measurement_unit
 Ingredient.objects.create(name='Соль', measurement_unit='щепотка')
 
 =-=-= Recipe =-=-=
-r1 = Recipe.objects.create(name='r1', text='r1-text', author=k, cooking_time=50, image='asd')
+pk 116
+r1 = Recipe.objects.create(name='r1', text='r1-text', author=k2, cooking_time=50, image='asd')
 r1.tags.add(t1, t2)
-ri1 = RI(recipe=r1, ingredient=i1, amount=24)
-ri2 = RI(recipe=r1, ingredient=i2, amount=3)
+ri1 = RecipeIngredient(recipe=r1, ingredient=i1, amount=24)
+ri2 = RecipeIngredient(recipe=r1, ingredient=i2, amount=3)
 ri1.save()
 ri2.save()
 
-r2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )
+r2 = Recipe.objects.create(name='r2', text='r2-text', author=k2, cooking_time=30, image='asd', )
 r2.tags.add(t3)
-ri3 = RI(recipe=r2, ingredient=i2, amount=70)
+ri3 = RecipeIngredient(recipe=r2, ingredient=i2, amount=70)
 ri3.save()
 
+r3 = Recipe.objects.create(name='r3', text='r3-text', author=k2, cooking_time=30, image='asd', )
+r3.tags.add(t3)
+ri4 = RecipeIngredient(recipe=r3, ingredient=i2, amount=70)
+ri4.save()
+
+k1@ya.ru pk 67 6cd85e145896d327652e2c076e8ca8ef3057bedb
+k2@ya.ru pk 68 0cc715c107c643c77cd54d5e41ae940484909051
+
+? =-=-= показать все рецепты, которые добавлены в корзину для конкретного пользователя =-=-=
+? order = user.orders.filter(downloaded=False).first()
+? Recipe.objects.filter(orders__order=order)
+
+
+
+! user.orders.filter(items__recipe=recipe, downloaded=False)
+! r1.orders.filter(order__owner=k1, order__downloaded=False)
 
 
 {

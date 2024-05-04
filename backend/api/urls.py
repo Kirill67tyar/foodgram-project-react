@@ -19,9 +19,9 @@ router.register('ingredients', IngredientReadOnlyModelViewSet,
                 basename='ingredients')
 router.register('recipes', RecipeModelViewSet, basename='recipes')
 urlpatterns = [
+    # path('recipes/download_shopping_cart/', download_cart_view, name='download'),
     path('', include(router.urls)),
     # url(r'^', include(router.urls)),
     path('auth/', include('djoser.urls.authtoken')),
-    path('recipes-temprorary/download_shopping_cart/', download_cart_view, name='download'),
 ]
 

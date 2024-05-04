@@ -424,6 +424,54 @@
         "documentation": {}
     },
     {
+        "label": "SAFE_METHODS",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "BasePermission",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticatedOrReadOnly",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
         "label": "base64",
         "kind": 6,
         "isExtraImport": true,
@@ -636,6 +684,14 @@
         "documentation": {}
     },
     {
+        "label": "ValidationError",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
         "label": "RecipeOrder",
         "importPath": "orders.models",
         "description": "orders.models",
@@ -772,19 +828,19 @@
         "documentation": {}
     },
     {
-        "label": "SearchFilter",
-        "importPath": "rest_framework.filters",
-        "description": "rest_framework.filters",
-        "isExtraImport": true,
-        "detail": "rest_framework.filters",
-        "documentation": {}
-    },
-    {
         "label": "BytesIO",
         "importPath": "io",
         "description": "io",
         "isExtraImport": true,
         "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "SearchFilter",
+        "importPath": "rest_framework.filters",
+        "description": "rest_framework.filters",
+        "isExtraImport": true,
+        "detail": "rest_framework.filters",
         "documentation": {}
     },
     {
@@ -868,22 +924,6 @@
         "documentation": {}
     },
     {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "AllowAny",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
         "label": "Response",
         "importPath": "rest_framework.response",
         "description": "rest_framework.response",
@@ -929,6 +969,14 @@
         "description": "rest_framework.viewsets",
         "isExtraImport": true,
         "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticatedAndAuthorOrReadOnly",
+        "importPath": "api.permissions",
+        "description": "api.permissions",
+        "isExtraImport": true,
+        "detail": "api.permissions",
         "documentation": {}
     },
     {
@@ -1152,7 +1200,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "r1 = Recipe.objects.create(name='r1', text='r1-text', author=k, cooking_time=50, image='asd')\nr1.tags.add(t1, t2)\nri1 = RI(recipe=r1, ingredient=i1, amount=24)\nri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()",
+        "peekOfCode": "r1 = Recipe.objects.create(name='r1', text='r1-text', author=k2, cooking_time=50, image='asd')\nr1.tags.add(t1, t2)\nri1 = RecipeIngredient(recipe=r1, ingredient=i1, amount=24)\nri2 = RecipeIngredient(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k2, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RecipeIngredient(recipe=r2, ingredient=i2, amount=70)\nri3.save()",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -1161,7 +1209,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "ri1 = RI(recipe=r1, ingredient=i1, amount=24)\nri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [",
+        "peekOfCode": "ri1 = RecipeIngredient(recipe=r1, ingredient=i1, amount=24)\nri2 = RecipeIngredient(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k2, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RecipeIngredient(recipe=r2, ingredient=i2, amount=70)\nri3.save()\nr3 = Recipe.objects.create(name='r3', text='r3-text', author=k2, cooking_time=30, image='asd', )\nr3.tags.add(t3)",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -1170,7 +1218,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "ri2 = RI(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [\n    {",
+        "peekOfCode": "ri2 = RecipeIngredient(recipe=r1, ingredient=i2, amount=3)\nri1.save()\nri2.save()\nr2 = Recipe.objects.create(name='r2', text='r2-text', author=k2, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RecipeIngredient(recipe=r2, ingredient=i2, amount=70)\nri3.save()\nr3 = Recipe.objects.create(name='r3', text='r3-text', author=k2, cooking_time=30, image='asd', )\nr3.tags.add(t3)\nri4 = RecipeIngredient(recipe=r3, ingredient=i2, amount=70)",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -1179,7 +1227,7 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "r2 = Recipe.objects.create(name='r2', text='r2-text', author=k, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [\n    {\n      \"id\": 3,\n      \"amount\": 10\n    },",
+        "peekOfCode": "r2 = Recipe.objects.create(name='r2', text='r2-text', author=k2, cooking_time=30, image='asd', )\nr2.tags.add(t3)\nri3 = RecipeIngredient(recipe=r2, ingredient=i2, amount=70)\nri3.save()\nr3 = Recipe.objects.create(name='r3', text='r3-text', author=k2, cooking_time=30, image='asd', )\nr3.tags.add(t3)\nri4 = RecipeIngredient(recipe=r3, ingredient=i2, amount=70)\nri4.save()\nk1@ya.ru pk 67 6cd85e145896d327652e2c076e8ca8ef3057bedb\nk2@ya.ru pk 68 0cc715c107c643c77cd54d5e41ae940484909051",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -1188,7 +1236,25 @@
         "kind": 5,
         "importPath": "backend.api.draft",
         "description": "backend.api.draft",
-        "peekOfCode": "ri3 = RI(recipe=r2, ingredient=i2, amount=70)\nri3.save()\n{\n  \"ingredients\": [\n    {\n      \"id\": 3,\n      \"amount\": 10\n    },\n    {\n      \"id\": 1,",
+        "peekOfCode": "ri3 = RecipeIngredient(recipe=r2, ingredient=i2, amount=70)\nri3.save()\nr3 = Recipe.objects.create(name='r3', text='r3-text', author=k2, cooking_time=30, image='asd', )\nr3.tags.add(t3)\nri4 = RecipeIngredient(recipe=r3, ingredient=i2, amount=70)\nri4.save()\nk1@ya.ru pk 67 6cd85e145896d327652e2c076e8ca8ef3057bedb\nk2@ya.ru pk 68 0cc715c107c643c77cd54d5e41ae940484909051\n? =-=-= показать все рецепты, которые добавлены в корзину для конкретного пользователя =-=-=\n? order = user.orders.filter(downloaded=False).first()",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "r3",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "r3 = Recipe.objects.create(name='r3', text='r3-text', author=k2, cooking_time=30, image='asd', )\nr3.tags.add(t3)\nri4 = RecipeIngredient(recipe=r3, ingredient=i2, amount=70)\nri4.save()\nk1@ya.ru pk 67 6cd85e145896d327652e2c076e8ca8ef3057bedb\nk2@ya.ru pk 68 0cc715c107c643c77cd54d5e41ae940484909051\n? =-=-= показать все рецепты, которые добавлены в корзину для конкретного пользователя =-=-=\n? order = user.orders.filter(downloaded=False).first()\n? Recipe.objects.filter(orders__order=order)\n! user.orders.filter(items__recipe=recipe, downloaded=False)",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "ri4",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "ri4 = RecipeIngredient(recipe=r3, ingredient=i2, amount=70)\nri4.save()\nk1@ya.ru pk 67 6cd85e145896d327652e2c076e8ca8ef3057bedb\nk2@ya.ru pk 68 0cc715c107c643c77cd54d5e41ae940484909051\n? =-=-= показать все рецепты, которые добавлены в корзину для конкретного пользователя =-=-=\n? order = user.orders.filter(downloaded=False).first()\n? Recipe.objects.filter(orders__order=order)\n! user.orders.filter(items__recipe=recipe, downloaded=False)\n! r1.orders.filter(order__owner=k1, order__downloaded=False)\n{",
         "detail": "backend.api.draft",
         "documentation": {}
     },
@@ -1197,16 +1263,7 @@
         "kind": 6,
         "importPath": "backend.api.filters",
         "description": "backend.api.filters",
-        "peekOfCode": "class IngredientFilter(FilterSet):\n    name = CharFilter(field_name='name', lookup_expr='icontains')\n    class Meta:\n        model = Ingredient\n        fields = [\n            'name',\n        ]\nclass TagFilter(FilterSet):\n    tags = ModelMultipleChoiceFilter(\n        field_name='slug',",
-        "detail": "backend.api.filters",
-        "documentation": {}
-    },
-    {
-        "label": "TagFilter",
-        "kind": 6,
-        "importPath": "backend.api.filters",
-        "description": "backend.api.filters",
-        "peekOfCode": "class TagFilter(FilterSet):\n    tags = ModelMultipleChoiceFilter(\n        field_name='slug',\n        queryset=Tag.objects.all(),\n    )\n    class Meta:\n        model = Tag\n        fields = ['tags',]\nclass RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')",
+        "peekOfCode": "class IngredientFilter(FilterSet):\n    name = CharFilter(field_name='name', lookup_expr='icontains')\n    class Meta:\n        model = Ingredient\n        fields = [\n            'name',\n        ]\nclass RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')\n    tags = ModelMultipleChoiceFilter(",
         "detail": "backend.api.filters",
         "documentation": {}
     },
@@ -1215,8 +1272,35 @@
         "kind": 6,
         "importPath": "backend.api.filters",
         "description": "backend.api.filters",
-        "peekOfCode": "class RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')\n    # tags = CharFilter(field_name='tags__slug', lookup_expr='icontains')\n    tags = ModelMultipleChoiceFilter(\n        field_name='tags__slug',\n        # field_name='tags',\n        to_field_name='slug',\n        # field_name='slug',\n        # lookup_expr='slug__icontains',\n        queryset=Tag.objects.all(),",
+        "peekOfCode": "class RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')\n    tags = ModelMultipleChoiceFilter(\n        field_name='tags__slug',\n        to_field_name='slug',\n        queryset=Tag.objects.all(),\n    )\n    # is_in_shopping_cart = ...\n    class Meta:\n        model = Recipe",
         "detail": "backend.api.filters",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticatedAndAuthorOrReadOnly",
+        "kind": 6,
+        "importPath": "backend.api.permissions",
+        "description": "backend.api.permissions",
+        "peekOfCode": "class IsAuthenticatedAndAuthorOrReadOnly(IsAuthenticatedOrReadOnly):\n    def has_object_permission(self, request, view, obj):\n        return bool(\n            request.method in SAFE_METHODS\n            or obj.author == request.user\n            or request.user.is_superuser\n        )\nclass IsAuthenticatedAndAuthor(BasePermission):\n    def has_permission(self, request, view):\n        return bool(request.user and request.user.is_authenticated)",
+        "detail": "backend.api.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticatedAndAuthor",
+        "kind": 6,
+        "importPath": "backend.api.permissions",
+        "description": "backend.api.permissions",
+        "peekOfCode": "class IsAuthenticatedAndAuthor(BasePermission):\n    def has_permission(self, request, view):\n        return bool(request.user and request.user.is_authenticated)",
+        "detail": "backend.api.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "LimitedRecipeSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers",
+        "description": "backend.api.serializers",
+        "peekOfCode": "class LimitedRecipeSerializer(serializers.ListSerializer):\n    def to_representation(self, data):\n        a = 1\n        recipes_limit = self.context['request'].query_params.get('recipes_limit')\n        if recipes_limit:\n            data = data.all()[:int(recipes_limit)]\n        return super().to_representation(data)\n# # !------------------------------------------\nclass RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "detail": "backend.api.serializers",
         "documentation": {}
     },
     {
@@ -1224,7 +1308,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Recipe\n        fields = (\n            'id',\n            'name',\n            'image',\n            'cooking_time',\n        )\n# class UserSerializer(DjoserUserSerializer):",
+        "peekOfCode": "class RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Recipe\n        fields = (\n            'id',\n            'name',\n            'image',\n            'cooking_time',\n        )\n        list_serializer_class = LimitedRecipeSerializer",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1332,7 +1416,7 @@
         "kind": 5,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "User = get_user_model()\nclass RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Recipe\n        fields = (\n            'id',\n            'name',\n            'image',\n            'cooking_time',\n        )",
+        "peekOfCode": "User = get_user_model()\n# # !------------------------------------------\nclass LimitedRecipeSerializer(serializers.ListSerializer):\n    def to_representation(self, data):\n        a = 1\n        recipes_limit = self.context['request'].query_params.get('recipes_limit')\n        if recipes_limit:\n            data = data.all()[:int(recipes_limit)]\n        return super().to_representation(data)\n# # !------------------------------------------",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1341,7 +1425,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "app_name = 'api'\nrouter = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),",
+        "peekOfCode": "app_name = 'api'\nrouter = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    # path('recipes/download_shopping_cart/', download_cart_view, name='download'),\n    path('', include(router.urls)),",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1350,7 +1434,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    # path('recipes/download_shopping_cart/', download_cart_view, name='download'),\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1359,7 +1443,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n    path('recipes-temprorary/download_shopping_cart/', download_cart_view, name='download'),\n]",
+        "peekOfCode": "urlpatterns = [\n    # path('recipes/download_shopping_cart/', download_cart_view, name='download'),\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1368,7 +1452,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_permissions(self):\n        if self.action == 'me':\n            # self.permission_classes = [\n            #     IsAuthenticated,\n            # ],",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    # def get_object(self):\n    #     if self.action == 'subscribe':\n    #         queryset = self.filter_queryset(self.get_queryset())\n    #         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field\n    #         assert lookup_url_kwarg in self.kwargs, (",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1386,7 +1470,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\n    filter_backends = (DjangoFilterBackend,)\n    filterset_class = IngredientFilter\n    filterset_fields = ('name',)\nclass RecipeModelViewSet(ModelViewSet):\n    pagination_class = LimitOffsetPagination\n    filter_backends = (DjangoFilterBackend,)",
+        "peekOfCode": "class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):\n    queryset = Ingredient.objects.all()\n    serializer_class = IngredientModelSerializer\n    pagination_class = None\n    filter_backends = (DjangoFilterBackend,)\n    filterset_class = IngredientFilter\n    filterset_fields = ('name',)\nclass RecipeModelViewSet(ModelViewSet):\n    permission_classes = (IsAuthenticatedAndAuthorOrReadOnly,)\n    pagination_class = LimitOffsetPagination",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1395,7 +1479,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    pagination_class = LimitOffsetPagination\n    filter_backends = (DjangoFilterBackend,)\n    filterset_class = RecipeFilter\n    filterset_fields = (\n        'author',\n        'tags',\n    )\n    queryset = Recipe.objects.select_related(\n        'author',",
+        "peekOfCode": "class RecipeModelViewSet(ModelViewSet):\n    permission_classes = (IsAuthenticatedAndAuthorOrReadOnly,)\n    pagination_class = LimitOffsetPagination\n    filter_backends = (DjangoFilterBackend,)\n    filterset_class = RecipeFilter\n    filterset_fields = (\n        'author',\n        'tags',\n    )\n    queryset = Recipe.objects.select_related(",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1404,7 +1488,7 @@
         "kind": 2,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "def download_cart_view(request):\n    user = request.user\n    order = user.orders.filter(downloaded=False).first()\n    if not order:\n        # return HttpResponse(status=200)\n        return HttpResponse(status=status.HTTP_200_OK)\n    recipe_order_lst = order.items.select_related(\n        'recipe'\n    ).prefetch_related(\n        'recipe__recipeingredient_set__ingredient'",
+        "peekOfCode": "def download_cart_view(request):\n    user = request.user\n    order = user.orders.filter(downloaded=False).first()\n    if not order:\n        # return HttpResponse(status=200)\n        return HttpResponse(status=200)\n    order.downloaded = True\n    recipe_order_lst = order.items.select_related(\n        'recipe'\n    ).prefetch_related(",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1413,7 +1497,7 @@
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    def get_permissions(self):\n        if self.action == 'me':\n            # self.permission_classes = [\n            #     IsAuthenticated,",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    # def get_object(self):\n    #     if self.action == 'subscribe':\n    #         queryset = self.filter_queryset(self.get_queryset())\n    #         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1629,7 +1713,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'user': 'api.serializers.UserSerializer',\n        # 'user': 'api.serializers.UserModelSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        # 'activation': ['rest_framework.permissions.AllowAny'],\n        # 'password_reset': ['rest_framework.permissions.AllowAny'],",
+        "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'user': 'api.serializers.UserSerializer',\n        'current_user': 'api.serializers.UserSerializer',\n        # 'user': 'api.serializers.UserModelSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        # 'activation': ['rest_framework.permissions.AllowAny'],",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },

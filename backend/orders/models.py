@@ -38,6 +38,12 @@ class RecipeOrder(models.Model):
 
 
 """
+
+
+recipe__orders__owner=user
+AND
+recipe__orders__downloaded=True
+
 3 этапа:
 
 * 1 - написать эндпоинты для добавления/удаления рецептов в заказе, и чтобы заказ нормально создавался

@@ -36,6 +36,16 @@ from recipes.models import (
 
 User = get_user_model()
 
+# # !------------------------------------------
+class LimitedRecipeSerializer(serializers.ListSerializer):
+    def to_representation(self, data):
+        a = 1
+        recipes_limit = self.context['request'].query_params.get('recipes_limit')
+        if recipes_limit:
+            data = data.all()[:int(recipes_limit)]
+        return super().to_representation(data)
+
+# # !------------------------------------------
 
 class RecipeToFavoriteModelSerializer(serializers.ModelSerializer):
 
@@ -47,6 +57,13 @@ class RecipeToFavoriteModelSerializer(serializers.ModelSerializer):
             'image',
             'cooking_time',
         )
+        list_serializer_class = LimitedRecipeSerializer
+
+    # def to_representation(self, data):
+    #     a = 1
+    # #     recipes_limit = self.context['request'].query_params.get('recipes_limit')
+    # #     data = data[:recipes_limit]
+    #     return super().to_representation(data)
 
 
 # class UserSerializer(DjoserUserSerializer):
@@ -302,6 +319,72 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
             'text',
             'cooking_time',
         )
+    def validate_cooking_time(self, value):
+        if value < 1:
+            raise ValidationError(
+                'error_msg'
+            )
+        return value
+
+    def validate(self, data):
+        ingredients_data = data.get('ingredients')
+        if not ingredients_data:
+            raise ValidationError(
+                'error_msg'
+            )
+        ingredients_ids = [ingredient['id'] for ingredient in ingredients_data]
+        ingredients_ids_exists = list(
+            Ingredient.objects.filter(
+                id__in=ingredients_ids).values_list('id', flat=True)
+        )
+        ingredients_ids.sort()
+        ingredients_ids_exists.sort()
+        if ingredients_ids != ingredients_ids_exists:
+            raise ValidationError(
+                'error_msg'
+            )
+        tags_ids = data.get('tags')
+        if not tags_ids or tags_ids > list(set(tags_ids)):
+            raise ValidationError(
+                'error_msg'
+            )
+        tag_ids_exists = list(
+            Tag.objects.filter(
+                id__in=tags_ids).values_list('id', flat=True)
+        )
+        if tags_ids != tag_ids_exists:
+            raise ValidationError(
+                'error_msg'
+            )
+        # tags = Tag.objects.filter(id__in=tags_ids).values_list('id', flat=True)
+        # tags.sort()
+        # tags.sort()
+        error_msg = {}
+
+        # ingredients_data = filter(bool, data.get('ingredients'))
+        # if not ingredients_data:
+        #     error_msg['ingredients'] = 'Обязательное поле.'
+
+        # if error_msg:
+        #     raise ValidationError(
+        #         error_msg
+        #     )
+        return data
+    """
+    def validate(self, data):
+        username = data["username"]
+        email = data["email"]
+        user_on_email = User.objects.filter(email=email).first()
+        user_on_username = User.objects.filter(username=username).first()
+        if user_on_email != user_on_username:
+            error_msg = {}
+            if user_on_username:
+                error_msg['username'] = settings.IS_USER_WITH_THIS_USERNAME
+            if user_on_email:
+                error_msg['email'] = settings.IS_USER_WITH_THIS_EMAIL
+            raise ValidationError(error_msg)
+        return data
+    """
 
     def create(self, validated_data):
         tags_ids = validated_data.pop('tags')

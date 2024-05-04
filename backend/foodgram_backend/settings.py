@@ -124,6 +124,7 @@ DJOSER = {
     'HIDE_USERS': False,
     'SERIALIZERS': {
         'user': 'api.serializers.UserSerializer',
+        'current_user': 'api.serializers.UserSerializer',
         # 'user': 'api.serializers.UserModelSerializer',
     },
     'PERMISSIONS': {
@@ -152,4 +153,3 @@ INTERNAL_IPS = ['127.0.0.1',]
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/api/.*$'
-

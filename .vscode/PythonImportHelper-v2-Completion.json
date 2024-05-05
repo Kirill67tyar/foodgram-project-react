@@ -1452,7 +1452,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    # def get_object(self):\n    #     if self.action == 'subscribe':\n    #         queryset = self.filter_queryset(self.get_queryset())\n    #         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field\n    #         assert lookup_url_kwarg in self.kwargs, (",
+        "peekOfCode": "class UserViewSet(DjoserUserViewSet):\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    def get_permissions(self):\n        if self.action == 'me':\n            self.permission_classes = (IsAuthenticated,)\n        return super().get_permissions()\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        if self.action == 'list':",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1497,7 +1497,7 @@
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    # permission_classes = (IsAuthenticated,)  # ! как временный вариант\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    # pagination_class = PageNumberPagination\n    # def get_object(self):\n    #     if self.action == 'subscribe':\n    #         queryset = self.filter_queryset(self.get_queryset())\n    #         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field",
+        "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    def get_permissions(self):\n        if self.action == 'me':\n            self.permission_classes = (IsAuthenticated,)\n        return super().get_permissions()\n    def get_queryset(self):\n        queryset = super().get_queryset()",
         "detail": "backend.api.views",
         "documentation": {}
     },

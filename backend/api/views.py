@@ -52,51 +52,21 @@ from recipes.models import (
 from users.models import Follow
 
 
-"""
-По переопределению обработчиков для djoser может быть полезна:
-https://stackoverflow.com/questions/71735934/djoser-override-perform-create-method-of-class-userviewset
-https://stackoverflow.com/questions/66036497/djoser-override-registration
-
-"""
-
 User = get_user_model()
 
-
 class UserViewSet(DjoserUserViewSet):
-    # permission_classes = (IsAuthenticated,)  # ! как временный вариант
     permission_classes = (AllowAny,)
     pagination_class = LimitOffsetPagination
-    # pagination_class = PageNumberPagination
-
-    # def get_object(self):
-    #     if self.action == 'subscribe':
-    #         queryset = self.filter_queryset(self.get_queryset())
-    #         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
-    #         assert lookup_url_kwarg in self.kwargs, (
-    #             'Expected view %s to be called with a URL keyword argument '
-    #             'named "%s". Fix your URL conf, or set the `.lookup_field` '
-    #             'attribute on the view correctly.' %
-    #             (self.__class__.__name__, lookup_url_kwarg)
-    #         )
-    #         filter_kwargs = {self.lookup_field: self.kwargs[lookup_url_kwarg]}
-    #         user = queryset.filter(**filter_kwargs).first()
-    #         if not user:
-    #             raise ValidationError('asdasd')
-    #     return super().get_object()
 
 
     def get_permissions(self):
         if self.action == 'me':
-            # self.permission_classes = [
-            #     IsAuthenticated,
-            # ],
             self.permission_classes = (IsAuthenticated,)
         return super().get_permissions()
 
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.action == 'list':
-            # queryset = queryset.prefetch_related('followers')
             queryset = queryset.prefetch_related('following')
         elif self.action == 'subscriptions':
             user = self.request.user
@@ -130,9 +100,6 @@ class UserViewSet(DjoserUserViewSet):
         ],
     )
     def subscribe(self, request, id):
-        """
-        ! написать проверку, чтобы пользователь не мог подписаться на самого себя
-        """
         user = request.user
         user_to_follow = self.get_object()
         user_in_following = Follow.objects.filter(
@@ -159,13 +126,8 @@ class UserViewSet(DjoserUserViewSet):
                 user.following.remove(user_to_follow)
                 return Response(
                     status=status.HTTP_204_NO_CONTENT)
-            # raise ValidationError(
-            #     'error_msg'
-            # )
         return Response(
-            # data=data,
             status=status.HTTP_400_BAD_REQUEST,
-            # status=status.HTTP_409_CONFLICT
         )
 
 
@@ -240,14 +202,6 @@ class RecipeModelViewSet(ModelViewSet):
             recipe = queryset.filter(**filter_kwargs).first()
             if not recipe:
                 raise ValidationError('asdasd')
-            # if not recipe and self.request.method == 'DELETE':
-            #     # raise ValidationError(code=404)
-            #     try:
-            #         raise ValidationError('asdasd')        
-            #     except ValidationError as exc:
-            #         exc.status_code = 404
-            #         raise exc
-            # raise ValidationError('asdasd')
         return super().get_object()
 
     def get_serializer_class(self):
@@ -278,7 +232,6 @@ class RecipeModelViewSet(ModelViewSet):
                 if not recipe_in_favorite:
                     user.favorites.add(recipe)
                     serializer = self.get_serializer(
-                        # instance=recipe
                         recipe
                     )
                     return Response(
@@ -288,10 +241,8 @@ class RecipeModelViewSet(ModelViewSet):
                 if recipe_in_favorite:
                     user.favorites.remove(recipe)
                     return Response(
-                        # data=data,
                         status=status.HTTP_204_NO_CONTENT)
         return Response(
-            # data=data,
             status=status.HTTP_400_BAD_REQUEST,
         )
 
@@ -309,8 +260,6 @@ class RecipeModelViewSet(ModelViewSet):
         order = user.orders.filter(downloaded=False).first()
         if not order:
             order = user.orders.create()
-        # if not recipe:
-        #     raise ValidationError('asdasd')
         recipe_in_order_for_current_user = RecipeOrder.objects.filter(
             recipe=recipe,
             order=order,
@@ -349,7 +298,6 @@ class RecipeModelViewSet(ModelViewSet):
         user = request.user
         order = user.orders.filter(downloaded=False).first()
         if not order:
-            # return HttpResponse(status=200)
             return HttpResponse(status=200)
         order.downloaded = True
         recipe_order_lst = order.items.select_related(

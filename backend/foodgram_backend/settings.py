@@ -8,7 +8,14 @@ SECRET_KEY = 'django-insecure-(j5tdm_euxl=c@@!)!wi%d$cb%85&qz9j+(fmet&f*%3gqor2g
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '158.160.84.82',
+    '127.0.0.1',
+    '0.0.0.0',
+    'localhost',
+    'recipehub.servebeer.com',
+    'recipe-hub.ru',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,10 +74,21 @@ WSGI_APPLICATION = 'foodgram_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'django'),
+        'USER': os.getenv('POSTGRES_USER', 'django'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+        'HOST': os.getenv('DB_HOST', ''),
+        'PORT': os.getenv('DB_PORT', 5432),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -102,8 +120,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
 # STATIC_URL = "static/"
+STATIC_URL = '/static/'
+# STATIC_ROOT = '/backend_static/static/'
+STATIC_ROOT = BASE_DIR / 'collected_static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/media'  # рабочая директрия
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -149,7 +173,7 @@ DJOSER = {
     # 'SERIALIZERS': {},
 
 }
-INTERNAL_IPS = ['127.0.0.1',]
+# INTERNAL_IPS = ['127.0.0.1',]
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/api/.*$'

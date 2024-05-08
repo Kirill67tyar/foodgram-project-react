@@ -17,6 +17,9 @@ from rest_framework import validators
 # http://127.0.0.1:8000/api/recipes-temprorary/download_shopping_cart/
 
 #? recipe-hub.ru
+#? recipehub.servebeer.com
+#? http://recipehub.servebeer.com/admin/
+#? https://recipehub.servebeer.com/admin/
 
 """
 Список используемых ссылок
@@ -170,6 +173,116 @@ k2@ya.ru pk 68 0cc715c107c643c77cd54d5e41ae940484909051
   "cooking_time": 1
 }
 
+
+
+...
+location / {
+        alias /staticfiles/;
+        index  index.html index.htm;
+        try_files $uri /index.html;
+        proxy_set_header        Host $host;
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto $scheme;
+      }
+      error_page   404              /404.html;
+      error_page   500 502 503 504  /50x.html;
+      location = /50x.html {
+        root   /var/html/frontend/;
+      }
+
+      
+? сбилдить образ
+sudo docker build -t f_backend .
+
+? запустить контейнер
+sudo docker run --name f_backend_container --rm -p 8000:8000 f_backend
+sudo docker run -p 8000:8000 --rm f_backend
+
+? сбилдить образ
+sudo docker exec f_backend_container python manage.py migrate
+
+sudo docker exec f_backend_container python manage.py shell_plus
+Ingredient.objects.create(name='Капуста', measurement_unit='кг')
+Ingredient.objects.create(name='Оливковое масло', measurement_unit='ст. л.')
+
+Tag.objects.create(name='Завтрак', color='#E26C2D', slug='breakfast')
+Tag.objects.create(name='Обед', color='#ba2020', slug='lunch')
+Tag.objects.create(name='Ужин', color='#2753ab', slug='dinner')
+
+
+? сборка фронтенда
+sudo docker build -t f_frontend .
+
+? запуск контейнера фронтенда
+sudo docker run --rm -it -p 8000:8000 --name taski_frontend_test f_frontend
+
+? запуск docker-compose.production.yml
+sudo docker compose -f docker-compose.production.yml up
+sudo docker-compose -f docker-compose.production.yml up
+
+
+sudo docker compose exec backend python manage.py migrate
+
+* ---------------------- ответ
+# build env
+FROM node:13.12.0-alpine as build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install --force
+
+COPY . ./
+
+RUN npm run build
+
+? в compose
+command: cp -r /app/build/. /frontend_static/
+
+
+cd frontend  # В директории frontend...
+sudo docker build -t kirillbogomolov7ric/foodgram_frontend .
+
+cd ../backend  # То же в директории backend...
+sudo docker build -t kirillbogomolov7ric/foodgram_backend .
+
+cd ../gateway  # ...то же и в gateway
+sudo docker build -t kirillbogomolov7ric/foodgram_gateway .
+
+sudo nano /etc/nginx/sites-enabled/default
+
+sudo docker push kirillbogomolov7ric/foodgram_frontend
+sudo docker push kirillbogomolov7ric/foodgram_backend
+sudo docker push kirillbogomolov7ric/foodgram_gateway
+
+
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
+sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
+
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
+sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
+
+
+sudo docker compose -f docker-compose.production.yml up -d
+sudo docker compose -f docker-compose.production.yml ps
+sudo docker compose -f docker-compose.production.yml exec backend bash
+sudo docker compose -f docker-compose.production.yml stop
+sudo docker compose -f docker-compose.production.yml down
+
+
+foodgram-project-react
+├── docker-compose.yml  # билдит в директории ./backend/
+├── backend│
+│   ├── Dockerfile
+│   ├── .dockerignore
+│   ├── foodgram_backend│
+│       ├── settings.py
+│       ├── wsgi.py
+│   ├── manage.py
 """
 
 

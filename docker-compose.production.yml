@@ -1,0 +1,55 @@
+version: '3'
+
+volumes:
+  pg_data_foodgram:
+  static_foodgram:
+  media_foodgram:
+    
+services:
+
+  db:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - pg_data_foodgram:/var/lib/postgresql/data
+
+  backend:
+    image: kirillbogomolov7ric/foodgram_backend
+    # build: ./backend/
+    env_file: .env
+    volumes:
+      - static_foodgram:/backend_static
+      - media_foodgram:/media
+    depends_on:
+      - db
+
+  frontend:
+    image: kirillbogomolov7ric/foodgram_frontend
+    # build: ./frontend/
+    env_file: .env
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+    # command: cp -r /app/build/. /frontend_static/
+    command: cp -r /app/build/. /static/
+    volumes:
+      - static_foodgram:/static
+
+  gateway:
+    image: kirillbogomolov7ric/foodgram_gateway
+    # image: nginx:1.19.3
+    # build: ./infra/
+    env_file: .env
+    ports:
+      # - "8080:80"
+      # - 8080:80
+      - 8080:80
+    volumes:
+      # - ./infra/nginx.conf:/etc/nginx/conf.d/default.conf
+      # - ./frontend/build:/usr/share/nginx/html/
+      # - ./docs/:/usr/share/nginx/html/api/docs/
+      - static_foodgram:/static
+      # - media:/media
+      - media_foodgram:/media/recipes/images/
+    depends_on:
+      - backend

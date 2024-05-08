@@ -1533,7 +1533,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nSECRET_KEY = 'django-insecure-(j5tdm_euxl=c@@!)!wi%d$cb%85&qz9j+(fmet&f*%3gqor2g'\nDEBUG = True\nALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nSECRET_KEY = 'django-insecure-(j5tdm_euxl=c@@!)!wi%d$cb%85&qz9j+(fmet&f*%3gqor2g'\nDEBUG = True\nALLOWED_HOSTS = [\n    '158.160.84.82',\n    '127.0.0.1',\n    '0.0.0.0',\n    'localhost',\n    'recipehub.servebeer.com',\n    'recipe-hub.ru',",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1542,7 +1542,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-(j5tdm_euxl=c@@!)!wi%d$cb%85&qz9j+(fmet&f*%3gqor2g'\nDEBUG = True\nALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-(j5tdm_euxl=c@@!)!wi%d$cb%85&qz9j+(fmet&f*%3gqor2g'\nDEBUG = True\nALLOWED_HOSTS = [\n    '158.160.84.82',\n    '127.0.0.1',\n    '0.0.0.0',\n    'localhost',\n    'recipehub.servebeer.com',\n    'recipe-hub.ru',\n]",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1551,7 +1551,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\n    '158.160.84.82',\n    '127.0.0.1',\n    '0.0.0.0',\n    'localhost',\n    'recipehub.servebeer.com',\n    'recipe-hub.ru',\n]\nINSTALLED_APPS = [",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1560,7 +1560,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework.authtoken',",
+        "peekOfCode": "ALLOWED_HOSTS = [\n    '158.160.84.82',\n    '127.0.0.1',\n    '0.0.0.0',\n    'localhost',\n    'recipehub.servebeer.com',\n    'recipe-hub.ru',\n]\nINSTALLED_APPS = [\n    'django.contrib.admin',",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1605,7 +1605,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'foodgram_backend.wsgi.application'\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',",
+        "peekOfCode": "WSGI_APPLICATION = 'foodgram_backend.wsgi.application'\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': os.getenv('POSTGRES_DB', 'django'),\n        'USER': os.getenv('POSTGRES_USER', 'django'),\n        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),\n        'HOST': os.getenv('DB_HOST', ''),\n        'PORT': os.getenv('DB_PORT', 5432),\n    }",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1614,7 +1614,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': os.getenv('POSTGRES_DB', 'django'),\n        'USER': os.getenv('POSTGRES_USER', 'django'),\n        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),\n        'HOST': os.getenv('DB_HOST', ''),\n        'PORT': os.getenv('DB_PORT', 5432),\n    }\n}",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1632,7 +1632,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\n# AUTH_USER_MODEL = 'users.models.User'\nLANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\n# AUTH_USER_MODEL = 'users.models.User'\nLANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1641,7 +1641,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [",
+        "peekOfCode": "LANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1650,7 +1650,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1659,7 +1659,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1668,7 +1668,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1677,7 +1677,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_TZ = True\nSTATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',",
+        "peekOfCode": "USE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1686,7 +1686,34 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\n# STATIC_URL = \"static/\"\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ],",
+        "peekOfCode": "STATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "MEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.TokenAuthentication',\n    ],",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1714,15 +1741,6 @@
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
         "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'user': 'api.serializers.UserSerializer',\n        'current_user': 'api.serializers.UserSerializer',\n        # 'user': 'api.serializers.UserModelSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        # 'activation': ['rest_framework.permissions.AllowAny'],",
-        "detail": "backend.foodgram_backend.settings",
-        "documentation": {}
-    },
-    {
-        "label": "INTERNAL_IPS",
-        "kind": 5,
-        "importPath": "backend.foodgram_backend.settings",
-        "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "INTERNAL_IPS = ['127.0.0.1',]\nCORS_ORIGIN_ALLOW_ALL = True\nCORS_URLS_REGEX = r'^/api/.*$'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },

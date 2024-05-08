@@ -70,6 +70,7 @@ class Ingredient(models.Model):
     Все поля обязательны для заполнения.
     """
     pass
+
 class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(
         to=Recipe,

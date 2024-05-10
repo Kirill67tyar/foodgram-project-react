@@ -545,6 +545,14 @@
         "documentation": {}
     },
     {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
         "label": "default_token_generator",
         "importPath": "django.contrib.auth.tokens",
         "description": "django.contrib.auth.tokens",
@@ -716,11 +724,11 @@
         "documentation": {}
     },
     {
-        "label": "TestCase",
-        "importPath": "django.test",
-        "description": "django.test",
+        "label": "HTTPStatus",
+        "importPath": "http",
+        "description": "http",
         "isExtraImport": true,
-        "detail": "django.test",
+        "detail": "http",
         "documentation": {}
     },
     {
@@ -745,6 +753,22 @@
         "description": "django.test",
         "isExtraImport": true,
         "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "APIClient",
+        "importPath": "rest_framework.test",
+        "description": "rest_framework.test",
+        "isExtraImport": true,
+        "detail": "rest_framework.test",
         "documentation": {}
     },
     {
@@ -1418,6 +1442,15 @@
         "description": "backend.api.serializers",
         "peekOfCode": "User = get_user_model()\n# # !------------------------------------------\nclass LimitedRecipeSerializer(serializers.ListSerializer):\n    def to_representation(self, data):\n        a = 1\n        recipes_limit = self.context['request'].query_params.get('recipes_limit')\n        if recipes_limit:\n            data = data.all()[:int(recipes_limit)]\n        return super().to_representation(data)\n# # !------------------------------------------",
         "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RecipesAPITestCase",
+        "kind": 6,
+        "importPath": "backend.api.tests",
+        "description": "backend.api.tests",
+        "peekOfCode": "class RecipesAPITestCase(TestCase):\n    # def setUp(self):\n    #     User = get_user_model()\n    #     self.user = User.objects.create_user(username='auth_user')\n    #     self.client = APIClient()\n    #     self.client.force_authenticate(user=self.user)\n    def test_list_exists(self):\n        \"\"\"Проверка доступности списка задач.\"\"\"\n        response = self.client.get('/api/recipes/')\n        self.assertEqual(response.status_code, HTTPStatus.OK)",
+        "detail": "backend.api.tests",
         "documentation": {}
     },
     {

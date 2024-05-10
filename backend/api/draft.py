@@ -16,10 +16,10 @@ from rest_framework import validators
 # http://127.0.0.1:8000/api/recipes/download_shopping_cart/
 # http://127.0.0.1:8000/api/recipes-temprorary/download_shopping_cart/
 
-#? recipe-hub.ru
-#? recipehub.servebeer.com
-#? http://recipehub.servebeer.com/admin/
-#? https://recipehub.servebeer.com/admin/
+# ? recipe-hub.ru
+# ? recipehub.servebeer.com
+# ? http://recipehub.servebeer.com/admin/
+# ? https://recipehub.servebeer.com/admin/
 
 """
 Список используемых ссылок
@@ -39,10 +39,6 @@ https://github.com/Kirill67tyar/api_final_yatube/blob/master/yatube_api/posts/mo
 
 
 """
-
-
-
-
 
 
 """
@@ -274,16 +270,18 @@ sudo docker compose -f docker-compose.production.yml stop
 sudo docker compose -f docker-compose.production.yml down
 
 
-foodgram-project-react
-├── docker-compose.yml  # билдит в директории ./backend/
-├── backend│
-│   ├── Dockerfile
-│   ├── .dockerignore
-│   ├── foodgram_backend│
-│       ├── settings.py
-│       ├── wsgi.py
-│   ├── manage.py
+
+DOCKER_USERNAME
+kirillbogomolov7ric
+
+
+
+
+
+
+
+
+USER
+yc-user
+
 """
-
-
-

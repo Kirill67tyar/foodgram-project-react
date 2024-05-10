@@ -76,7 +76,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         # node-version: 18
-        node-version: 13.12.0-alpine
+        node-version: 13.12.0
+        # node-version: 13.12.0-alpine
         # node-version: 13.12.0-alpine as build
 
     - name: Install dependencies

@@ -3,6 +3,7 @@ asttokens==2.4.1
 attrs==23.2.0
 certifi==2024.2.2
 cffi==1.16.0
+chardet==5.2.0
 charset-normalizer==3.3.2
 cryptography==42.0.5
 decorator==5.1.1
@@ -18,12 +19,16 @@ djangorestframework-simplejwt==5.3.1
 djoser==2.2.2
 exceptiongroup==1.2.0
 executing==2.0.1
+flake8==6.0.0
+flake8-isort==6.0.0
 gunicorn==20.1.0
 idna==3.6
 iniconfig==2.0.0
 ipython==8.18.1
+isort==5.13.2
 jedi==0.19.1
 matplotlib-inline==0.1.6
+mccabe==0.7.0
 oauthlib==3.2.2
 packaging==24.0
 parso==0.8.3
@@ -35,7 +40,9 @@ psycopg2-binary==2.9.3
 ptyprocess==0.7.0
 pure-eval==0.2.2
 py==1.11.0
+pycodestyle==2.10.0
 pycparser==2.22
+pyflakes==3.0.1
 Pygments==2.17.2
 PyJWT==2.8.0
 pytest==6.2.4
@@ -43,6 +50,7 @@ pytest-django==4.4.0
 pytest-pythonpath==0.7.3
 python3-openid==3.2.0
 pytz==2024.1
+reportlab==4.2.0
 requests==2.31.0
 requests-oauthlib==2.0.0
 six==1.16.0

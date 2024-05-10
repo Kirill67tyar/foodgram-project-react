@@ -1,3 +1,10 @@
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase import pdfmetrics
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+
 from django_filters.rest_framework import DjangoFilterBackend
 from io import BytesIO
 from rest_framework.filters import SearchFilter
@@ -295,41 +302,75 @@ class RecipeModelViewSet(ModelViewSet):
         ],
     )
     def download_shopping_cart(self, request):
-        user = request.user
-        order = user.orders.filter(downloaded=False).first()
-        if not order:
-            return HttpResponse(status=200)
-        order.downloaded = True
-        recipe_order_lst = order.items.select_related(
-            'recipe'
-        ).prefetch_related(
-            'recipe__recipeingredient_set__ingredient'
-        )
-        data = {}
-        for r_o in recipe_order_lst:
-            for i in r_o.recipe.recipeingredient_set.all():
-                key = (i.ingredient.name, i.ingredient.measurement_unit,)
-                data[key] = data.get(key, 0) + i.amount
-        # content = loader.render_to_string(
-        #     template_name='orders/order_template.html',
-        #     context={
-        #         # 'order': order,
-        #     },
-        #     request=request
-        # )
-        # ? ----- формирование файла --------
-        content = 'тааа-шааа'
-        # ? ----- формирование файла --------
-        buffer = BytesIO()
-        buffer.write(bytes(content, encoding='utf-8'))
-        buffer.seek(0)
-        a = 12345
-        response = HttpResponse(
-            buffer, content_type='application/octet-stream')
-        response['Content-Disposition'] = f'attachment; filename="file-{a}.txt"'
-        # response['Content-Disposition'] = f'attachment; filename="file-{a}.html"'
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="table.pdf"'
+        doc = SimpleDocTemplate(response, pagesize=letter)
+        
+        # Создаем данные для таблицы
+        data = [
+            ["Имя", "Возраст", "Город"],
+            ["Иван", "30", "Москва"],
+            ["Елена", "25", "Санкт-Петербург"],
+            ["Петр", "40", "Киев"]
+        ]
+        # font_path = "/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/data/experiments/src/fonts/JetBrainsMono-Regular.ttf"
+        font_path = '/app/fonts/JetBrainsMono-Regular.ttf'
+        
+        # Регистрируем шрифт
+        pdfmetrics.registerFont(TTFont("JetBrainsMono-Regular", font_path))
+
+        # Создаем таблицу и задаем стиль
+        table = Table(data)
+        style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                            ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
+                            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                            ('FONTNAME', (0, 0), (-1, -1), 'JetBrainsMono-Regular'),
+                            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                            ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                            ('GRID', (0, 0), (-1, -1), 1, colors.black)])
+        # table.setFont("JetBrainsMono-Regular", 12)
+        table.setStyle(style)
+
+        # Добавляем таблицу в документ
+        elements = [table]
+        doc.build(elements)
 
         return response
+        # user = request.user
+        # order = user.orders.filter(downloaded=False).first()
+        # if not order:
+        #     return HttpResponse(status=200)
+        # order.downloaded = True
+        # recipe_order_lst = order.items.select_related(
+        #     'recipe'
+        # ).prefetch_related(
+        #     'recipe__recipeingredient_set__ingredient'
+        # )
+        # data = {}
+        # for r_o in recipe_order_lst:
+        #     for i in r_o.recipe.recipeingredient_set.all():
+        #         key = (i.ingredient.name, i.ingredient.measurement_unit,)
+        #         data[key] = data.get(key, 0) + i.amount
+        # # content = loader.render_to_string(
+        # #     template_name='orders/order_template.html',
+        # #     context={
+        # #         # 'order': order,
+        # #     },
+        # #     request=request
+        # # )
+        # # ? ----- формирование файла --------
+        # content = 'тааа-шааа'
+        # # ? ----- формирование файла --------
+        # buffer = BytesIO()
+        # buffer.write(bytes(content, encoding='utf-8'))
+        # buffer.seek(0)
+        # a = 12345
+        # response = HttpResponse(
+        #     buffer, content_type='application/octet-stream')
+        # response['Content-Disposition'] = f'attachment; filename="file-{a}.txt"'
+        # # response['Content-Disposition'] = f'attachment; filename="file-{a}.html"'
+
+        # return response
 
 
 # http://127.0.0.1:8000/api/recipes-temprorary/download_shopping_cart/

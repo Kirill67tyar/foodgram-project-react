@@ -58,7 +58,7 @@ class UserViewSet(DjoserUserViewSet):
 
     @action(
         detail=False,
-        methods=['get',],
+        methods=['get', ],
         url_path='subscriptions',
         permission_classes=[
             IsAuthenticated,
@@ -272,7 +272,7 @@ class RecipeModelViewSet(ModelViewSet):
 
     @action(
         detail=False,
-        methods=['get',],
+        methods=['get', ],
         url_path='download_shopping_cart',
         permission_classes=[
             IsAuthenticated,
@@ -298,7 +298,7 @@ class RecipeModelViewSet(ModelViewSet):
             [k[0], f'{v} {k[-1]}']
             for k, v in data.items()
         ]
-        data_for_output.insert(0, ['Ингредиенты', 'Количество',])
+        data_for_output.insert(0, ['Ингредиенты', 'Количество', ])
 
         response = HttpResponse(content_type='application/pdf')
         filename = f'attachment; filename="Заказ-{order.pk}.pdf"'

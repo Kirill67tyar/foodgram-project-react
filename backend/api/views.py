@@ -1,7 +1,7 @@
+from django.conf import settings as django_settings
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
-from django.conf import settings as django_settings
 from djoser.conf import settings as djoser_settings
 from djoser.views import UserViewSet as DjoserUserViewSet
 from reportlab.lib import colors
@@ -27,7 +27,6 @@ from api.serializers import (IngredientModelSerializer,
 from orders.models import Order, RecipeOrder
 from recipes.models import Ingredient, Recipe, Tag
 from users.models import Follow
-
 
 User = get_user_model()
 

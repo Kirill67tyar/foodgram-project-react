@@ -9,7 +9,6 @@ from rest_framework.serializers import ListField, Serializer, ValidationError
 from orders.models import RecipeOrder
 from recipes.models import Ingredient, Recipe, RecipeIngredient, Tag
 
-
 User = get_user_model()
 
 class LimitedRecipeSerializer(serializers.ListSerializer):

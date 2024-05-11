@@ -1,4 +1,3 @@
-from pprint import pprint as pp
 import json
 
 measures = {}
@@ -15,5 +14,5 @@ with open('measures.json', 'w', encoding='utf-8') as file_json:
         obj=measures,
         fp=file_json,
         indent=3,
-           ensure_ascii=False
+        ensure_ascii=False
     )

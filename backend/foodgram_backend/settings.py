@@ -1,20 +1,19 @@
 import os
 from pathlib import Path
 
+from django.core.management.utils import get_random_secret_key
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-(j5tdm_euxl=c@@!)!wi%d$cb%85&qz9j+(fmet&f*%3gqor2g'
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-DEBUG = True
+if os.getenv('DEBUG') == 'True':
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = [
-    '158.160.84.82',
-    '127.0.0.1',
-    '0.0.0.0',
-    'localhost',
-    'recipehub.servebeer.com',
-    'recipe-hub.ru',
-]
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',

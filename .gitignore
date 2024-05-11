@@ -130,3 +130,30 @@ dmypy.json
 
 # .idea
 .idea
+
+.vscode/
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+
+# папки со статикой и медиа
+backend/media/
+
+draft/
+
+# backend
+backend/api/migrations/
+backend/api/admin.py
+backend/api/draft.py
+backend/api/models.py
+
+backend/orders/tests.py
+backend/orders/views.py
+
+backend/recipes/tests.py
+backend/recipes/views.py
+
+backend/users/tests.py
+backend/users/views.py

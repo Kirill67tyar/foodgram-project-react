@@ -72,6 +72,14 @@
         "documentation": {}
     },
     {
+        "label": "Messages",
+        "importPath": "djoser.constants",
+        "description": "djoser.constants",
+        "isExtraImport": true,
+        "detail": "djoser.constants",
+        "documentation": {}
+    },
+    {
         "label": "RegistrationView",
         "importPath": "djoser.views",
         "description": "djoser.views",
@@ -85,14 +93,6 @@
         "description": "djoser.views",
         "isExtraImport": true,
         "detail": "djoser.views",
-        "documentation": {}
-    },
-    {
-        "label": "Messages",
-        "importPath": "djoser.constants",
-        "description": "djoser.constants",
-        "isExtraImport": true,
-        "detail": "djoser.constants",
         "documentation": {}
     },
     {
@@ -160,22 +160,6 @@
         "documentation": {}
     },
     {
-        "label": "connection",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "reset_queries",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -269,14 +253,6 @@
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "ModelMultipleChoiceFilter",
-        "importPath": "django_filters.rest_framework",
-        "description": "django_filters.rest_framework",
-        "isExtraImport": true,
-        "detail": "django_filters.rest_framework",
         "documentation": {}
     },
     {
@@ -296,15 +272,7 @@
         "documentation": {}
     },
     {
-        "label": "NumberFilter",
-        "importPath": "django_filters.rest_framework",
-        "description": "django_filters.rest_framework",
-        "isExtraImport": true,
-        "detail": "django_filters.rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "MultipleChoiceFilter",
+        "label": "ModelMultipleChoiceFilter",
         "importPath": "django_filters.rest_framework",
         "description": "django_filters.rest_framework",
         "isExtraImport": true,
@@ -352,14 +320,6 @@
         "documentation": {}
     },
     {
-        "label": "Tag",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
         "label": "Recipe",
         "importPath": "recipes.models",
         "description": "recipes.models",
@@ -376,7 +336,7 @@
         "documentation": {}
     },
     {
-        "label": "RecipeTag",
+        "label": "Tag",
         "importPath": "recipes.models",
         "description": "recipes.models",
         "isExtraImport": true,
@@ -385,6 +345,14 @@
     },
     {
         "label": "Ingredient",
+        "importPath": "recipes.models",
+        "description": "recipes.models",
+        "isExtraImport": true,
+        "detail": "recipes.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
         "importPath": "recipes.models",
         "description": "recipes.models",
         "isExtraImport": true,
@@ -401,22 +369,6 @@
     },
     {
         "label": "Recipe",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Recipe",
-        "importPath": "recipes.models",
-        "description": "recipes.models",
-        "isExtraImport": true,
-        "detail": "recipes.models",
-        "documentation": {}
-    },
-    {
-        "label": "Ingredient",
         "importPath": "recipes.models",
         "description": "recipes.models",
         "isExtraImport": true,
@@ -440,14 +392,6 @@
         "documentation": {}
     },
     {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
         "label": "IsAuthenticatedOrReadOnly",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
@@ -456,7 +400,7 @@
         "documentation": {}
     },
     {
-        "label": "IsAuthenticated",
+        "label": "AllowAny",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -464,7 +408,7 @@
         "documentation": {}
     },
     {
-        "label": "AllowAny",
+        "label": "IsAuthenticated",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -481,27 +425,91 @@
         "documentation": {}
     },
     {
-        "label": "UserSerializer",
-        "importPath": "djoser.serializers",
-        "description": "djoser.serializers",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "djoser.serializers",
+        "detail": "django.conf",
         "documentation": {}
     },
     {
         "label": "settings",
-        "importPath": "djoser.conf",
-        "description": "djoser.conf",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "djoser.conf",
+        "detail": "django.conf",
         "documentation": {}
     },
     {
         "label": "settings",
-        "importPath": "djoser.conf",
-        "description": "djoser.conf",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "djoser.conf",
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
         "documentation": {}
     },
     {
@@ -513,146 +521,7 @@
         "documentation": {}
     },
     {
-        "label": "get_user_model",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "get_user_model",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "get_user_model",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "get_user_model",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "get_user_model",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "default_token_generator",
-        "importPath": "django.contrib.auth.tokens",
-        "description": "django.contrib.auth.tokens",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.tokens",
-        "documentation": {}
-    },
-    {
-        "label": "django.contrib.auth.validators",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.contrib.auth.validators",
-        "description": "django.contrib.auth.validators",
-        "detail": "django.contrib.auth.validators",
-        "documentation": {}
-    },
-    {
-        "label": "UnicodeUsernameValidator",
-        "importPath": "django.contrib.auth.validators",
-        "description": "django.contrib.auth.validators",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.validators",
-        "documentation": {}
-    },
-    {
-        "label": "UnicodeUsernameValidator",
-        "importPath": "django.contrib.auth.validators",
-        "description": "django.contrib.auth.validators",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.validators",
-        "documentation": {}
-    },
-    {
-        "label": "django.contrib.auth.models",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "AnonymousUser",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "AbstractUser",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "get_object_or_404",
-        "importPath": "rest_framework.generics",
-        "description": "rest_framework.generics",
-        "isExtraImport": true,
-        "detail": "rest_framework.generics",
-        "documentation": {}
-    },
-    {
-        "label": "SlugRelatedField",
-        "importPath": "rest_framework.relations",
-        "description": "rest_framework.relations",
-        "isExtraImport": true,
-        "detail": "rest_framework.relations",
-        "documentation": {}
-    },
-    {
-        "label": "rest_framework.serializers",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
-        "detail": "rest_framework.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "CharField",
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
-        "isExtraImport": true,
-        "detail": "rest_framework.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "EmailField",
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
-        "isExtraImport": true,
-        "detail": "rest_framework.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "ModelSerializer",
+        "label": "ListField",
         "importPath": "rest_framework.serializers",
         "description": "rest_framework.serializers",
         "isExtraImport": true,
@@ -669,22 +538,6 @@
     },
     {
         "label": "ValidationError",
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
-        "isExtraImport": true,
-        "detail": "rest_framework.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "IntegerField",
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
-        "isExtraImport": true,
-        "detail": "rest_framework.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "ListField",
         "importPath": "rest_framework.serializers",
         "description": "rest_framework.serializers",
         "isExtraImport": true,
@@ -772,14 +625,6 @@
         "documentation": {}
     },
     {
-        "label": "path",
-        "importPath": "django.urls",
-        "description": "django.urls",
-        "isExtraImport": true,
-        "detail": "django.urls",
-        "documentation": {}
-    },
-    {
         "label": "include",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -797,6 +642,14 @@
     },
     {
         "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
         "isExtraImport": true,
@@ -809,22 +662,6 @@
         "description": "rest_framework.routers",
         "isExtraImport": true,
         "detail": "rest_framework.routers",
-        "documentation": {}
-    },
-    {
-        "label": "UserViewSet",
-        "importPath": "api.views",
-        "description": "api.views",
-        "isExtraImport": true,
-        "detail": "api.views",
-        "documentation": {}
-    },
-    {
-        "label": "TagReadOnlyModelViewSet",
-        "importPath": "api.views",
-        "description": "api.views",
-        "isExtraImport": true,
-        "detail": "api.views",
         "documentation": {}
     },
     {
@@ -844,7 +681,7 @@
         "documentation": {}
     },
     {
-        "label": "download_cart_view",
+        "label": "TagReadOnlyModelViewSet",
         "importPath": "api.views",
         "description": "api.views",
         "isExtraImport": true,
@@ -852,11 +689,43 @@
         "documentation": {}
     },
     {
-        "label": "TTFont",
-        "importPath": "reportlab.pdfbase.ttfonts",
-        "description": "reportlab.pdfbase.ttfonts",
+        "label": "UserViewSet",
+        "importPath": "api.views",
+        "description": "api.views",
         "isExtraImport": true,
-        "detail": "reportlab.pdfbase.ttfonts",
+        "detail": "api.views",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "djoser.conf",
+        "description": "djoser.conf",
+        "isExtraImport": true,
+        "detail": "djoser.conf",
+        "documentation": {}
+    },
+    {
+        "label": "colors",
+        "importPath": "reportlab.lib",
+        "description": "reportlab.lib",
+        "isExtraImport": true,
+        "detail": "reportlab.lib",
+        "documentation": {}
+    },
+    {
+        "label": "letter",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
         "documentation": {}
     },
     {
@@ -868,27 +737,11 @@
         "documentation": {}
     },
     {
-        "label": "letter",
-        "importPath": "reportlab.lib.pagesizes",
-        "description": "reportlab.lib.pagesizes",
+        "label": "TTFont",
+        "importPath": "reportlab.pdfbase.ttfonts",
+        "description": "reportlab.pdfbase.ttfonts",
         "isExtraImport": true,
-        "detail": "reportlab.lib.pagesizes",
-        "documentation": {}
-    },
-    {
-        "label": "letter",
-        "importPath": "reportlab.lib.pagesizes",
-        "description": "reportlab.lib.pagesizes",
-        "isExtraImport": true,
-        "detail": "reportlab.lib.pagesizes",
-        "documentation": {}
-    },
-    {
-        "label": "colors",
-        "importPath": "reportlab.lib",
-        "description": "reportlab.lib",
-        "isExtraImport": true,
-        "detail": "reportlab.lib",
+        "detail": "reportlab.pdfbase.ttfonts",
         "documentation": {}
     },
     {
@@ -916,95 +769,15 @@
         "documentation": {}
     },
     {
-        "label": "BytesIO",
-        "importPath": "io",
-        "description": "io",
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
         "isExtraImport": true,
-        "detail": "io",
-        "documentation": {}
-    },
-    {
-        "label": "SearchFilter",
-        "importPath": "rest_framework.filters",
-        "description": "rest_framework.filters",
-        "isExtraImport": true,
-        "detail": "rest_framework.filters",
-        "documentation": {}
-    },
-    {
-        "label": "loader",
-        "importPath": "django.template",
-        "description": "django.template",
-        "isExtraImport": true,
-        "detail": "django.template",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "HttpResponse",
-        "importPath": "django.http",
-        "description": "django.http",
-        "isExtraImport": true,
-        "detail": "django.http",
-        "documentation": {}
-    },
-    {
-        "label": "login_required",
-        "importPath": "django.contrib.auth.decorators",
-        "description": "django.contrib.auth.decorators",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.decorators",
+        "detail": "rest_framework.decorators",
         "documentation": {}
     },
     {
         "label": "LimitOffsetPagination",
-        "importPath": "rest_framework.pagination",
-        "description": "rest_framework.pagination",
-        "isExtraImport": true,
-        "detail": "rest_framework.pagination",
-        "documentation": {}
-    },
-    {
-        "label": "PageNumberPagination",
         "importPath": "rest_framework.pagination",
         "description": "rest_framework.pagination",
         "isExtraImport": true,
@@ -1017,30 +790,6 @@
         "description": "rest_framework.response",
         "isExtraImport": true,
         "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
-        "label": "action",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "api_view",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "permission_classes",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
         "documentation": {}
     },
     {
@@ -1060,14 +809,6 @@
         "documentation": {}
     },
     {
-        "label": "IsAuthenticatedAndAuthorOrReadOnly",
-        "importPath": "api.permissions",
-        "description": "api.permissions",
-        "isExtraImport": true,
-        "detail": "api.permissions",
-        "documentation": {}
-    },
-    {
         "label": "IngredientFilter",
         "importPath": "api.filters",
         "description": "api.filters",
@@ -1084,11 +825,11 @@
         "documentation": {}
     },
     {
-        "label": "TagModelSerializer",
-        "importPath": "api.serializers",
-        "description": "api.serializers",
+        "label": "IsAuthenticatedAndAuthorOrReadOnly",
+        "importPath": "api.permissions",
+        "description": "api.permissions",
         "isExtraImport": true,
-        "detail": "api.serializers",
+        "detail": "api.permissions",
         "documentation": {}
     },
     {
@@ -1108,6 +849,14 @@
         "documentation": {}
     },
     {
+        "label": "RecipeToFavoriteModelSerializer",
+        "importPath": "api.serializers",
+        "description": "api.serializers",
+        "isExtraImport": true,
+        "detail": "api.serializers",
+        "documentation": {}
+    },
+    {
         "label": "RecipeWriteModelSerializer",
         "importPath": "api.serializers",
         "description": "api.serializers",
@@ -1116,7 +865,7 @@
         "documentation": {}
     },
     {
-        "label": "RecipeToFavoriteModelSerializer",
+        "label": "TagModelSerializer",
         "importPath": "api.serializers",
         "description": "api.serializers",
         "isExtraImport": true,
@@ -1173,38 +922,6 @@
         "documentation": {}
     },
     {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -1219,6 +936,64 @@
         "importPath": "django.db.models.deletion",
         "description": "django.db.models.deletion",
         "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.validators",
+        "description": "django.contrib.auth.validators",
+        "detail": "django.contrib.auth.validators",
+        "documentation": {}
+    },
+    {
+        "label": "UnicodeUsernameValidator",
+        "importPath": "django.contrib.auth.validators",
+        "description": "django.contrib.auth.validators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.validators",
         "documentation": {}
     },
     {
@@ -1347,6 +1122,42 @@
         "documentation": {}
     },
     {
+        "label": "MAX_VALUE_ID",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "MAX_VALUE_ID = 9223372036854775807  # \n! =-=-=-=-= for settings =-=-=-=-=\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nFONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nFONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\n! =-=-=-=-= for settings =-=-=-=-=\n-   All database fields",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nFONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\n! =-=-=-=-= for settings =-=-=-=-=\n-   All database fields\n-   Custom manager attributes\n-   class Meta\n-   def __str__()\n-   def save()\n-   def get_absolute_url()\n-   Any custom methods",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
+        "label": "FONT_PATH",
+        "kind": 5,
+        "importPath": "backend.api.draft",
+        "description": "backend.api.draft",
+        "peekOfCode": "FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\n! =-=-=-=-= for settings =-=-=-=-=\n-   All database fields\n-   Custom manager attributes\n-   class Meta\n-   def __str__()\n-   def save()\n-   def get_absolute_url()\n-   Any custom methods\n\"\"\"",
+        "detail": "backend.api.draft",
+        "documentation": {}
+    },
+    {
         "label": "IngredientFilter",
         "kind": 6,
         "importPath": "backend.api.filters",
@@ -1360,7 +1171,7 @@
         "kind": 6,
         "importPath": "backend.api.filters",
         "description": "backend.api.filters",
-        "peekOfCode": "class RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')\n    tags = ModelMultipleChoiceFilter(\n        field_name='tags__slug',\n        to_field_name='slug',\n        queryset=Tag.objects.all(),\n    )\n    # is_in_shopping_cart = ...\n    class Meta:\n        model = Recipe",
+        "peekOfCode": "class RecipeFilter(FilterSet):\n    author = CharFilter(field_name='author__id', lookup_expr='icontains')\n    tags = ModelMultipleChoiceFilter(\n        field_name='tags__slug',\n        to_field_name='slug',\n        queryset=Tag.objects.all(),\n    )\n    class Meta:\n        model = Recipe\n        fields = [",
         "detail": "backend.api.filters",
         "documentation": {}
     },
@@ -1387,7 +1198,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class LimitedRecipeSerializer(serializers.ListSerializer):\n    def to_representation(self, data):\n        a = 1\n        recipes_limit = self.context['request'].query_params.get('recipes_limit')\n        if recipes_limit:\n            data = data.all()[:int(recipes_limit)]\n        return super().to_representation(data)\n# # !------------------------------------------\nclass RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class LimitedRecipeSerializer(serializers.ListSerializer):\n    def to_representation(self, data):\n        recipes_limit = self.context['request'].query_params.get(\n            'recipes_limit')\n        if recipes_limit:\n            data = data.all()[:int(recipes_limit)]\n        return super().to_representation(data)\nclass RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Recipe",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1401,20 +1212,11 @@
         "documentation": {}
     },
     {
-        "label": "UserSerializer",
-        "kind": 6,
-        "importPath": "backend.api.serializers",
-        "description": "backend.api.serializers",
-        "peekOfCode": "class UserSerializer(serializers.Serializer):\n    email = EmailField(\n        max_length=150,\n        read_only=True\n    )\n    id = IntegerField(\n        read_only=True\n    )\n    username = CharField(\n        max_length=150,",
-        "detail": "backend.api.serializers",
-        "documentation": {}
-    },
-    {
         "label": "UserModelSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class UserModelSerializer(serializers.ModelSerializer):\n    is_subscribed = serializers.SerializerMethodField(read_only=True)\n    def get_is_subscribed(self, obj):\n        a = 1\n        user = self.context['request'].user\n        return user in obj.following.all()\n        # return user in obj.followers.all()\n    class Meta:\n        model = User\n        fields = (",
+        "peekOfCode": "class UserModelSerializer(serializers.ModelSerializer):\n    is_subscribed = serializers.SerializerMethodField(read_only=True)\n    def get_is_subscribed(self, obj):\n        user = self.context['request'].user\n        if user.is_authenticated:\n            return user in obj.following.all()\n        return False\n    class Meta:\n        model = User\n        fields = (",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1423,16 +1225,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class UserSubscriptionsModelSerializer(serializers.ModelSerializer):\n    is_subscribed = serializers.SerializerMethodField(read_only=True)\n    def get_is_subscribed(self, obj):\n        a = 1\n        user = self.context['request'].user\n        return user in obj.following.all()\n        # return user in obj.followers.all()\n    recipes_count = serializers.SerializerMethodField(read_only=True)\n    def get_recipes_count(self, obj):\n        return obj.recipes.count()",
-        "detail": "backend.api.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "ThinTagModelSerializer",
-        "kind": 6,
-        "importPath": "backend.api.serializers",
-        "description": "backend.api.serializers",
-        "peekOfCode": "class ThinTagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag\n        fields = ('id',)\n        # extra_kwargs = {'id': {'write_only': True}}\nclass TagModelSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tag\n        fields = (\n            'id',",
+        "peekOfCode": "class UserSubscriptionsModelSerializer(serializers.ModelSerializer):\n    is_subscribed = serializers.SerializerMethodField(read_only=True)\n    def get_is_subscribed(self, obj):\n        user = self.context['request'].user\n        return user in obj.following.all()\n    recipes_count = serializers.SerializerMethodField(read_only=True)\n    def get_recipes_count(self, obj):\n        return obj.recipes.count()\n    recipes = RecipeToFavoriteModelSerializer(many=True, read_only=True)\n    class Meta:",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1459,7 +1252,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class RecipeIngredientModelSerializer(serializers.ModelSerializer):\n    id = serializers.SerializerMethodField(read_only=True)\n    def get_id(self, obj):\n        return obj.ingredient.pk\n        # return obj.ingredient_id\n    name = serializers.SerializerMethodField(read_only=True)\n    def get_name(self, obj):\n        return obj.ingredient.name\n    measurement_unit = serializers.SerializerMethodField(read_only=True)\n    def get_measurement_unit(self, obj):",
+        "peekOfCode": "class RecipeIngredientModelSerializer(serializers.ModelSerializer):\n    id = serializers.SerializerMethodField(read_only=True)\n    def get_id(self, obj):\n        return obj.ingredient.pk\n    name = serializers.SerializerMethodField(read_only=True)\n    def get_name(self, obj):\n        return obj.ingredient.name\n    measurement_unit = serializers.SerializerMethodField(read_only=True)\n    def get_measurement_unit(self, obj):\n        return obj.ingredient.measurement_unit",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1468,7 +1261,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class RecipeReadModelSerializer(serializers.ModelSerializer):\n    author = UserSerializer(  # UserModelSerializer\n        # read_only=True,\n        many=False,\n    )\n    tags = TagModelSerializer(\n        read_only=True,\n        many=True,\n    )\n    # \"is_in_shopping_cart\": true,",
+        "peekOfCode": "class RecipeReadModelSerializer(serializers.ModelSerializer):\n    author = UserModelSerializer(\n        many=False,\n    )\n    tags = TagModelSerializer(\n        read_only=True,\n        many=True,\n    )\n    ingredients = RecipeIngredientModelSerializer(\n        read_only=True,",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1495,7 +1288,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class RecipeWriteModelSerializer(serializers.ModelSerializer):\n    # tags = ThinTagModelSerializer(\n    #     required=True,\n    #     many=True,\n    # )\n    tags = ListField(\n        # required=True,\n        # many=True,\n    )\n    ingredients = ThinRecipeIngredientSerializer(",
+        "peekOfCode": "class RecipeWriteModelSerializer(serializers.ModelSerializer):\n    tags = ListField()\n    ingredients = ThinRecipeIngredientSerializer(\n        required=True,\n        many=True\n    )\n    image = Base64ImageField(\n        required=True,\n        allow_null=True,\n    )",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1504,7 +1297,7 @@
         "kind": 5,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "User = get_user_model()\n# # !------------------------------------------\nclass LimitedRecipeSerializer(serializers.ListSerializer):\n    def to_representation(self, data):\n        a = 1\n        recipes_limit = self.context['request'].query_params.get('recipes_limit')\n        if recipes_limit:\n            data = data.all()[:int(recipes_limit)]\n        return super().to_representation(data)\n# # !------------------------------------------",
+        "peekOfCode": "User = get_user_model()\nclass LimitedRecipeSerializer(serializers.ListSerializer):\n    def to_representation(self, data):\n        recipes_limit = self.context['request'].query_params.get(\n            'recipes_limit')\n        if recipes_limit:\n            data = data.all()[:int(recipes_limit)]\n        return super().to_representation(data)\nclass RecipeToFavoriteModelSerializer(serializers.ModelSerializer):\n    class Meta:",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -1522,7 +1315,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "app_name = 'api'\nrouter = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    # path('recipes/download_shopping_cart/', download_cart_view, name='download'),\n    path('', include(router.urls)),",
+        "peekOfCode": "app_name = 'api'\nrouter = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    path('', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1531,7 +1324,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    # path('recipes/download_shopping_cart/', download_cart_view, name='download'),\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('users', UserViewSet, basename='users')\nrouter.register('tags', TagReadOnlyModelViewSet, basename='tags')\nrouter.register('ingredients', IngredientReadOnlyModelViewSet,\n                basename='ingredients')\nrouter.register('recipes', RecipeModelViewSet, basename='recipes')\nurlpatterns = [\n    path('', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1540,7 +1333,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "urlpatterns = [\n    # path('recipes/download_shopping_cart/', download_cart_view, name='download'),\n    path('', include(router.urls)),\n    # url(r'^', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    path('auth/', include('djoser.urls.authtoken')),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1581,38 +1374,11 @@
         "documentation": {}
     },
     {
-        "label": "download_cart_view",
-        "kind": 2,
-        "importPath": "backend.api.views",
-        "description": "backend.api.views",
-        "peekOfCode": "def download_cart_view(request):\n    user = request.user\n    order = user.orders.filter(downloaded=False).first()\n    if not order:\n        # return HttpResponse(status=200)\n        return HttpResponse(status=200)\n    order.downloaded = True\n    recipe_order_lst = order.items.select_related(\n        'recipe'\n    ).prefetch_related(",
-        "detail": "backend.api.views",
-        "documentation": {}
-    },
-    {
         "label": "User",
         "kind": 5,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
         "peekOfCode": "User = get_user_model()\nclass UserViewSet(DjoserUserViewSet):\n    permission_classes = (AllowAny,)\n    pagination_class = LimitOffsetPagination\n    def get_permissions(self):\n        if self.action == 'me':\n            self.permission_classes = (IsAuthenticated,)\n        return super().get_permissions()\n    def get_queryset(self):\n        queryset = super().get_queryset()",
-        "detail": "backend.api.views",
-        "documentation": {}
-    },
-    {
-        "label": "rss",
-        "kind": 5,
-        "importPath": "backend.api.views",
-        "description": "backend.api.views",
-        "peekOfCode": "rss = order.items.prefetch_related('recipe__recipeingredient_set__ingredient')\nили даже так (3 sql запроса а не 4):\nrsss = order.items.select_related('recipe').prefetch_related('recipe__recipeingredient_set__ingredient')\nIn [41]: for r in rss:\n    ...:     for i in r.recipe.recipeingredient_set.all():\n    ...:         print(i.ingredient.name, i.amount)\n\"\"\"",
-        "detail": "backend.api.views",
-        "documentation": {}
-    },
-    {
-        "label": "rsss",
-        "kind": 5,
-        "importPath": "backend.api.views",
-        "description": "backend.api.views",
-        "peekOfCode": "rsss = order.items.select_related('recipe').prefetch_related('recipe__recipeingredient_set__ingredient')\nIn [41]: for r in rss:\n    ...:     for i in r.recipe.recipeingredient_set.all():\n    ...:         print(i.ingredient.name, i.amount)\n\"\"\"",
         "detail": "backend.api.views",
         "documentation": {}
     },
@@ -1729,7 +1495,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\n# AUTH_USER_MODEL = 'users.models.User'\nLANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'",
+        "peekOfCode": "AUTH_USER_MODEL = 'users.User'\nLANGUAGE_CODE = 'ru-RU'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1738,7 +1504,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'ru-RU'  # 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'",
+        "peekOfCode": "LANGUAGE_CODE = 'ru-RU'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1747,7 +1513,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1756,7 +1522,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1765,7 +1531,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1774,7 +1540,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "USE_TZ = True\n# STATIC_URL = \"static/\"\nSTATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {",
+        "peekOfCode": "USE_TZ = True\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1783,7 +1549,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\n# STATIC_ROOT = '/backend_static/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'",
+        "peekOfCode": "STATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'collected_static'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = '/media'  # рабочая директрия\n# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny'\n    ],",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1837,7 +1603,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'user': 'api.serializers.UserSerializer',\n        'current_user': 'api.serializers.UserSerializer',\n        # 'user': 'api.serializers.UserModelSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        # 'activation': ['rest_framework.permissions.AllowAny'],",
+        "peekOfCode": "DJOSER = {\n    'HIDE_USERS': False,\n    'SERIALIZERS': {\n        'current_user': 'api.serializers.UserModelSerializer',\n        'user': 'api.serializers.UserModelSerializer',\n    },\n    'PERMISSIONS': {\n        'user_list': ['rest_framework.permissions.AllowAny'],\n        'user': ['djoser.permissions.CurrentUserOrAdmin'],\n    },",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1846,7 +1612,7 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\nCORS_URLS_REGEX = r'^/api/.*$'",
+        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = False\nCORS_URLS_REGEX = r'^/api/.*$'\nTIME_ERROR_MSG = 'Время не может быть меньше одной минуты'\nREQUIRED_FIELD = 'Обязательное поле'\nNON_EXISTENT_ELEMENTS = 'Несуществующие элементы'\nFONT_NAME = 'JetBrainsMono-Regular'\n# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\nFONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1855,7 +1621,52 @@
         "kind": 5,
         "importPath": "backend.foodgram_backend.settings",
         "description": "backend.foodgram_backend.settings",
-        "peekOfCode": "CORS_URLS_REGEX = r'^/api/.*$'",
+        "peekOfCode": "CORS_URLS_REGEX = r'^/api/.*$'\nTIME_ERROR_MSG = 'Время не может быть меньше одной минуты'\nREQUIRED_FIELD = 'Обязательное поле'\nNON_EXISTENT_ELEMENTS = 'Несуществующие элементы'\nFONT_NAME = 'JetBrainsMono-Regular'\n# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\nFONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ERROR_MSG",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "TIME_ERROR_MSG = 'Время не может быть меньше одной минуты'\nREQUIRED_FIELD = 'Обязательное поле'\nNON_EXISTENT_ELEMENTS = 'Несуществующие элементы'\nFONT_NAME = 'JetBrainsMono-Regular'\n# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\nFONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REQUIRED_FIELD",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "REQUIRED_FIELD = 'Обязательное поле'\nNON_EXISTENT_ELEMENTS = 'Несуществующие элементы'\nFONT_NAME = 'JetBrainsMono-Regular'\n# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\nFONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "NON_EXISTENT_ELEMENTS",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "NON_EXISTENT_ELEMENTS = 'Несуществующие элементы'\nFONT_NAME = 'JetBrainsMono-Regular'\n# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\nFONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "FONT_NAME",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "FONT_NAME = 'JetBrainsMono-Regular'\n# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'\nFONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория",
+        "detail": "backend.foodgram_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "FONT_PATH",
+        "kind": 5,
+        "importPath": "backend.foodgram_backend.settings",
+        "description": "backend.foodgram_backend.settings",
+        "peekOfCode": "FONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория",
         "detail": "backend.foodgram_backend.settings",
         "documentation": {}
     },
@@ -1972,7 +1783,7 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class Ingredient(models.Model):\n    # MEASUREMENT_UNIT_CHOICES = ()\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название ингредиента',\n    )\n    measurement_unit = models.CharField(\n        max_length=50,\n        db_index=True,",
+        "peekOfCode": "class Ingredient(models.Model):\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название ингредиента',\n    )\n    measurement_unit = models.CharField(\n        max_length=50,\n        db_index=True,\n        verbose_name=\"Мера измерения\",",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -1990,7 +1801,7 @@
         "kind": 6,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "class Tag(models.Model):\n    \"\"\"\n    -- Тег\n    Атрибуты модели:\n        Название.\n        Цветовой код, например, #49B64E.\n        Slug.\n    Все поля обязательны для заполнения и уникальны.\n    \"\"\"\n    name = models.CharField(",
+        "peekOfCode": "class Tag(models.Model):\n    name = models.CharField(\n        max_length=20,\n        unique=True,\n        verbose_name='Название тега',\n    )\n    slug = models.CharField(\n        max_length=20,\n        unique=True,\n        db_index=True,",
         "detail": "backend.recipes.models",
         "documentation": {}
     },
@@ -2008,7 +1819,7 @@
         "kind": 5,
         "importPath": "backend.recipes.models",
         "description": "backend.recipes.models",
-        "peekOfCode": "User = get_user_model()\n# # фронт приложения:\n# # http://localhost/\n# # спецификацию (доки) API:\n# # http://localhost/api/docs/redoc.html\nclass Recipe(models.Model):\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',",
+        "peekOfCode": "User = get_user_model()\nclass Recipe(models.Model):\n    name = models.CharField(\n        max_length=150,\n        unique=True,\n        verbose_name='Название рецепта',\n    )\n    text = models.TextField(\n        verbose_name='Описание рецепта'\n    )",
         "detail": "backend.recipes.models",
         "documentation": {}
     },

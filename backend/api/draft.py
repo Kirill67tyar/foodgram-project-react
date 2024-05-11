@@ -1,7 +1,6 @@
-from djoser.views import RegistrationView
 from djoser.constants import Messages
+from djoser.views import RegistrationView
 from rest_framework import validators
-
 
 # # фронт приложения:
 # # http://localhost/
@@ -276,13 +275,18 @@ kirillbogomolov7ric
 
 
 
+1 - чистим код от комментов
+2 - проверяем, будет ли работать modelserializer для User (наводим порядок в сериалайзерах, удаляем лишние и т.д.)
+3 - устанавливаем isort и сортируем импорты
+4 - выносим SEKRET_KEY и прочее в .env (см. в китиграмм)
+5 - выносим в константы все переменные что нужно
+6 - удаляем из гита ненужные папки, заносим в .gitignore
+7 - добавляем в админку всё что надо (см. платформу)
 
 
+sudo docker compose -f docker-compose.doc.yml up
 
 
-
-USER
-yc-user
 
 
 
@@ -298,8 +302,32 @@ kirillbogomolov7ric/kittygram_gateway    <none>    f078b6c2b29f   6 weeks ago   
 kirillbogomolov7ric/kittygram_frontend   <none>    cecd6a1de3c8   6 weeks ago         1.39GB
 
 
+TIME_ERROR_MSG
+MAX_VALUE_ID = 9223372036854775807  # 
+
+
+! =-=-=-=-= for settings =-=-=-=-=
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия
+FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'
+! =-=-=-=-= for settings =-=-=-=-=
 
 
 
-
+-   All database fields
+-   Custom manager attributes
+-   class Meta
+-   def __str__()
+-   def save()
+-   def get_absolute_url()
+-   Any custom methods
 """
+
+
+

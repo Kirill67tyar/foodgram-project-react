@@ -1,70 +1,40 @@
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfbase import pdfmetrics
-from reportlab.lib.pagesizes import letter
+from django.contrib.auth import get_user_model
+from django.http import HttpResponse
+from django_filters.rest_framework import DjangoFilterBackend
+from django.conf import settings as django_settings
+from djoser.conf import settings as djoser_settings
+from djoser.views import UserViewSet as DjoserUserViewSet
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
-
-from django_filters.rest_framework import DjangoFilterBackend
-from io import BytesIO
-from rest_framework.filters import SearchFilter
-from django.template import loader
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
-from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.decorators import action, api_view, permission_classes
-from django.shortcuts import render
-from django.contrib.auth import get_user_model
-from djoser.conf import settings
-from djoser.views import UserViewSet as DjoserUserViewSet
+from rest_framework.serializers import ValidationError
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-import rest_framework.serializers
-from rest_framework.serializers import (
-    ValidationError,
-)
-from rest_framework.viewsets import (
-    ModelViewSet,
-    ReadOnlyModelViewSet,
-)
-
-from api.permissions import (
-    IsAuthenticatedAndAuthorOrReadOnly,
-)
-from api.filters import (
-    IngredientFilter,
-    RecipeFilter,
-)
-from api.serializers import (
-    TagModelSerializer,
-    IngredientModelSerializer,
-    RecipeReadModelSerializer,
-    RecipeWriteModelSerializer,
-    RecipeToFavoriteModelSerializer,
-    UserSubscriptionsModelSerializer,
-)
-from orders.models import (
-    Order,
-    RecipeOrder,
-)
-from recipes.models import (
-    Ingredient,
-    Tag,
-    Recipe,
-)
+from api.filters import IngredientFilter, RecipeFilter
+from api.permissions import IsAuthenticatedAndAuthorOrReadOnly
+from api.serializers import (IngredientModelSerializer,
+                             RecipeReadModelSerializer,
+                             RecipeToFavoriteModelSerializer,
+                             RecipeWriteModelSerializer, TagModelSerializer,
+                             UserSubscriptionsModelSerializer)
+from orders.models import Order, RecipeOrder
+from recipes.models import Ingredient, Recipe, Tag
 from users.models import Follow
 
 
 User = get_user_model()
 
+
 class UserViewSet(DjoserUserViewSet):
     permission_classes = (AllowAny,)
     pagination_class = LimitOffsetPagination
-
 
     def get_permissions(self):
         if self.action == 'me':
@@ -82,7 +52,7 @@ class UserViewSet(DjoserUserViewSet):
 
     def get_serializer_class(self):
         if self.action == 'list':
-            return settings.SERIALIZERS.user
+            return djoser_settings.SERIALIZERS.user
         if self.action in ('subscriptions', 'subscribe',):
             return UserSubscriptionsModelSerializer
         return super().get_serializer_class()
@@ -112,11 +82,13 @@ class UserViewSet(DjoserUserViewSet):
         user_in_following = Follow.objects.filter(
             from_user=user,
             to_user=user_to_follow).exists()
+        err_msg = {}
         if request.method == 'POST':
             if not user_in_following:
                 if user_to_follow == user:
+                    err_msg['Ошибка'] = 'нельзя подписаться на самого себя'
                     raise ValidationError(
-                        'error_msg'
+                        err_msg
                     )
                 user.following.add(user_to_follow)
                 serializer = self.get_serializer(
@@ -125,16 +97,18 @@ class UserViewSet(DjoserUserViewSet):
                 return Response(
                     data=serializer.data,
                     status=status.HTTP_201_CREATED)
+            err_msg['Ошибка'] = 'вы уже подписаны на этого пользователя'
             raise ValidationError(
-                'error_msg'
+                err_msg
             )
         else:
             if user_in_following:
                 user.following.remove(user_to_follow)
                 return Response(
                     status=status.HTTP_204_NO_CONTENT)
-        return Response(
-            status=status.HTTP_400_BAD_REQUEST,
+        err_msg['Ошибка'] = 'вы не подписаны на этого пользователя'
+        raise ValidationError(
+            err_msg
         )
 
 
@@ -208,7 +182,8 @@ class RecipeModelViewSet(ModelViewSet):
             filter_kwargs = {self.lookup_field: self.kwargs[lookup_url_kwarg]}
             recipe = queryset.filter(**filter_kwargs).first()
             if not recipe:
-                raise ValidationError('asdasd')
+                err_msg = {'Ошибка': 'рецепт отсутствует'}
+                raise ValidationError(err_msg)
         return super().get_object()
 
     def get_serializer_class(self):
@@ -261,7 +236,7 @@ class RecipeModelViewSet(ModelViewSet):
             IsAuthenticated,
         ],
     )
-    def shopping_cart(self, request, pk):  #
+    def shopping_cart(self, request, pk):
         user = request.user
         recipe = self.get_object()
         order = user.orders.filter(downloaded=False).first()
@@ -308,8 +283,6 @@ class RecipeModelViewSet(ModelViewSet):
         order = user.orders.filter(downloaded=False).first()
         if not order:
             return HttpResponse(status=200)
-        order.downloaded = True
-        order.save()
         recipe_order_lst = order.items.select_related(
             'recipe'
         ).prefetch_related(
@@ -326,17 +299,13 @@ class RecipeModelViewSet(ModelViewSet):
             for k, v in data.items()
         ]
         data_for_output.insert(0, ['Ингредиенты', 'Количество',])
-        
+
         response = HttpResponse(content_type='application/pdf')
         response['Content-Disposition'] = f'attachment; filename="Заказ-{order.pk}.pdf"'
         doc = SimpleDocTemplate(response, pagesize=letter)
-        
-        
-        # font_path = "/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf"
-        font_path = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория
-        
+
         # Регистрируем шрифт
-        pdfmetrics.registerFont(TTFont("JetBrainsMono-Regular", font_path))
+        pdfmetrics.registerFont(TTFont(django_settings.FONT_NAME, django_settings.FONT_PATH))
 
         # Создаем таблицу и задаем стиль
         table = Table(
@@ -347,7 +316,7 @@ class RecipeModelViewSet(ModelViewSet):
         style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
                             ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
                             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                            ('FONTNAME', (0, 0), (-1, -1), 'JetBrainsMono-Regular'),
+                            ('FONTNAME', (0, 0), (-1, -1), django_settings.FONT_NAME),
                             ('FONTSIZE', (0, 0), (-1, -1), 12),
                             ('BOTTOMPADDING', (0, 0), (-1, 0), 5),
                             ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
@@ -357,57 +326,7 @@ class RecipeModelViewSet(ModelViewSet):
         # Добавляем таблицу в документ
         elements = [table]
         doc.build(elements)
+        order.downloaded = True
+        order.save()
 
         return response
-
-
-# http://127.0.0.1:8000/api/recipes-temprorary/download_shopping_cart/
-@permission_classes([IsAuthenticated,])
-@api_view(http_method_names=['GET'])
-def download_cart_view(request):
-    user = request.user
-    order = user.orders.filter(downloaded=False).first()
-    if not order:
-        # return HttpResponse(status=200)
-        return HttpResponse(status=200)
-    order.downloaded = True
-    recipe_order_lst = order.items.select_related(
-        'recipe'
-    ).prefetch_related(
-        'recipe__recipeingredient_set__ingredient'
-    )
-    data = {}
-    for r_o in recipe_order_lst:
-        for i in r_o.recipe.recipeingredient_set.all():
-            key = (i.ingredient.name, i.ingredient.measurement_unit,)
-            data[key] = data.get(key, 0) + i.amount
-    # content = loader.render_to_string(
-    #     template_name='orders/order_template.html',
-    #     context={
-    #         # 'order': order,
-    #     },
-    #     request=request
-    # )
-    # ? ----- формирование файла --------
-    content = 'тааа-шааа'
-    # ? ----- формирование файла --------
-    buffer = BytesIO()
-    buffer.write(bytes(content, encoding='utf-8'))
-    buffer.seek(0)
-    a = 12345
-    response = HttpResponse(buffer, content_type='application/octet-stream')
-    response['Content-Disposition'] = f'attachment; filename="file-{a}.txt"'
-    # response['Content-Disposition'] = f'attachment; filename="file-{a}.html"'
-
-    return response
-
-
-"""
-rss = order.items.prefetch_related('recipe__recipeingredient_set__ingredient')
-или даже так (3 sql запроса а не 4):
-rsss = order.items.select_related('recipe').prefetch_related('recipe__recipeingredient_set__ingredient')
-
-In [41]: for r in rss:
-    ...:     for i in r.recipe.recipeingredient_set.all():
-    ...:         print(i.ingredient.name, i.amount)
-"""

@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-(j5tdm_euxl=c@@!)!wi%d$cb%85&qz9j+(fmet&f*%3gqor2g'
@@ -107,9 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.User'
-# AUTH_USER_MODEL = 'users.models.User'
 
-LANGUAGE_CODE = 'ru-RU'  # 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -120,9 +118,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# STATIC_URL = "static/"
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/backend_static/static/'
 STATIC_ROOT = BASE_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
@@ -147,33 +143,21 @@ REST_FRAMEWORK = {
 DJOSER = {
     'HIDE_USERS': False,
     'SERIALIZERS': {
-        'user': 'api.serializers.UserSerializer',
-        'current_user': 'api.serializers.UserSerializer',
-        # 'user': 'api.serializers.UserModelSerializer',
+        'current_user': 'api.serializers.UserModelSerializer',
+        'user': 'api.serializers.UserModelSerializer',
     },
     'PERMISSIONS': {
         'user_list': ['rest_framework.permissions.AllowAny'],
-        # 'activation': ['rest_framework.permissions.AllowAny'],
-        # 'password_reset': ['rest_framework.permissions.AllowAny'],
-        # 'password_reset_confirm': ['rest_framework.permissions.AllowAny'],
-        # 'set_password': ['djoser.permissions.CurrentUserOrAdmin'],
-        # 'username_reset': ['rest_framework.permissions.AllowAny'],
-        # 'username_reset_confirm': ['rest_framework.permissions.AllowAny'],
-        # 'set_username': ['djoser.permissions.CurrentUserOrAdmin'],
-        # 'user_create': ['rest_framework.permissions.AllowAny'],
-        # 'user_delete': ['djoser.permissions.CurrentUserOrAdmin'],
         'user': ['djoser.permissions.CurrentUserOrAdmin'],
-        # 'token_create': ['rest_framework.permissions.AllowAny'],
-        # 'token_destroy': ['rest_framework.permissions.IsAuthenticated'],
     },
-    # 'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
-    # 'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
-    # 'ACTIVATION_URL': '#/activate/{uid}/{token}',
-    # 'SEND_ACTIVATION_EMAIL': True,
-    # 'SERIALIZERS': {},
-
 }
-# INTERNAL_IPS = ['127.0.0.1',]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 CORS_URLS_REGEX = r'^/api/.*$'
+
+TIME_ERROR_MSG = 'Время не может быть меньше одной минуты'
+REQUIRED_FIELD = 'Обязательное поле'
+NON_EXISTENT_ELEMENTS = 'Несуществующие элементы'
+FONT_NAME = 'JetBrainsMono-Regular'
+# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'
+FONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория

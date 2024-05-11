@@ -1,11 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
-from django.contrib.auth import get_user_model
-from recipes.models import (
-    Recipe,
-    Ingredient,
-)
-
+from recipes.models import Recipe
 
 User = get_user_model()
 
@@ -35,26 +31,3 @@ class RecipeOrder(models.Model):
         related_name='orders',
         verbose_name='Рецепт'
     )
-
-
-"""
-
-
-recipe__orders__owner=user
-AND
-recipe__orders__downloaded=True
-
-3 этапа:
-
-* 1 - написать эндпоинты для добавления/удаления рецептов в заказе, и чтобы заказ нормально создавался
-         - get (скачать рецепт) -
-         - post +
-         - delete +
-* 2 - написать алгоритм для складывания и подсчёта ингредиентов, хорошо подойдёт словарь {ингредиент: кол-во}
-* 3 - написать обрабочтк, для того чтобы отдавать txt (можно потом переделать на pdf) документ клиенту. 
-*     При этом должно фиксироваться что заказ скачан,
-*     и должен формироваться новый заказ после того, как старый скачан
-
-
-"""
-

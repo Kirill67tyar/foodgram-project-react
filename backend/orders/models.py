@@ -18,6 +18,10 @@ class Order(models.Model):
         verbose_name='Скачан',
     )
 
+    def __str__(self):
+        return f'Заказ - {self.pk}'
+
+
 class RecipeOrder(models.Model):
     order = models.ForeignKey(
         to=Order,

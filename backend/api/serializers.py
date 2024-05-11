@@ -11,6 +11,7 @@ from recipes.models import Ingredient, Recipe, RecipeIngredient, Tag
 
 User = get_user_model()
 
+
 class LimitedRecipeSerializer(serializers.ListSerializer):
     def to_representation(self, data):
         recipes_limit = self.context['request'].query_params.get(

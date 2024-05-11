@@ -3,6 +3,7 @@ from django.db import models
 
 User = get_user_model()
 
+
 class Recipe(models.Model):
     name = models.CharField(
         max_length=150,
@@ -37,20 +38,26 @@ class Recipe(models.Model):
         verbose_name='Ингредиенты'
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Ingredient(models.Model):
-    
+
     name = models.CharField(
         max_length=150,
         unique=True,
         verbose_name='Название ингредиента',
     )
-    
+
     measurement_unit = models.CharField(
         max_length=50,
         db_index=True,
         verbose_name="Мера измерения",
     )
+
+    def __str__(self):
+        return self.name
 
 
 class RecipeIngredient(models.Model):
@@ -67,6 +74,7 @@ class RecipeIngredient(models.Model):
     amount = models.PositiveSmallIntegerField(
         verbose_name='Количество'
     )
+
     class Meta:
         constraints = [
             models.UniqueConstraint(
@@ -76,10 +84,8 @@ class RecipeIngredient(models.Model):
         ]
 
 
-
-
 class Tag(models.Model):
-    
+
     name = models.CharField(
         max_length=20,
         unique=True,
@@ -94,6 +100,9 @@ class Tag(models.Model):
     color = models.CharField(
         max_length=16
     )
+
+    def __str__(self):
+        return self.name
 
 
 class RecipeTag(models.Model):
@@ -115,4 +124,4 @@ class RecipeTag(models.Model):
         ]
 
     def __str__(self):
-        return f'{self.user} {self.recipe}'
+        return f'{self.pk} {self.recipe}'

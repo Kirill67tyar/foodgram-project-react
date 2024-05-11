@@ -3,7 +3,6 @@ from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
@@ -81,13 +80,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -122,7 +114,6 @@ STATIC_ROOT = BASE_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/media'  # рабочая директрия
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -158,5 +149,4 @@ TIME_ERROR_MSG = 'Время не может быть меньше одной м
 REQUIRED_FIELD = 'Обязательное поле'
 NON_EXISTENT_ELEMENTS = 'Несуществующие элементы'
 FONT_NAME = 'JetBrainsMono-Regular'
-# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'
 FONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория

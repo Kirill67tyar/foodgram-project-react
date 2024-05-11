@@ -24,7 +24,7 @@ from api.serializers import (IngredientModelSerializer,
                              RecipeToFavoriteModelSerializer,
                              RecipeWriteModelSerializer, TagModelSerializer,
                              UserSubscriptionsModelSerializer)
-from orders.models import Order, RecipeOrder
+from orders.models import RecipeOrder
 from recipes.models import Ingredient, Recipe, Tag
 from users.models import Follow
 
@@ -169,7 +169,8 @@ class RecipeModelViewSet(ModelViewSet):
         return self.queryset
 
     def get_object(self):
-        if self.action in ('shopping_cart', 'favorite',) and self.request.method == 'POST':
+        if (self.action in ('shopping_cart', 'favorite',)
+                and self.request.method == 'POST'):
             queryset = self.filter_queryset(self.get_queryset())
             lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
             assert lookup_url_kwarg in self.kwargs, (
@@ -300,11 +301,13 @@ class RecipeModelViewSet(ModelViewSet):
         data_for_output.insert(0, ['Ингредиенты', 'Количество',])
 
         response = HttpResponse(content_type='application/pdf')
-        response['Content-Disposition'] = f'attachment; filename="Заказ-{order.pk}.pdf"'
+        filename = f'attachment; filename="Заказ-{order.pk}.pdf"'
+        response['Content-Disposition'] = filename
         doc = SimpleDocTemplate(response, pagesize=letter)
 
         # Регистрируем шрифт
-        pdfmetrics.registerFont(TTFont(django_settings.FONT_NAME, django_settings.FONT_PATH))
+        pdfmetrics.registerFont(
+            TTFont(django_settings.FONT_NAME, django_settings.FONT_PATH))
 
         # Создаем таблицу и задаем стиль
         table = Table(
@@ -315,7 +318,8 @@ class RecipeModelViewSet(ModelViewSet):
         style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
                             ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
                             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                            ('FONTNAME', (0, 0), (-1, -1), django_settings.FONT_NAME),
+                            ('FONTNAME', (0, 0), (-1, -1),
+                             django_settings.FONT_NAME),
                             ('FONTSIZE', (0, 0), (-1, -1), 12),
                             ('BOTTOMPADDING', (0, 0), (-1, 0), 5),
                             ('BACKGROUND', (0, 1), (-1, -1), colors.beige),

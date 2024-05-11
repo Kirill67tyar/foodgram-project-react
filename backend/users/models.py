@@ -61,7 +61,7 @@ class User(AbstractUser):
         )
 
     def __str__(self):
-        return f'username: {self.username}; email: {self.email}'
+        return f'username: {self.username}'
 
 
 class Follow(models.Model):
@@ -90,9 +90,6 @@ class Follow(models.Model):
             ),
         ]
 
-    def __str__(self):
-        return f'Пользователь (id {self.user_id}) - Подписчик (id {self.following_id})'
-
 
 class Favorite(models.Model):
     user = models.ForeignKey(
@@ -111,6 +108,3 @@ class Favorite(models.Model):
                 name='unique_key_user_recipe'
             ),
         ]
-
-    def __str__(self):
-        return f'{self.user} {self.recipe}'

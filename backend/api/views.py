@@ -23,7 +23,7 @@ from api.serializers import (IngredientModelSerializer,
                              RecipeReadModelSerializer,
                              RecipeToFavoriteModelSerializer,
                              RecipeWriteModelSerializer, TagModelSerializer,
-                             UserSubscriptionsModelSerializer)
+                             UserSubscriptionsModelSerializer, UserAuthorSubscribeSerializer, AddToFavoriteSerializer)
 from orders.models import RecipeOrder
 from recipes.models import Ingredient, Recipe, Tag
 from users.models import Follow
@@ -52,8 +52,10 @@ class UserViewSet(DjoserUserViewSet):
     def get_serializer_class(self):
         if self.action == 'list':
             return djoser_settings.SERIALIZERS.user
-        if self.action in ('subscriptions', 'subscribe',):
+        if self.action in ('subscriptions',):
             return UserSubscriptionsModelSerializer
+        if self.action in ('subscribe',):
+            return UserAuthorSubscribeSerializer
         return super().get_serializer_class()
 
     @action(
@@ -69,7 +71,7 @@ class UserViewSet(DjoserUserViewSet):
 
     @action(
         detail=True,
-        methods=['post', 'delete'],
+        methods=['post',],
         url_path='subscribe',
         permission_classes=[
             IsAuthenticated,
@@ -77,38 +79,32 @@ class UserViewSet(DjoserUserViewSet):
     )
     def subscribe(self, request, id):
         user = request.user
-        user_to_follow = self.get_object()
-        user_in_following = Follow.objects.filter(
-            from_user=user,
-            to_user=user_to_follow).exists()
-        err_msg = {}
-        if request.method == 'POST':
-            if not user_in_following:
-                if user_to_follow == user:
-                    err_msg['Ошибка'] = 'нельзя подписаться на самого себя'
-                    raise ValidationError(
-                        err_msg
-                    )
-                user.following.add(user_to_follow)
-                serializer = self.get_serializer(
-                    user_to_follow
-                )
-                return Response(
-                    data=serializer.data,
-                    status=status.HTTP_201_CREATED)
-            err_msg['Ошибка'] = 'вы уже подписаны на этого пользователя'
-            raise ValidationError(
-                err_msg
-            )
-        else:
-            if user_in_following:
-                user.following.remove(user_to_follow)
-                return Response(
-                    status=status.HTTP_204_NO_CONTENT)
-        err_msg['Ошибка'] = 'вы не подписаны на этого пользователя'
-        raise ValidationError(
-            err_msg
+        serializer = self.get_serializer(
+            context={
+                'request': request,
+                'user': user,
+                'user_to_follow': self.get_object(),
+            },
+            data={'user_to_follow': int(id), }
         )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+
+    @subscribe.mapping.delete
+    def delete_subscribe(self, request, id=None):
+        user = request.user
+        serializer = UserAuthorSubscribeSerializer(
+            context={
+                'request': request,
+                'user': user,
+                'user_to_follow': self.get_object(),
+            },
+            data={'user_to_follow': int(id), }
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class TagReadOnlyModelViewSet(ReadOnlyModelViewSet):
@@ -151,23 +147,6 @@ class RecipeModelViewSet(ModelViewSet):
         'delete',
     ]
 
-    def get_queryset(self):
-        is_in_shopping_cart = self.request.query_params.get(
-            'is_in_shopping_cart')
-        is_favorited = self.request.query_params.get(
-            'is_favorited')
-        if is_in_shopping_cart is not None and bool(is_in_shopping_cart) == 1:
-            user = self.request.user
-            if user.is_authenticated:
-                order = user.orders.filter(downloaded=False).first()
-                if order:
-                    return self.queryset.filter(orders__order=order)
-        if is_favorited is not None and bool(is_favorited) == 1:
-            user = self.request.user
-            if user.is_authenticated:
-                return user.favorites.all()
-        return self.queryset
-
     def get_object(self):
         if (self.action in ('shopping_cart', 'favorite',)
                 and self.request.method == 'POST'):
@@ -191,6 +170,7 @@ class RecipeModelViewSet(ModelViewSet):
             return RecipeReadModelSerializer
         elif self.action in ('favorite', 'shopping_cart', ):
             return RecipeToFavoriteModelSerializer
+            # return AddToFavoriteSerializer
         return RecipeWriteModelSerializer
 
     def perform_create(self, serializer):
@@ -198,35 +178,65 @@ class RecipeModelViewSet(ModelViewSet):
 
     @action(
         detail=True,
-        methods=['post', 'delete'],
+        methods=[
+            'post',
+            # 'delete'
+        ],
         url_path='favorite',
         permission_classes=[
             IsAuthenticated,
         ],
     )
     def favorite(self, request, pk):
-        user = request.user
-        recipe = self.get_object()
-        if recipe:
-            recipe_in_favorite = user.favorites.filter(
-                favorite__recipe=recipe).exists()
-            if request.method == 'POST':
-                if not recipe_in_favorite:
-                    user.favorites.add(recipe)
-                    serializer = self.get_serializer(
-                        recipe
-                    )
-                    return Response(
-                        data=serializer.data,
-                        status=status.HTTP_201_CREATED)
-            else:
-                if recipe_in_favorite:
-                    user.favorites.remove(recipe)
-                    return Response(
-                        status=status.HTTP_204_NO_CONTENT)
-        return Response(
-            status=status.HTTP_400_BAD_REQUEST,
+        # serializer = self.get_serializer(
+        serializer = AddToFavoriteSerializer(
+            context={
+                'request': request, },
+            data={
+                'user': request.user.id,
+                'recipe': int(pk),
+            }
         )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+
+    @favorite.mapping.delete
+    def delete_favorite(self, request, pk=None):
+        serializer = AddToFavoriteSerializer(
+            context={
+                'request': request, },
+            data={
+                'user': request.user.id,
+                'recipe': int(pk),
+            }
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.delete()
+        return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
+
+        # user = request.user
+        # recipe = self.get_object()
+        # if recipe:
+        #     recipe_in_favorite = user.favorites.filter(
+        #         favorite__recipe=recipe).exists()
+        #     if request.method == 'POST':
+        #         if not recipe_in_favorite:
+        #             user.favorites.add(recipe)
+        #             serializer = self.get_serializer(
+        #                 recipe
+        #             )
+        #             return Response(
+        #                 data=serializer.data,
+        #                 status=status.HTTP_201_CREATED)
+        #     else:
+        #         if recipe_in_favorite:
+        #             user.favorites.remove(recipe)
+        #             return Response(
+        #                 status=status.HTTP_204_NO_CONTENT)
+        # return Response(
+        #     status=status.HTTP_400_BAD_REQUEST,
+        # )
 
     @action(
         detail=True,

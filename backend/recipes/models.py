@@ -1,3 +1,5 @@
+from colorfield.fields import ColorField
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -20,14 +22,24 @@ class Recipe(models.Model):
         verbose_name='Автор рецепта'
     )
     cooking_time = models.PositiveSmallIntegerField(
-        verbose_name='Минут готовить'
+        verbose_name='Минут готовить',
+        validators=[
+            MaxValueValidator(
+                32000,
+                message='Время приготовления не может быть больше 32 000 минут'
+            ),
+            MinValueValidator(
+                1,
+                message='Время приготовления не может быть менише 1 минуты'
+            )
+        ]
     )
     image = models.ImageField(
         upload_to='recipes/images/'
     )
     tags = models.ManyToManyField(
         'recipes.Tag',
-        through='recipes.RecipeTag',
+        # through='recipes.RecipeTag',
         related_name='recipes',
         verbose_name='Тэги'
     )
@@ -56,6 +68,14 @@ class Ingredient(models.Model):
         verbose_name="Мера измерения",
     )
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['name', 'measurement_unit'],
+                name='unique_name_measurement_unit'
+            )
+        ]
+
     def __str__(self):
         return self.name
 
@@ -72,7 +92,17 @@ class RecipeIngredient(models.Model):
         verbose_name='Ингредиенты'
     )
     amount = models.PositiveSmallIntegerField(
-        verbose_name='Количество'
+        verbose_name='Количество',
+        validators=[
+            MaxValueValidator(
+                32000,
+                message='Количество не может быть больше 32 000'
+            ),
+            MinValueValidator(
+                1,
+                message='Количество не может быть меньше 1'
+            )
+        ]
     )
 
     class Meta:
@@ -97,31 +127,7 @@ class Tag(models.Model):
         db_index=True,
         verbose_name='Slug',
     )
-    color = models.CharField(
-        max_length=16
-    )
+    color = ColorField(default='#FF0000')
 
     def __str__(self):
         return self.name
-
-
-class RecipeTag(models.Model):
-    recipe = models.ForeignKey(
-        Recipe,
-        on_delete=models.CASCADE,
-    )
-    tag = models.ForeignKey(
-        Tag,
-        on_delete=models.CASCADE,
-    )
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                fields=['recipe', 'tag', ],
-                name='unique_key_recipe_tag'
-            ),
-        ]
-
-    def __str__(self):
-        return f'{self.pk} {self.recipe}'

@@ -69,17 +69,23 @@ TEMPLATES = [
 WSGI_APPLICATION = 'foodgram_backend.wsgi.application'
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('POSTGRES_DB', 'django'),
+#         'USER': os.getenv('POSTGRES_USER', 'django'),
+#         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+#         'HOST': os.getenv('DB_HOST', ''),
+#         'PORT': os.getenv('DB_PORT', 5432),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'django'),
-        'USER': os.getenv('POSTGRES_USER', 'django'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
-        'PORT': os.getenv('DB_PORT', 5432),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -113,7 +119,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/media'  # рабочая директрия
+# MEDIA_ROOT = '/media'  # рабочая директрия
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -149,4 +156,10 @@ TIME_ERROR_MSG = 'Время не может быть меньше одной м
 REQUIRED_FIELD = 'Обязательное поле'
 NON_EXISTENT_ELEMENTS = 'Несуществующие элементы'
 FONT_NAME = 'JetBrainsMono-Regular'
-FONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория
+# FONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория
+FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'
+# ! =-=-=-=-= for settings =-=-=-=-=
+
+
+
+# ! =-=-=-=-= for settings =-=-=-=-=

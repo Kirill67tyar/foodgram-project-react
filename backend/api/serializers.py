@@ -1,15 +1,15 @@
 import base64
 
-from django.http import Http404
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
+from django.http import Http404
 from rest_framework import serializers
 from rest_framework.serializers import Serializer, ValidationError
 
+from foodgram_backend import constants
+from recipes.models import (Favorite, Ingredient, Order, Recipe,
+                            RecipeIngredient, Tag)
 from users.models import Follow
-from recipes.models import Ingredient, Recipe, RecipeIngredient, Tag, Order, Favorite
-
 
 User = get_user_model()
 
@@ -403,13 +403,13 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         ingredients_data = data.get('ingredients')
         err_msg = {}
         if not ingredients_data:
-            err_msg['ingredients'] = [settings.INGREDIENTS_REQUIRED_FIELD]
+            err_msg['ingredients'] = [constants.INGREDIENTS_REQUIRED_FIELD]
             raise ValidationError(
                 err_msg
             )
         ingredients_ids = [ingredient['id'] for ingredient in ingredients_data]
         if len(ingredients_ids) != len(set(ingredients_ids)):
-            err_msg['ingredients'] = [settings.REPEATED_INGREDIENTS]
+            err_msg['ingredients'] = [constants.REPEATED_INGREDIENTS]
             raise ValidationError(
                 err_msg
             )
@@ -420,24 +420,23 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         ingredients_ids.sort()
         ingredients_ids_exists.sort()
         if ingredients_ids != ingredients_ids_exists:
-            err_msg['ingredients'] = [settings.NON_EXISTENT_ELEMENTS]
+            err_msg['ingredients'] = [constants.NON_EXISTENT_ELEMENTS]
             raise ValidationError(
                 err_msg
             )
         tags_ids = data.get('tags')
         if not tags_ids:
-            err_msg['tags'] = [settings.TAGS_REQUIRED_FIELD]
+            err_msg['tags'] = [constants.TAGS_REQUIRED_FIELD]
             raise ValidationError(
                 err_msg
             )
         if len(tags_ids) != len(set(tags_ids)):
-            err_msg['tags'] = [settings.REPEATED_TAGS]
+            err_msg['tags'] = [constants.REPEATED_TAGS]
             raise ValidationError(
                 err_msg
             )
-
         return data
-    
+
     def add_ingredients_to_recipe(self, ingredients_data, recipe):
         ingredients_ids = {
             ingredient['id']: ingredient for ingredient in ingredients_data}
@@ -461,7 +460,7 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         self.add_ingredients_to_recipe(
             ingredients_data,
             recipe
-            )
+        )
         return recipe
 
     def update(self, instance, validated_data):
@@ -471,7 +470,7 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
         self.add_ingredients_to_recipe(
             ingredients_data,
             instance
-            )
+        )
         instance.tags.clear()
         instance.tags.set(tags_lst)
         return super().update(instance, validated_data)

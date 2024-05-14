@@ -1,6 +1,5 @@
-from django.db.models import Sum
-from django.conf import settings as django_settings
 from django.contrib.auth import get_user_model
+from django.db.models import Sum
 from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
 from djoser.conf import settings as djoser_settings
@@ -15,19 +14,18 @@ from rest_framework.decorators import action
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.serializers import ValidationError
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from api.filters import IngredientFilter, RecipeFilter
 from api.permissions import IsAuthenticatedAndAuthorOrReadOnly
-from api.serializers import (IngredientModelSerializer,
+from api.serializers import (AddToFavoriteSerializer, AddToShoppingCart,
+                             IngredientModelSerializer,
                              RecipeReadModelSerializer,
-                             RecipeToFavoriteModelSerializer,
                              RecipeWriteModelSerializer, TagModelSerializer,
-                             UserSubscriptionsModelSerializer, UserAuthorSubscribeSerializer,
-                             AddToFavoriteSerializer, AddToShoppingCart)
-from recipes.models import Ingredient, Recipe, Tag, Order, Favorite
-from users.models import Follow
+                             UserAuthorSubscribeSerializer,
+                             UserSubscriptionsModelSerializer)
+from foodgram_backend import constants
+from recipes.models import Ingredient, Recipe, Tag
 
 User = get_user_model()
 
@@ -145,21 +143,19 @@ class RecipeModelViewSet(ModelViewSet):
         'delete',
     ]
 
-
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadModelSerializer
-        elif self.action in ('favorite', 'shopping_cart', ):
-            # return RecipeToFavoriteModelSerializer
+        elif self.action in ('favorite', 'delete_favorite', ):
             return AddToFavoriteSerializer
+        elif self.action in ('shopping_cart', 'delete_shopping_cart', ):
+            return AddToShoppingCart
         return RecipeWriteModelSerializer
-
 
     @action(
         detail=True,
         methods=[
             'post',
-            # 'delete'
         ],
         url_path='favorite',
         permission_classes=[
@@ -168,7 +164,6 @@ class RecipeModelViewSet(ModelViewSet):
     )
     def favorite(self, request, pk):
         serializer = self.get_serializer(
-        # serializer = AddToFavoriteSerializer(
             context={
                 'request': request, },
             data={
@@ -182,7 +177,7 @@ class RecipeModelViewSet(ModelViewSet):
 
     @favorite.mapping.delete
     def delete_favorite(self, request, pk=None):
-        serializer = AddToFavoriteSerializer(
+        serializer = self.get_serializer(
             context={
                 'request': request, },
             data={
@@ -207,7 +202,7 @@ class RecipeModelViewSet(ModelViewSet):
         order = user.orders.filter(downloaded=False).first()
         if not order:
             order = user.orders.create()
-        serializer = AddToShoppingCart(
+        serializer = self.get_serializer(
             context={
                 'request': request, },
             data={
@@ -225,7 +220,7 @@ class RecipeModelViewSet(ModelViewSet):
         order = user.orders.filter(downloaded=False).first()
         if not order:
             order = user.orders.create()
-        serializer = AddToShoppingCart(
+        serializer = self.get_serializer(
             context={
                 'request': request, },
             data={
@@ -237,23 +232,7 @@ class RecipeModelViewSet(ModelViewSet):
         serializer.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    @action(
-        detail=False,
-        methods=['get', ],
-        url_path='download_shopping_cart',
-        permission_classes=[
-            IsAuthenticated,
-        ],
-    )
-    def download_shopping_cart(self, request):
-        user = request.user
-        order = user.orders.filter(downloaded=False).first()
-        if not order:
-            return HttpResponse(status=200)
-        ingredient_order_lst = list(order.recipe.values(
-            'ingredients__name', 'ingredients__measurement_unit'
-        ).annotate(total_amount=Sum('recipeingredient__amount')))
-
+    def generate_pdf_document(self, ingredient_order_lst, order):
         data_for_output = [
             [
                 ingrdient['ingredients__name'],
@@ -272,7 +251,7 @@ class RecipeModelViewSet(ModelViewSet):
 
         # Регистрируем шрифт
         pdfmetrics.registerFont(
-            TTFont(django_settings.FONT_NAME, django_settings.FONT_PATH))
+            TTFont(constants.FONT_NAME, constants.FONT_PATH))
 
         # Создаем таблицу и задаем стиль
         table = Table(
@@ -284,7 +263,7 @@ class RecipeModelViewSet(ModelViewSet):
                             ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
                             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
                             ('FONTNAME', (0, 0), (-1, -1),
-                             django_settings.FONT_NAME),
+                             constants.FONT_NAME),
                             ('FONTSIZE', (0, 0), (-1, -1), 12),
                             ('BOTTOMPADDING', (0, 0), (-1, 0), 5),
                             ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
@@ -294,7 +273,28 @@ class RecipeModelViewSet(ModelViewSet):
         # Добавляем таблицу в документ
         elements = [table]
         doc.build(elements)
+        return response
+
+    @action(
+        detail=False,
+        methods=['get', ],
+        url_path='download_shopping_cart',
+        permission_classes=[
+            IsAuthenticated,
+        ],
+    )
+    def download_shopping_cart(self, request):
+        user = request.user
+        order = user.orders.filter(downloaded=False).first()
+        if not order:
+            return HttpResponse(status=200)
+        ingredient_order_lst = list(order.recipe.values(
+            'ingredients__name', 'ingredients__measurement_unit'
+        ).annotate(total_amount=Sum('recipeingredient__amount')))
+        response = self.generate_pdf_document(
+            ingredient_order_lst,
+            order,
+        )
         order.downloaded = True
         order.save()
-
         return response

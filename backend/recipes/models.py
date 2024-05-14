@@ -1,15 +1,16 @@
 from colorfield.fields import ColorField
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth import get_user_model
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
+from foodgram_backend import constants
 
 User = get_user_model()
 
 
 class Recipe(models.Model):
     name = models.CharField(
-        max_length=150,
+        max_length=constants.MAX_LENGTH_NAME,
         unique=True,
         verbose_name='Название рецепта',
     )
@@ -26,12 +27,12 @@ class Recipe(models.Model):
         verbose_name='Минут готовить',
         validators=[
             MaxValueValidator(
-                32000,
-                message='Время приготовления не может быть больше 32 000 минут'
+                constants.MAX_VALUE_FOR_VALIDATOR,
+                message=constants.MAX_MESSAGE_VALIDATOR_COOKING_TIME
             ),
             MinValueValidator(
                 1,
-                message='Время приготовления не может быть менише 1 минуты'
+                message=constants.MIN_MESSAGE_VALIDATOR_COOKING_TIME
             )
         ]
     )
@@ -40,7 +41,6 @@ class Recipe(models.Model):
     )
     tags = models.ManyToManyField(
         'recipes.Tag',
-        # through='recipes.RecipeTag',
         related_name='recipes',
         verbose_name='Тэги'
     )
@@ -50,6 +50,15 @@ class Recipe(models.Model):
         related_name='recipes',
         verbose_name='Ингредиенты'
     )
+    pub_date = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Дата и время публикации рецепта',
+    )
+
+    class Meta:
+        verbose_name = 'Рецепт'
+        verbose_name_plural = 'Рецепты'
+        ordering = ('pub_date', 'name',)
 
     def __str__(self):
         return self.name
@@ -58,18 +67,21 @@ class Recipe(models.Model):
 class Ingredient(models.Model):
 
     name = models.CharField(
-        max_length=150,
+        max_length=constants.MAX_LENGTH_NAME,
         unique=True,
         verbose_name='Название ингредиента',
     )
 
     measurement_unit = models.CharField(
-        max_length=50,
+        max_length=constants.MAX_LENGTH_NAME,
         db_index=True,
         verbose_name="Мера измерения",
     )
 
     class Meta:
+        verbose_name = 'Ингредиент'
+        verbose_name_plural = 'Ингредиенты'
+        ordering = ('name',)
         constraints = [
             models.UniqueConstraint(
                 fields=['name', 'measurement_unit'],
@@ -96,12 +108,12 @@ class RecipeIngredient(models.Model):
         verbose_name='Количество',
         validators=[
             MaxValueValidator(
-                32000,
-                message='Количество не может быть больше 32 000'
+                constants.MAX_VALUE_FOR_VALIDATOR,
+                message=constants.MAX_MESSAGE_VALIDATOR_AMOUNT
             ),
             MinValueValidator(
                 1,
-                message='Количество не может быть меньше 1'
+                message=constants.MIN_MESSAGE_VALIDATOR_AMOUNT
             )
         ]
     )
@@ -118,17 +130,22 @@ class RecipeIngredient(models.Model):
 class Tag(models.Model):
 
     name = models.CharField(
-        max_length=20,
+        max_length=constants.MAX_LENGTH_NAME,
         unique=True,
         verbose_name='Название тега',
     )
     slug = models.CharField(
-        max_length=20,
+        max_length=constants.MAX_LENGTH_NAME,
         unique=True,
         db_index=True,
         verbose_name='Slug',
     )
     color = ColorField(default='#FF0000')
+
+    class Meta:
+        verbose_name = 'Тег'
+        verbose_name_plural = 'Теги'
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -148,9 +165,15 @@ class Order(models.Model):
         default=False,
         verbose_name='Скачан',
     )
+    pub_date = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Дата и время публикации заказа',
+    )
+
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
+        ordering = ('pub_date', )
         default_related_name = 'orders'
 
     def __str__(self):
@@ -170,6 +193,9 @@ class Favorite(models.Model):
     )
 
     class Meta:
+        verbose_name = 'Подписки'
+        verbose_name_plural = 'Подписки'
+        ordering = ('user',)
         constraints = [
             models.UniqueConstraint(
                 fields=['user', 'recipe', ],
@@ -177,3 +203,5 @@ class Favorite(models.Model):
             ),
         ]
 
+    def __str__(self):
+        return f'Подписка - {self.pk}'

@@ -68,7 +68,7 @@ class UserViewSet(DjoserUserViewSet):
 
     @action(
         detail=True,
-        methods=['post',],
+        methods=['post', ],
         url_path='subscribe',
         permission_classes=[
             IsAuthenticated,
@@ -191,7 +191,7 @@ class RecipeModelViewSet(ModelViewSet):
 
     @action(
         detail=True,
-        methods=['post',],
+        methods=['post', ],
         url_path='shopping_cart',
         permission_classes=[
             IsAuthenticated,

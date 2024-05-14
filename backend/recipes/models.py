@@ -131,3 +131,26 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Order(models.Model):
+    owner = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        verbose_name='Заказчик',
+    )
+    recipe = models.ManyToManyField(
+        to=Recipe,
+        verbose_name='Рецепты'
+    )
+    downloaded = models.BooleanField(
+        default=False,
+        verbose_name='Скачан',
+    )
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
+        default_related_name = 'orders'
+
+    def __str__(self):
+        return f'Заказ - {self.pk}'

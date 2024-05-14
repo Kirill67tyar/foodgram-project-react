@@ -1,15 +1,15 @@
 import base64
 
-from rest_framework import status
+from django.http import Http404
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
+from rest_framework import status
 from rest_framework import serializers
 from rest_framework.serializers import ListField, Serializer, ValidationError
 
 from users.models import Follow
-from orders.models import RecipeOrder
-from recipes.models import Ingredient, Recipe, RecipeIngredient, Tag
+from recipes.models import Ingredient, Recipe, RecipeIngredient, Tag, Order
 
 User = get_user_model()
 
@@ -74,101 +74,150 @@ class UserSubscriptionsModelSerializer(UserModelSerializer):
 
     def get_recipes_count(self, obj):
         return obj.recipes.count()
-    
-       
+
 
 class UserAuthorSubscribeSerializer(serializers.Serializer):
-        user_to_follow = serializers.IntegerField()
-        
-        def validate(self, data):
-            
-            err_msg = {}
-            request = self.context['request']
-            user = self.context['user']
-            user_to_follow = self.context['user_to_follow']
-            user_in_following = Follow.objects.filter(
-                    from_user=user,
-                    to_user=user_to_follow).exists()
-            if request.method == 'POST':
-                if user_in_following:
-                    err_msg['Ошибка'] = 'вы уже подписаны на этого пользователя'
-                    raise ValidationError(
-                        err_msg
-                    )
-                if user_to_follow == user:
-                    err_msg['Ошибка'] = 'нельзя подписаться на самого себя'
-                    raise ValidationError(
-                        err_msg
-                    )
-            else:
-                if not user_in_following:
-                    err_msg['Ошибка'] = 'вы не подписаны на этого пользователя'
-                    raise ValidationError(
-                        err_msg
-                    )
-            return data
+    user_to_follow = serializers.IntegerField()
 
-        def save(self):
-            self.context['user'].following.add(self.context['user_to_follow'])
-            return self.validated_data
-        
-        def delete(self):
-            self.context['user'].following.remove(self.context['user_to_follow'])
-            return self.validated_data
-        
-        def to_representation(self, value):
-            user_to_follow = self.context['user_to_follow']
-            serializer = UserSubscriptionsModelSerializer(user_to_follow)
-            serializer.context['request'] = self.context['request']
-            return serializer.data
+    def validate(self, data):
+
+        err_msg = {}
+        request = self.context['request']
+        user = self.context['user']
+        user_to_follow = self.context['user_to_follow']
+        user_in_following = Follow.objects.filter(
+            from_user=user,
+            to_user=user_to_follow).exists()
+        if request.method == 'POST':
+            if user_in_following:
+                err_msg['Ошибка'] = 'вы уже подписаны на этого пользователя'
+                raise ValidationError(
+                    err_msg
+                )
+            if user_to_follow == user:
+                err_msg['Ошибка'] = 'нельзя подписаться на самого себя'
+                raise ValidationError(
+                    err_msg
+                )
+        else:
+            if not user_in_following:
+                err_msg['Ошибка'] = 'вы не подписаны на этого пользователя'
+                raise ValidationError(
+                    err_msg
+                )
+        return data
+
+    def save(self):
+        self.context['user'].following.add(self.context['user_to_follow'])
+        return self.validated_data
+
+    def delete(self):
+        self.context['user'].following.remove(self.context['user_to_follow'])
+        return self.validated_data
+
+    def to_representation(self, value):
+        user_to_follow = self.context['user_to_follow']
+        serializer = UserSubscriptionsModelSerializer(user_to_follow)
+        serializer.context['request'] = self.context['request']
+        return serializer.data
 
 
 class AddToFavoriteSerializer(serializers.Serializer):
-        user = serializers.IntegerField()
-        recipe = serializers.IntegerField()
-        
-        def validate(self, data):
-            user = User.objects.get(pk=data['user'])
-            recipe = Recipe.objects.filter(pk=data['recipe']).first()
-            request = self.context['request']
-            err_msg = {}
-            if not recipe:
-                if request.method == 'POST':
-                    err_msg['Ошибка'] = 'рецепт отсутствует'
-                    raise ValidationError(err_msg)
-                raise ValidationError(err_msg, code=status.HTTP_404_NOT_FOUND)
-            recipe_in_favorite = user.favorites.filter(
-                favorite__recipe=recipe).exists()
-            if self.context['request'].method == 'POST':
-                if recipe_in_favorite:
-                    err_msg['Ошибка'] = 'Рецепт добавлен в избранное'
-                    raise ValidationError(err_msg)
-            else:
-                if not recipe_in_favorite:
-                    err_msg['Ошибка'] = 'Рецепта нет в избранном'
-                    raise ValidationError(err_msg)
-            return data
+    user = serializers.IntegerField()
+    recipe = serializers.IntegerField()
+
+    def validate(self, data):
+        user = User.objects.get(pk=data['user'])
+        recipe = Recipe.objects.filter(pk=data['recipe']).first()
+        request = self.context['request']
+        err_msg = {}
+        if not recipe:
+            if request.method == 'POST':
+                err_msg['Ошибка'] = 'рецепт отсутствует'
+                raise ValidationError(err_msg)
+            raise Http404('Рецепт не найден.')
+        recipe_in_favorite = user.favorites.filter(
+            favorite__recipe=recipe).exists()
+        if self.context['request'].method == 'POST':
+            if recipe_in_favorite:
+                err_msg['Ошибка'] = 'Рецепт добавлен в избранное'
+                raise ValidationError(err_msg)
+        else:
+            if not recipe_in_favorite:
+                err_msg['Ошибка'] = 'Рецепта нет в избранном'
+                raise ValidationError(err_msg)
+        return data
+
+    def save(self):
+        user = User.objects.get(pk=self.validated_data['user'])
+        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
+        user.favorites.add(recipe)
+        return self.validated_data
+
+    def delete(self):
+        user = User.objects.get(pk=self.validated_data['user'])
+        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
+        user.favorites.remove(recipe)
+        return self.validated_data
+
+    def to_representation(self, value):
+        recipe_pk = value['recipe']
+        recipe = Recipe.objects.get(pk=recipe_pk)
+        serializer = RecipeToFavoriteModelSerializer(recipe)
+        serializer.context['request'] = self.context['request']
+        return serializer.data
 
 
-        def save(self):
-            user = User.objects.get(pk=self.validated_data['user'])
-            recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
-            user.favorites.add(recipe)
-            return self.validated_data
+
+class AddToShoppingCart(serializers.Serializer):
+    recipe = serializers.IntegerField()
+    order = serializers.IntegerField()
+
+    def validate(self, data):
+        recipe = Recipe.objects.filter(pk=data['recipe']).first()
+        order = Order.objects.filter(pk=data['order']).first()
+        request = self.context['request']
+        err_msg = {}
+        if not recipe:
+            if request.method == 'POST':
+                err_msg['Ошибка'] = 'рецепт отсутствует'
+                raise ValidationError(err_msg)
+            raise Http404('Рецепт не найден.')
+        recipe_in_order_for_current_user = order.recipe.filter(pk=recipe.pk).exists()
+        if request.method == 'POST':
+            if not recipe_in_order_for_current_user:
+                return data
+            err_msg['Ошибка'] = 'Заказ уже добавлен в корзину'
+            raise ValidationError(
+                err_msg
+            )
+        else:
+            if not recipe_in_order_for_current_user:
+                err_msg['Ошибка'] = 'Заказ уже добавлен в корзину'
+                raise ValidationError(
+                    err_msg
+                )
+        return data
         
-        def delete(self):
-            user = User.objects.get(pk=self.validated_data['user'])
-            recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
-            user.favorites.remove(recipe)
-            return self.validated_data
-        
-        def to_representation(self, value):
-            # a = 1
-            recipe_pk = value['recipe']
-            recipe = Recipe.objects.get(pk=recipe_pk)
-            serializer = RecipeToFavoriteModelSerializer(recipe)
-            serializer.context['request'] = self.context['request']
-            return serializer.data
+
+    def save(self):
+        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
+        order = Order.objects.get(pk=self.validated_data['order'])
+        order.recipe.add(recipe)
+        return self.validated_data
+
+    def delete(self):
+        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
+        order = Order.objects.get(pk=self.validated_data['order'])
+        order.recipe.remove(recipe)
+        return self.validated_data
+
+    def to_representation(self, value):
+        recipe_pk = value['recipe']
+        recipe = Recipe.objects.get(pk=recipe_pk)
+        serializer = RecipeToFavoriteModelSerializer(recipe)
+        serializer.context['request'] = self.context['request']
+        return serializer.data
 
 
 
@@ -251,10 +300,10 @@ class RecipeReadModelSerializer(serializers.ModelSerializer):
             and self.context['request'].user.orders.filter(
                 downloaded=False
             ).exists()
-            and RecipeOrder.objects.filter(
+            and Order.objects.filter(
                 recipe=obj,
-                order=self.context['request'].user.orders.filter(
-                    downloaded=False).first(),
+                owner=self.context['request'].user,
+                downloaded=False,
             ).exists()
         )
 

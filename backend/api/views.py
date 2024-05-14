@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from django.conf import settings as django_settings
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
@@ -23,9 +24,10 @@ from api.serializers import (IngredientModelSerializer,
                              RecipeReadModelSerializer,
                              RecipeToFavoriteModelSerializer,
                              RecipeWriteModelSerializer, TagModelSerializer,
-                             UserSubscriptionsModelSerializer, UserAuthorSubscribeSerializer, AddToFavoriteSerializer)
-from orders.models import RecipeOrder
-from recipes.models import Ingredient, Recipe, Tag
+                             UserSubscriptionsModelSerializer, UserAuthorSubscribeSerializer,
+                             AddToFavoriteSerializer, AddToShoppingCart)
+# from orders.models import RecipeOrder
+from recipes.models import Ingredient, Recipe, Tag, Order
 from users.models import Follow
 
 User = get_user_model()
@@ -213,34 +215,11 @@ class RecipeModelViewSet(ModelViewSet):
         )
         serializer.is_valid(raise_exception=True)
         serializer.delete()
-        return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
-
-        # user = request.user
-        # recipe = self.get_object()
-        # if recipe:
-        #     recipe_in_favorite = user.favorites.filter(
-        #         favorite__recipe=recipe).exists()
-        #     if request.method == 'POST':
-        #         if not recipe_in_favorite:
-        #             user.favorites.add(recipe)
-        #             serializer = self.get_serializer(
-        #                 recipe
-        #             )
-        #             return Response(
-        #                 data=serializer.data,
-        #                 status=status.HTTP_201_CREATED)
-        #     else:
-        #         if recipe_in_favorite:
-        #             user.favorites.remove(recipe)
-        #             return Response(
-        #                 status=status.HTTP_204_NO_CONTENT)
-        # return Response(
-        #     status=status.HTTP_400_BAD_REQUEST,
-        # )
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     @action(
         detail=True,
-        methods=['post', 'delete'],
+        methods=['post',],
         url_path='shopping_cart',
         permission_classes=[
             IsAuthenticated,
@@ -248,37 +227,38 @@ class RecipeModelViewSet(ModelViewSet):
     )
     def shopping_cart(self, request, pk):
         user = request.user
-        recipe = self.get_object()
         order = user.orders.filter(downloaded=False).first()
         if not order:
             order = user.orders.create()
-        recipe_in_order_for_current_user = RecipeOrder.objects.filter(
-            recipe=recipe,
-            order=order,
-        ).first()
-        if request.method == 'POST':
-            if not recipe_in_order_for_current_user:
-                RecipeOrder.objects.create(
-                    recipe=recipe,
-                    order=order,
-                )
-                serializer = self.get_serializer(recipe)
-                return Response(
-                    data=serializer.data,
-                    status=status.HTTP_201_CREATED,
-                )
-            return Response(
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-        else:
-            if recipe_in_order_for_current_user:
-                recipe_in_order_for_current_user.delete()
-                return Response(
-                    status=status.HTTP_204_NO_CONTENT,
-                )
-        return Response(
-            status=status.HTTP_400_BAD_REQUEST,
+        serializer = AddToShoppingCart(
+            context={
+                'request': request, },
+            data={
+                'recipe': int(pk),
+                'order': order.pk,
+            }
         )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+
+    @shopping_cart.mapping.delete
+    def delete_shopping_cart(self, request, pk=None):
+        user = request.user
+        order = user.orders.filter(downloaded=False).first()
+        if not order:
+            order = user.orders.create()
+        serializer = AddToShoppingCart(
+            context={
+                'request': request, },
+            data={
+                'order': order.pk,
+                'recipe': int(pk),
+            }
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     @action(
         detail=False,
@@ -293,21 +273,19 @@ class RecipeModelViewSet(ModelViewSet):
         order = user.orders.filter(downloaded=False).first()
         if not order:
             return HttpResponse(status=200)
-        recipe_order_lst = order.items.select_related(
-            'recipe'
-        ).prefetch_related(
-            'recipe__recipeingredient_set__ingredient'
-        )
-        data = {}
-        for r_o in recipe_order_lst:
-            for i in r_o.recipe.recipeingredient_set.all():
-                key = (i.ingredient.name, i.ingredient.measurement_unit,)
-                data[key] = data.get(key, 0) + i.amount
+        ingredient_order_lst = list(order.recipe.values(
+            'ingredients__name', 'ingredients__measurement_unit'
+        ).annotate(total_amount=Sum('recipeingredient__amount')))
 
         data_for_output = [
-            [k[0], f'{v} {k[-1]}']
-            for k, v in data.items()
+            [
+                ingrdient['ingredients__name'],
+                (f'{ingrdient["total_amount"]}'
+                 f'{ingrdient["ingredients__measurement_unit"]}')
+            ]
+            for ingrdient in ingredient_order_lst
         ]
+
         data_for_output.insert(0, ['Ингредиенты', 'Количество', ])
 
         response = HttpResponse(content_type='application/pdf')

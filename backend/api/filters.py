@@ -1,7 +1,7 @@
 from django_filters.rest_framework import (CharFilter, FilterSet,
                                            ModelMultipleChoiceFilter, BooleanFilter,)
 
-from recipes.models import Ingredient, Recipe, Tag
+from recipes.models import Ingredient, Recipe, Tag, Order
 
 
 class IngredientFilter(FilterSet):
@@ -29,7 +29,9 @@ class RecipeFilter(FilterSet):
         if bool(self.request.user.is_authenticated and value):
             order = self.request.user.orders.filter(downloaded=False).first()
             if order:
-                return queryset.filter(orders__order=order)
+                return order.recipe.all()
+                # return order.recipe_set.all()
+                # return queryset.filter(orders=order)
         return queryset
 
     def filter_is_favorited(self, queryset, name, value):

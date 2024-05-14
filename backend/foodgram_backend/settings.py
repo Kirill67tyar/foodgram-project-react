@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'django_filters',
     'recipes.apps.RecipesConfig',
     'users.apps.UsersConfig',
-    'orders.apps.OrdersConfig',
     'api.apps.ApiConfig',
 ]
 

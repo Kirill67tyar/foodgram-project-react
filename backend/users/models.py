@@ -13,18 +13,6 @@ class User(AbstractUser):
     ]
     username_validator = UnicodeUsernameValidator()
 
-    username = models.CharField(
-        max_length=150,
-        verbose_name='Логин',
-        unique=True,
-        help_text=f'Обязательное. Количество символов <= {150}',
-        validators=[
-            username_validator,
-        ],
-        error_messages={
-            'уникальность': 'asdasd',
-        },
-    )
     email = models.EmailField(
         blank=False,
         unique=True,
@@ -39,19 +27,6 @@ class User(AbstractUser):
         max_length=150,
         blank=False,
         verbose_name='Фамилия',
-    )
-    following = models.ManyToManyField(
-        to='self',
-        through='users.Follow',
-        related_name='followers',
-        symmetrical=False,
-        verbose_name='Подписан на'
-    )
-    favorites = models.ManyToManyField(
-        to='recipes.Recipe',
-        through='users.Favorite',
-        related_name='in_favorites',
-        verbose_name='Рецепты в избранном'
     )
 
     class Meta:
@@ -87,24 +62,5 @@ class Follow(models.Model):
             models.CheckConstraint(
                 name='%(app_label)s_%(class)s_prevent_self_follow',
                 check=~models.Q(from_user=models.F('to_user')),
-            ),
-        ]
-
-
-class Favorite(models.Model):
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-    )
-    recipe = models.ForeignKey(
-        'recipes.Recipe',
-        on_delete=models.CASCADE,
-    )
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                fields=['user', 'recipe', ],
-                name='unique_key_user_recipe'
             ),
         ]

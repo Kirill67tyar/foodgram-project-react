@@ -26,8 +26,7 @@ from api.serializers import (IngredientModelSerializer,
                              RecipeWriteModelSerializer, TagModelSerializer,
                              UserSubscriptionsModelSerializer, UserAuthorSubscribeSerializer,
                              AddToFavoriteSerializer, AddToShoppingCart)
-# from orders.models import RecipeOrder
-from recipes.models import Ingredient, Recipe, Tag, Order
+from recipes.models import Ingredient, Recipe, Tag, Order, Favorite
 from users.models import Follow
 
 User = get_user_model()
@@ -44,11 +43,9 @@ class UserViewSet(DjoserUserViewSet):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        if self.action == 'list':
-            queryset = queryset.prefetch_related('following')
-        elif self.action == 'subscriptions':
+        if self.action == 'subscriptions':
             user = self.request.user
-            queryset = user.following.all()
+            queryset = User.objects.filter(from_subscribed__from_user=user)
         return queryset
 
     def get_serializer_class(self):
@@ -140,7 +137,6 @@ class RecipeModelViewSet(ModelViewSet):
         'tags',
         'ingredients',
         'recipeingredient_set__ingredient',
-        'author__following',
     )
     http_method_names = [
         'get',
@@ -149,34 +145,15 @@ class RecipeModelViewSet(ModelViewSet):
         'delete',
     ]
 
-    def get_object(self):
-        if (self.action in ('shopping_cart', 'favorite',)
-                and self.request.method == 'POST'):
-            queryset = self.filter_queryset(self.get_queryset())
-            lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
-            assert lookup_url_kwarg in self.kwargs, (
-                'Expected view %s to be called with a URL keyword argument '
-                'named "%s". Fix your URL conf, or set the `.lookup_field` '
-                'attribute on the view correctly.' %
-                (self.__class__.__name__, lookup_url_kwarg)
-            )
-            filter_kwargs = {self.lookup_field: self.kwargs[lookup_url_kwarg]}
-            recipe = queryset.filter(**filter_kwargs).first()
-            if not recipe:
-                err_msg = {'Ошибка': 'рецепт отсутствует'}
-                raise ValidationError(err_msg)
-        return super().get_object()
 
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadModelSerializer
         elif self.action in ('favorite', 'shopping_cart', ):
-            return RecipeToFavoriteModelSerializer
-            # return AddToFavoriteSerializer
+            # return RecipeToFavoriteModelSerializer
+            return AddToFavoriteSerializer
         return RecipeWriteModelSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
 
     @action(
         detail=True,
@@ -190,8 +167,8 @@ class RecipeModelViewSet(ModelViewSet):
         ],
     )
     def favorite(self, request, pk):
-        # serializer = self.get_serializer(
-        serializer = AddToFavoriteSerializer(
+        serializer = self.get_serializer(
+        # serializer = AddToFavoriteSerializer(
             context={
                 'request': request, },
             data={

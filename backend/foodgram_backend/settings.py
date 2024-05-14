@@ -150,9 +150,11 @@ DJOSER = {
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_URLS_REGEX = r'^/api/.*$'
-
+REPEATED_INGREDIENTS = 'Повторяющиеся ингредиенты'
+REPEATED_TAGS = 'Повторяющиеся теги'
 TIME_ERROR_MSG = 'Время не может быть меньше одной минуты'
-REQUIRED_FIELD = 'Обязательное поле'
+INGREDIENTS_REQUIRED_FIELD = 'Ингредиенты являются обязательным полем'
+TAGS_REQUIRED_FIELD = 'Теги являются обязательным полем'
 NON_EXISTENT_ELEMENTS = 'Несуществующие элементы'
 FONT_NAME = 'JetBrainsMono-Regular'
 # FONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория

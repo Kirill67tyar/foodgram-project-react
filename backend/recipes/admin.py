@@ -1,37 +1,28 @@
-# from django.contrib import admin
+from django.contrib import admin
 
-# from recipes.models import Ingredient, Recipe, Tag
-
-
-# class RecipeIngredientInline(admin.TabularInline):
-#     model = Recipe.ingredients.through
-#     extra = 1
+from recipes.models import Ingredient, Recipe, Tag
 
 
-# class RecipeTagInline(admin.TabularInline):
-#     model = Recipe.tags.through
-#     extra = 1
+class RecipeIngredientInline(admin.TabularInline):
+    model = Recipe.ingredients.through
+    extra = 1
+    min_num = 1
 
 
-# class RecipeAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'author',)
-#     list_filter = ('name', 'author',)
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'author',)
+    list_filter = ('name', 'author',)
 
-#     inlines = [RecipeIngredientInline, RecipeTagInline]
+    inlines = [RecipeIngredientInline, ]
 
-#     readonly_fields = ('in_favorites_count', )
-#     # def get_fields(self, request, obj=None):
-#     #     fields = super().get_fields(request, obj)
-#     #     if obj:
-#     #         fields += ('in_favorites_count',)
-#     #     return fields
+    readonly_fields = ('in_favorites_count', )
 
-#     def in_favorites_count(self, obj):
-#         return obj.in_favorites.count()
+    def in_favorites_count(self, obj):
+        return obj.in_favorites.count()
 
-#     in_favorites_count.short_description = 'Count in favorite'
+    in_favorites_count.short_description = 'Count in favorite'
 
 
-# admin.site.register(Recipe, RecipeAdmin)
-# admin.site.register(Ingredient)
-# admin.site.register(Tag)
+admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Ingredient)
+admin.site.register(Tag)

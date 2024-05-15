@@ -14,6 +14,7 @@ from rest_framework.decorators import action
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.serializers import ValidationError
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from api.filters import IngredientFilter, RecipeFilter
@@ -25,7 +26,8 @@ from api.serializers import (AddToFavoriteSerializer, AddToShoppingCart,
                              UserAuthorSubscribeSerializer,
                              UserSubscriptionsModelSerializer)
 from foodgram_backend import constants
-from recipes.models import Ingredient, Recipe, Tag
+from recipes.models import Cart, Favorite, Ingredient, Recipe, Tag
+from users.models import Follow
 
 User = get_user_model()
 
@@ -75,14 +77,11 @@ class UserViewSet(DjoserUserViewSet):
         ],
     )
     def subscribe(self, request, id):
-        user = request.user
         serializer = self.get_serializer(
-            context={
-                'request': request,
-                'user': user,
-                'user_to_follow': self.get_object(),
-            },
-            data={'user_to_follow': int(id), }
+            data={
+                'from_user': request.user.pk,
+                'to_user': self.get_object().pk,
+            }
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -90,17 +89,16 @@ class UserViewSet(DjoserUserViewSet):
 
     @subscribe.mapping.delete
     def delete_subscribe(self, request, id=None):
-        user = request.user
-        serializer = UserAuthorSubscribeSerializer(
-            context={
-                'request': request,
-                'user': user,
-                'user_to_follow': self.get_object(),
-            },
-            data={'user_to_follow': int(id), }
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.delete()
+        quantity_deleted, _ = Follow.objects.filter(
+            from_user=request.user,
+            to_user=self.get_object(),
+        ).delete()
+        if not quantity_deleted:
+            raise ValidationError(
+                {
+                    'Ошибка': constants.MESSAGE_ERROR_DONT_SUBSCRIBE_USER
+                }
+            )
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -146,9 +144,9 @@ class RecipeModelViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadModelSerializer
-        elif self.action in ('favorite', 'delete_favorite', ):
+        elif self.action in ('favorite', ):
             return AddToFavoriteSerializer
-        elif self.action in ('shopping_cart', 'delete_shopping_cart', ):
+        elif self.action in ('shopping_cart', ):
             return AddToShoppingCart
         return RecipeWriteModelSerializer
 
@@ -164,11 +162,9 @@ class RecipeModelViewSet(ModelViewSet):
     )
     def favorite(self, request, pk):
         serializer = self.get_serializer(
-            context={
-                'request': request, },
             data={
-                'user': request.user.id,
-                'recipe': int(pk),
+                'user': request.user.pk,
+                'recipe': pk,
             }
         )
         serializer.is_valid(raise_exception=True)
@@ -177,16 +173,16 @@ class RecipeModelViewSet(ModelViewSet):
 
     @favorite.mapping.delete
     def delete_favorite(self, request, pk=None):
-        serializer = self.get_serializer(
-            context={
-                'request': request, },
-            data={
-                'user': request.user.id,
-                'recipe': int(pk),
-            }
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.delete()
+        quantity_deleted, _ = Favorite.objects.filter(
+            user=request.user,
+            recipe=self.get_object(),
+        ).delete()
+        if not quantity_deleted:
+            raise ValidationError(
+                {
+                    'Ошибка': constants.MESSAGE_ERROR_RECIPE_NOT_IN_FAVORITE
+                }
+            )
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     @action(
@@ -198,16 +194,10 @@ class RecipeModelViewSet(ModelViewSet):
         ],
     )
     def shopping_cart(self, request, pk):
-        user = request.user
-        order = user.orders.filter(downloaded=False).first()
-        if not order:
-            order = user.orders.create()
         serializer = self.get_serializer(
-            context={
-                'request': request, },
             data={
-                'recipe': int(pk),
-                'order': order.pk,
+                'recipe': [int(pk), ],
+                'owner': request.user.pk,
             }
         )
         serializer.is_valid(raise_exception=True)
@@ -216,36 +206,33 @@ class RecipeModelViewSet(ModelViewSet):
 
     @shopping_cart.mapping.delete
     def delete_shopping_cart(self, request, pk=None):
-        user = request.user
-        order = user.orders.filter(downloaded=False).first()
-        if not order:
-            order = user.orders.create()
-        serializer = self.get_serializer(
-            context={
-                'request': request, },
-            data={
-                'order': order.pk,
-                'recipe': int(pk),
-            }
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.delete()
+        quantity_deleted, _ = Cart.objects.filter(
+            owner=request.user,
+            recipe=self.get_object(),
+        ).delete()
+        if not quantity_deleted:
+            raise ValidationError(
+                {
+                    'Ошибка': constants.MESSAGE_ERROR_RECIPE_NOT_IN_CART
+                }
+            )
+
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def generate_pdf_document(self, ingredient_order_lst, order):
+    def generate_pdf_document(self, ingredient_cart_lst, cart):
         data_for_output = [
             [
                 ingrdient['ingredients__name'],
                 (f'{ingrdient["total_amount"]}'
                  f'{ingrdient["ingredients__measurement_unit"]}')
             ]
-            for ingrdient in ingredient_order_lst
+            for ingrdient in ingredient_cart_lst
         ]
 
         data_for_output.insert(0, ['Ингредиенты', 'Количество', ])
 
         response = HttpResponse(content_type='application/pdf')
-        filename = f'attachment; filename="Заказ-{order.pk}.pdf"'
+        filename = f'attachment; filename="Заказ-{cart.pk}.pdf"'
         response['Content-Disposition'] = filename
         doc = SimpleDocTemplate(response, pagesize=letter)
 
@@ -256,8 +243,8 @@ class RecipeModelViewSet(ModelViewSet):
         # Создаем таблицу и задаем стиль
         table = Table(
             data_for_output,
-            colWidths=250,
-            rowHeights=30,
+            colWidths=constants.COLWIDTHS_VALUE,
+            rowHeights=constants.ROWHEIGHTS_VALUE,
         )
         style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
                             ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
@@ -285,16 +272,14 @@ class RecipeModelViewSet(ModelViewSet):
     )
     def download_shopping_cart(self, request):
         user = request.user
-        order = user.orders.filter(downloaded=False).first()
-        if not order:
+        cart = Cart.objects.filter(owner=user).first()
+        if not cart:
             return HttpResponse(status=200)
-        ingredient_order_lst = list(order.recipe.values(
+        ingredient_cart_lst = list(cart.recipe.values(
             'ingredients__name', 'ingredients__measurement_unit'
         ).annotate(total_amount=Sum('recipeingredient__amount')))
         response = self.generate_pdf_document(
-            ingredient_order_lst,
-            order,
+            ingredient_cart_lst,
+            cart,
         )
-        order.downloaded = True
-        order.save()
         return response

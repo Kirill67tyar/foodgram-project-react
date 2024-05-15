@@ -2,12 +2,12 @@ import base64
 
 from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
-from django.http import Http404
 from rest_framework import serializers
-from rest_framework.serializers import Serializer, ValidationError
+from rest_framework.serializers import ValidationError
+from rest_framework.validators import UniqueTogetherValidator
 
 from foodgram_backend import constants
-from recipes.models import (Favorite, Ingredient, Order, Recipe,
+from recipes.models import (Cart, Favorite, Ingredient, Recipe,
                             RecipeIngredient, Tag)
 from users.models import Follow
 
@@ -80,158 +80,71 @@ class UserSubscriptionsModelSerializer(UserModelSerializer):
         return obj.recipes.count()
 
 
-class UserAuthorSubscribeSerializer(serializers.Serializer):
-    user_to_follow = serializers.IntegerField()
+class UserAuthorSubscribeSerializer(serializers.ModelSerializer):
 
-    def validate(self, data):
-        err_msg = {}
-        request = self.context['request']
-        user = self.context['user']
-        user_to_follow = self.context['user_to_follow']
-        user_in_following = Follow.objects.filter(
-            from_user=user,
-            to_user=user_to_follow).exists()
-        if request.method == 'POST':
-            if user_in_following:
-                err_msg['Ошибка'] = 'вы уже подписаны на этого пользователя'
-                raise ValidationError(
-                    err_msg
-                )
-            if user_to_follow == user:
-                err_msg['Ошибка'] = 'нельзя подписаться на самого себя'
-                raise ValidationError(
-                    err_msg
-                )
-        else:
-            if not user_in_following:
-                err_msg['Ошибка'] = 'вы не подписаны на этого пользователя'
-                raise ValidationError(
-                    err_msg
-                )
-        return data
-
-    def save(self):
-        Follow.objects.create(
-            from_user=self.context['user'],
-            to_user=self.context['user_to_follow'],
+    class Meta:
+        model = Follow
+        fields = (
+            'from_user',
+            'to_user',
         )
-        return self.validated_data
-
-    def delete(self):
-        Follow.objects.filter(
-            from_user=self.context['user'],
-            to_user=self.context['user_to_follow'],
-        ).delete()
-        return self.validated_data
-
-    def to_representation(self, value):
-        user_to_follow = self.context['user_to_follow']
-        serializer = UserSubscriptionsModelSerializer(user_to_follow)
-        serializer.context['request'] = self.context['request']
-        return serializer.data
-
-
-class AddToFavoriteSerializer(serializers.Serializer):
-    user = serializers.IntegerField()
-    recipe = serializers.IntegerField()
+        validators = [
+            UniqueTogetherValidator(
+                queryset=Follow.objects.all(),
+                fields=('from_user', 'to_user',),
+                message=constants.MESSAGE_ERROR_SUBSCRIBE_TWICE
+            ),
+        ]
 
     def validate(self, data):
-        user = User.objects.get(pk=data['user'])
-        recipe = Recipe.objects.filter(pk=data['recipe']).first()
-        request = self.context['request']
-        err_msg = {}
-        if not recipe:
-            if request.method == 'POST':
-                err_msg['Ошибка'] = 'рецепт отсутствует'
-                raise ValidationError(err_msg)
-            raise Http404('Рецепт не найден.')
-        recipe_in_favorite = Favorite.objects.filter(
-            user=user,
-            recipe=recipe,
-        ).exists()
-        if self.context['request'].method == 'POST':
-            if recipe_in_favorite:
-                err_msg['Ошибка'] = 'Рецепт добавлен в избранное'
-                raise ValidationError(err_msg)
-        else:
-            if not recipe_in_favorite:
-                err_msg['Ошибка'] = 'Рецепта нет в избранном'
-                raise ValidationError(err_msg)
-        return data
-
-    def save(self):
-        user = User.objects.get(pk=self.validated_data['user'])
-        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
-        # user.favorites.add(recipe)
-        Favorite.objects.create(
-            user=user,
-            recipe=recipe,
-        )
-        return self.validated_data
-
-    def delete(self):
-        user = User.objects.get(pk=self.validated_data['user'])
-        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
-        Favorite.objects.filter(
-            user=user,
-            recipe=recipe,
-        ).delete()
-        return self.validated_data
-
-    def to_representation(self, value):
-        recipe_pk = value['recipe']
-        recipe = Recipe.objects.get(pk=recipe_pk)
-        serializer = RecipeToFavoriteModelSerializer(recipe)
-        serializer.context['request'] = self.context['request']
-        return serializer.data
-
-
-class AddToShoppingCart(serializers.Serializer):
-    recipe = serializers.IntegerField()
-    order = serializers.IntegerField()
-
-    def validate(self, data):
-        recipe = Recipe.objects.filter(pk=data['recipe']).first()
-        order = Order.objects.filter(pk=data['order']).first()
-        request = self.context['request']
-        err_msg = {}
-        if not recipe:
-            if request.method == 'POST':
-                err_msg['Ошибка'] = 'рецепт отсутствует'
-                raise ValidationError(err_msg)
-            raise Http404('Рецепт не найден.')
-        recipe_in_order_for_current_user = order.recipe.filter(
-            pk=recipe.pk).exists()
-        if request.method == 'POST':
-            if not recipe_in_order_for_current_user:
-                return data
-            err_msg['Ошибка'] = 'Заказ уже добавлен в корзину'
+        from_user = data['from_user']
+        to_user = data['to_user']
+        if from_user == to_user:
             raise ValidationError(
-                err_msg
+                {'Ошибка': constants.MESSAGE_ERROR_SUBSCRIBE_YOURSELF}
             )
-        else:
-            if not recipe_in_order_for_current_user:
-                err_msg['Ошибка'] = 'Заказ уже добавлен в корзину'
-                raise ValidationError(
-                    err_msg
-                )
         return data
 
-    def save(self):
-        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
-        order = Order.objects.get(pk=self.validated_data['order'])
-        order.recipe.add(recipe)
-        return self.validated_data
+    def to_representation(self, value):
+        serializer = UserSubscriptionsModelSerializer(value.to_user)
+        serializer.context['request'] = self.context['request']
+        return serializer.data
 
-    def delete(self):
-        recipe = Recipe.objects.get(pk=self.validated_data['recipe'])
-        order = Order.objects.get(pk=self.validated_data['order'])
-        order.recipe.remove(recipe)
-        return self.validated_data
+
+class AddToFavoriteSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Favorite
+        fields = (
+            'user',
+            'recipe',
+        )
+        validators = [
+            UniqueTogetherValidator(
+                queryset=Favorite.objects.all(),
+                fields=('user', 'recipe',),
+                message=constants.MESSAGE_ERROR_RECIPE_ALREADY_IN_FAVORITE
+            ),
+        ]
 
     def to_representation(self, value):
-        recipe_pk = value['recipe']
-        recipe = Recipe.objects.get(pk=recipe_pk)
+        serializer = RecipeToFavoriteModelSerializer(value.recipe)
+        serializer.context['request'] = self.context['request']
+        return serializer.data
+
+
+class AddToShoppingCart(serializers.ModelSerializer):
+
+    class Meta:
+        model = Cart
+        fields = (
+            'recipe',
+            'owner',
+        )
+
+    def to_representation(self, value):
+        recipe = Recipe.objects.get(
+            pk=self.initial_data['recipe'][constants.ZERO_INDEX])
         serializer = RecipeToFavoriteModelSerializer(recipe)
         serializer.context['request'] = self.context['request']
         return serializer.data
@@ -331,13 +244,9 @@ class RecipeReadModelSerializer(serializers.ModelSerializer):
         return bool(
             self.context.get('request')
             and self.context['request'].user.is_authenticated
-            and self.context['request'].user.orders.filter(
-                downloaded=False
-            ).exists()
-            and Order.objects.filter(
+            and Cart.objects.filter(
                 recipe=obj,
                 owner=self.context['request'].user,
-                downloaded=False,
             ).exists()
         )
 
@@ -353,17 +262,15 @@ class Base64ImageField(serializers.ImageField):
         return super().to_internal_value(data)
 
 
-class ThinRecipeIngredientSerializer(Serializer):
-    id = serializers.IntegerField(
-        required=True,
-        min_value=1,
-        max_value=9223372036854775807,
-    )
-    amount = serializers.IntegerField(
-        required=True,
-        min_value=1,
-        max_value=32767,
-    )
+class ThinRecipeIngredientSerializer(serializers.ModelSerializer):
+    id = serializers.PrimaryKeyRelatedField(queryset=Ingredient.objects.all(),)
+
+    class Meta:
+        model = RecipeIngredient
+        fields = (
+            'id',
+            'amount',
+        )
 
 
 class RecipeWriteModelSerializer(serializers.ModelSerializer):
@@ -392,62 +299,37 @@ class RecipeWriteModelSerializer(serializers.ModelSerializer):
             'cooking_time',
         )
 
-    def validate_tags(self, value):
-        if len(value) != len(set(value)):
-            raise ValidationError(
-                {'tags': 'Повторяющиеся поля', }
-            )
-        return value
-
     def validate(self, data):
         ingredients_data = data.get('ingredients')
-        err_msg = {}
         if not ingredients_data:
-            err_msg['ingredients'] = [constants.INGREDIENTS_REQUIRED_FIELD]
             raise ValidationError(
-                err_msg
+                {'ingredients': constants.INGREDIENTS_REQUIRED_FIELD}
             )
-        ingredients_ids = [ingredient['id'] for ingredient in ingredients_data]
-        if len(ingredients_ids) != len(set(ingredients_ids)):
-            err_msg['ingredients'] = [constants.REPEATED_INGREDIENTS]
+        ingredients_lst = [ingredient['id'] for ingredient in ingredients_data]
+        if len(ingredients_lst) != len(set(ingredients_lst)):
             raise ValidationError(
-                err_msg
-            )
-        ingredients_ids_exists = list(
-            Ingredient.objects.filter(
-                id__in=ingredients_ids).values_list('id', flat=True)
-        )
-        ingredients_ids.sort()
-        ingredients_ids_exists.sort()
-        if ingredients_ids != ingredients_ids_exists:
-            err_msg['ingredients'] = [constants.NON_EXISTENT_ELEMENTS]
-            raise ValidationError(
-                err_msg
+                {'ingredients': constants.REPEATED_INGREDIENTS}
             )
         tags_ids = data.get('tags')
         if not tags_ids:
-            err_msg['tags'] = [constants.TAGS_REQUIRED_FIELD]
             raise ValidationError(
-                err_msg
+                {'tags': constants.TAGS_REQUIRED_FIELD}
             )
         if len(tags_ids) != len(set(tags_ids)):
-            err_msg['tags'] = [constants.REPEATED_TAGS]
             raise ValidationError(
-                err_msg
+                {'tags': constants.REPEATED_TAGS}
             )
         return data
 
     def add_ingredients_to_recipe(self, ingredients_data, recipe):
-        ingredients_ids = {
-            ingredient['id']: ingredient for ingredient in ingredients_data}
         RecipeIngredient.objects.bulk_create(
             [
                 RecipeIngredient(
                     recipe=recipe,
-                    ingredient_id=ingredient_id,
-                    amount=ingredients_ids[ingredient_id]['amount']
+                    ingredient=ingredient['id'],
+                    amount=ingredient['amount']
                 )
-                for ingredient_id in ingredients_ids
+                for ingredient in ingredients_data
             ]
         )
 

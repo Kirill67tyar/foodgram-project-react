@@ -2,6 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.db import models
 
+from foodgram_backend import constants
+
 
 class User(AbstractUser):
 
@@ -19,12 +21,12 @@ class User(AbstractUser):
         verbose_name='email',
     )
     first_name = models.CharField(
-        max_length=150,
+        max_length=constants.MAX_LENGTH_USER_NAME,
         blank=False,
         verbose_name='Имя',
     )
     last_name = models.CharField(
-        max_length=150,
+        max_length=constants.MAX_LENGTH_USER_NAME,
         blank=False,
         verbose_name='Фамилия',
     )

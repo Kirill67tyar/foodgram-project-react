@@ -28,11 +28,11 @@ class Recipe(models.Model):
         validators=[
             MaxValueValidator(
                 constants.MAX_VALUE_FOR_VALIDATOR,
-                message=constants.MAX_MESSAGE_VALIDATOR_COOKING_TIME
+                message=constants.MAX_MESSAGE_VALIDATOR
             ),
             MinValueValidator(
-                1,
-                message=constants.MIN_MESSAGE_VALIDATOR_COOKING_TIME
+                constants.MIN_VALUE_FOR_VALIDATOR,
+                message=constants.MIN_MESSAGE_VALIDATOR
             )
         ]
     )
@@ -109,11 +109,11 @@ class RecipeIngredient(models.Model):
         validators=[
             MaxValueValidator(
                 constants.MAX_VALUE_FOR_VALIDATOR,
-                message=constants.MAX_MESSAGE_VALIDATOR_AMOUNT
+                message=constants.MAX_MESSAGE_VALIDATOR
             ),
             MinValueValidator(
-                1,
-                message=constants.MIN_MESSAGE_VALIDATOR_AMOUNT
+                constants.MIN_VALUE_FOR_VALIDATOR,
+                message=constants.MIN_MESSAGE_VALIDATOR
             )
         ]
     )
@@ -151,29 +151,22 @@ class Tag(models.Model):
         return self.name
 
 
-class Order(models.Model):
-    owner = models.ForeignKey(
+class Cart(models.Model):
+    owner = models.OneToOneField(
         to=User,
         on_delete=models.CASCADE,
         verbose_name='Заказчик',
     )
     recipe = models.ManyToManyField(
         to=Recipe,
+        related_name='carts',
         verbose_name='Рецепты'
-    )
-    downloaded = models.BooleanField(
-        default=False,
-        verbose_name='Скачан',
-    )
-    pub_date = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name='Дата и время публикации заказа',
     )
 
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
-        ordering = ('pub_date', )
+        ordering = ('pk',)
         default_related_name = 'orders'
 
     def __str__(self):

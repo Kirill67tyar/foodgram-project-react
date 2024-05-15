@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'corsheaders',
     'django_filters',
+    'colorfield',
     'recipes.apps.RecipesConfig',
     'users.apps.UsersConfig',
     'api.apps.ApiConfig',
@@ -75,7 +76,6 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', 5432),
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -2,7 +2,7 @@ from django_filters.rest_framework import (BooleanFilter, CharFilter,
                                            FilterSet,
                                            ModelMultipleChoiceFilter)
 
-from recipes.models import Ingredient, Recipe, Tag
+from recipes.models import Cart, Ingredient, Recipe, Tag
 
 
 class IngredientFilter(FilterSet):
@@ -28,9 +28,9 @@ class RecipeFilter(FilterSet):
 
     def filter_shopping_cart(self, queryset, name, value):
         if bool(self.request.user.is_authenticated and value):
-            order = self.request.user.orders.filter(downloaded=False).first()
-            if order:
-                return order.recipe.all()
+            cart = Cart.objects.filter(owner=self.request.user).first()
+            if cart:
+                return queryset.filter(carts__owner=self.request.user)
         return queryset
 
     def filter_is_favorited(self, queryset, name, value):

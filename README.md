@@ -1,7 +1,6 @@
 ## foodgram-project-react 
 #### https://recipehub.servebeer.com
 
-
 ## Описание проекта
 
 foodgram-project-react - проект, специализирующийся на создавании, и просмотре рецептов. В нём вы можете не только посмотреть чужие рецепты, но и после регистрации, выложить свой в открытый доступ. Можно также скачивать рецепты в удобном PDF формате, где суммируются все ингредиенты, необходимые для списка рецептов, который вы скачали.
@@ -14,27 +13,35 @@ https://recipehub.servebeer.com
 
 У вам есть возможность развернуть проект в Docker через конфиг для Docker Compose. Вы можете воспользоваться файлом docker-compose.production.yml и скачать готовые образы из dockerhub, или docker-compose.yml и собрать образы локально в директориях проекта.
 ```
-1. Находясь в корневой директории проекта введите команду, если хотите скачать образы из Dockerhub:
+1. Клонируйте репозиторий к себе на компьютер
+
+   git clone git@github.com:Kirill67tyar/foodgram-project-react.git
+   
+   или
+
+   git clone https://github.com/Kirill67tyar/foodgram-project-react.git
+
+2. Находясь в корневой директории проекта введите команду, если хотите скачать образы из Dockerhub:
 
    sudo docker compose -f docker-compose.production.yml up
 
-2. Или если хотите собрать образы локально в директориях проекта:
+3. Или если хотите собрать образы локально в директориях проекта:
 
    sudo docker compose up
 
-3. Проверьте, что все нужные контейнеры запущены (должны быть запущены контейнеры):
+4. Проверьте, что все нужные контейнеры запущены (должны быть запущены контейнеры):
 
    sudo docker compose -f docker-compose.production.yml ps
 
-4. После того как проект развернулся на вашем компьютере, соберите статику django:
+5. После того как проект развернулся на вашем компьютере, соберите статику django:
 
    sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
 
-5. Копируйте статику:
+6. Копируйте статику:
 
    sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
 
-6. Примените миграции:
+7. Примените миграции:
 
    sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
 ```
@@ -55,17 +62,13 @@ Docker Compose 3
 
 ## Как наполнить БД данными
 ```
-1. Находясь в корневой директории проекта, после запуска контейнеров через Docker Compose выполните команду (если запускали docker-compose.production.yml):
+   Находясь в корневой директории проекта, после запуска контейнеров через Docker Compose выполните команду (если запускали docker-compose.production.yml):
 
-   sudo docker compose -f docker-compose.production.yml exec backend bash
+   sudo docker compose -f docker-compose.production.yml exec backend python manage.py loaddata fixtures/db.json
 
 или если запускали docker-compose.yml
 
-   sudo docker compose exec backend bash
-
-2. Загрузите готовые фикстуры:
-
-   python3 manage.py loaddata db.json
+   sudo docker compose exec backend python manage.py loaddata fixtures/db.json
 ```
 ## Как открыть доку
 ```
@@ -86,13 +89,13 @@ Docker Compose 3
 
 #####Получить список пользователей:
 
-Request: [GET] http://127.0.0.1:8000/api/api/users/
+Request: [GET] http://127.0.0.1:8080/api/api/users/
 Response samples:
 ```
 {
   "count": 123,
-  "next": "http://127.0.0.1:8000/api/users/?page=4",
-  "previous": "http://127.0.0.1:8000/api/users/?page=2",
+  "next": "http://127.0.0.1:8080/api/users/?page=4",
+  "previous": "http://127.0.0.1:8080/api/users/?page=2",
   "results": [
     {
       "email": "user@example.com",
@@ -106,7 +109,7 @@ Response samples:
 }
 ```
 #####Регистрация пользователя:
-Request: [POST] http://127.0.0.1:8000/api/users/
+Request: [POST] http://127.0.0.1:8080/api/users/
 Request samples
 ```
 {
@@ -128,13 +131,13 @@ Response samples:
 }
 ```
 #####Получить список рецептов:
-Request: [GET] http://127.0.0.1:8000/api/recipes/
+Request: [GET] http://127.0.0.1:8080/api/recipes/
 Response samples:
 ```
 {
   "count": 123,
-  "next": "http://127.0.0.1:8000/api/recipes/?page=4",
-  "previous": "http://127.0.0.1:8000/api/recipes/?page=2",
+  "next": "http://127.0.0.1:8080/api/recipes/?page=4",
+  "previous": "http://127.0.0.1:8080/api/recipes/?page=2",
   "results": [
     {
       "id": 0,
@@ -165,14 +168,14 @@ Response samples:
       "is_favorited": true,
       "is_in_shopping_cart": true,
       "name": "string",
-      "image": "http://127.0.0.1:8000/media/recipes/images/image.jpeg",
+      "image": "http://127.0.0.1:8080/media/recipes/images/image.jpeg",
       "text": "string",
       "cooking_time": 1
     }
   ]
 ```
 #####Получить рецепт:
-Request: [GET] http://127.0.0.1:8000/api/recipes/{id}/
+Request: [GET] http://127.0.0.1:8080/api/recipes/{id}/
 Response samples:
 ```
 {
@@ -204,13 +207,13 @@ Response samples:
   "is_favorited": true,
   "is_in_shopping_cart": true,
   "name": "string",
-  "image": "http://127.0.0.1:8000/media/recipes/images/image.jpeg",
+  "image": "http://127.0.0.1:8080/media/recipes/images/image.jpeg",
   "text": "string",
   "cooking_time": 1
 }
 ```
 #####Создание рецепта:
-Request: [POST] http://127.0.0.1:8000/api/recipes/{id}/
+Request: [POST] http://127.0.0.1:8080/api/recipes/{id}/
 Request samples
 ```
 {

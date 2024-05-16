@@ -1,0 +1,2071 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2024-05-16T13:55:55.183Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "username: KBM",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2024-05-16T13:58:09.018Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "username: k3",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2024-05-16T13:58:26.234Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "username: user-1@ya.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2024-05-16T14:11:54.861Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Банановые панкейки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (1)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (2)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (3)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2024-05-16T14:12:41.132Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "Нежные творожные сырники",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (4)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2024-05-16T14:13:44.440Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "3",
+    "object_repr": "Двухслойная творожная запеканка",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (5)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (6)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2024-05-16T14:14:39.672Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "4",
+    "object_repr": "Турецкая яичница чылбыр с йогуртом",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (7)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (8)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2024-05-16T14:15:46.376Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "5",
+    "object_repr": "Брускетта с тунцом",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (9)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (10)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (11)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (12)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2024-05-16T14:16:37.381Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "6",
+    "object_repr": "Феттучине с куриной грудкой и вялеными помидорами",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (13)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2024-05-16T14:17:36.792Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "7",
+    "object_repr": "Паста Четыре сыра",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (14)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (15)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2024-05-16T14:19:00.492Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "8",
+    "object_repr": "Лазанья",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (16)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (17)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (18)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2024-05-16T14:19:51.061Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "9",
+    "object_repr": "Сливочно-сырный суп с ветчиной",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (19)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (20)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2024-05-16T14:20:42.450Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "10",
+    "object_repr": "Суп а-ля харчо",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (21)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (22)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2024-05-16T14:21:40.434Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "11",
+    "object_repr": "Острый креветочный суп",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (23)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (24)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (25)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2024-05-16T14:22:33.276Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "12",
+    "object_repr": "Кутабы с сыром и зеленью",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (26)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (27)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2024-05-16T14:23:22.608Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "13",
+    "object_repr": "Блины с начинкой из куриных сердечек и шампиньонов",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (28)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (29)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2024-05-16T14:24:22.058Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "14",
+    "object_repr": "Свиная вырезка с песто из шпината",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (30)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (31)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (32)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2024-05-16T14:25:19.858Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "15",
+    "object_repr": "Чахохбили с мятой",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (33)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (34)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (35)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2024-05-16T14:26:16.505Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "16",
+    "object_repr": "Фаршированные свиные отбивные с ягодным соусом",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (36)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (37)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2024-05-16T14:27:03.513Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "17",
+    "object_repr": "Тефтельки фламбе",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (38)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (39)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2024-05-16T14:28:14.228Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "18",
+    "object_repr": "Утка с картофелем по-китайски",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (40)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (41)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (42)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (43)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (44)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2024-05-16T14:29:25.777Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "19",
+    "object_repr": "Салат с фетой, мандарином, клюквой и орехами",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (45)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (46)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (47)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (48)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2024-05-16T14:30:26.441Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "20",
+    "object_repr": "Греческий салат в сырной корзинке",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (49)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (50)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (51)\"}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add Token",
+    "content_type": 6,
+    "codename": "add_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change Token",
+    "content_type": 6,
+    "codename": "change_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": 6,
+    "codename": "delete_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view Token",
+    "content_type": 6,
+    "codename": "view_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add token",
+    "content_type": 7,
+    "codename": "add_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change token",
+    "content_type": 7,
+    "codename": "change_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete token",
+    "content_type": 7,
+    "codename": "delete_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view token",
+    "content_type": 7,
+    "codename": "view_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Заказ",
+    "content_type": 8,
+    "codename": "add_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Заказ",
+    "content_type": 8,
+    "codename": "change_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Заказ",
+    "content_type": 8,
+    "codename": "delete_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Заказ",
+    "content_type": 8,
+    "codename": "view_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Подписки",
+    "content_type": 9,
+    "codename": "add_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Подписки",
+    "content_type": 9,
+    "codename": "change_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Подписки",
+    "content_type": 9,
+    "codename": "delete_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Подписки",
+    "content_type": 9,
+    "codename": "view_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Ингредиент",
+    "content_type": 10,
+    "codename": "add_ingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Ингредиент",
+    "content_type": 10,
+    "codename": "change_ingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Ингредиент",
+    "content_type": 10,
+    "codename": "delete_ingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Ингредиент",
+    "content_type": 10,
+    "codename": "view_ingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add Рецепт",
+    "content_type": 11,
+    "codename": "add_recipe"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change Рецепт",
+    "content_type": 11,
+    "codename": "change_recipe"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete Рецепт",
+    "content_type": 11,
+    "codename": "delete_recipe"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view Рецепт",
+    "content_type": 11,
+    "codename": "view_recipe"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add Тег",
+    "content_type": 12,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change Тег",
+    "content_type": 12,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete Тег",
+    "content_type": 12,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view Тег",
+    "content_type": 12,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add recipe ingredient",
+    "content_type": 13,
+    "codename": "add_recipeingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change recipe ingredient",
+    "content_type": 13,
+    "codename": "change_recipeingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete recipe ingredient",
+    "content_type": 13,
+    "codename": "delete_recipeingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view recipe ingredient",
+    "content_type": 13,
+    "codename": "view_recipeingredient"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 14,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 14,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 14,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 14,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add follow",
+    "content_type": 15,
+    "codename": "add_follow"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change follow",
+    "content_type": 15,
+    "codename": "change_follow"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete follow",
+    "content_type": 15,
+    "codename": "delete_follow"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view follow",
+    "content_type": 15,
+    "codename": "view_follow"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "token"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "tokenproxy"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "recipes",
+    "model": "cart"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "recipes",
+    "model": "favorite"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "recipes",
+    "model": "ingredient"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "recipes",
+    "model": "recipe"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "recipes",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "recipes",
+    "model": "recipeingredient"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "users",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "users",
+    "model": "follow"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jvjec4mbbtrkcb6kdykez62sem73stpz",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBKhwZcuvcMZGYYpGpoUtpV491tky50-977f1MR16XEtckcx6SuCtTllxHyS-oh0hPrY9I81WUeSR-JPm3T9ynJ-3a2fwcFW9nXXciGbODUY7CEFkTAuiGj9wiQCTNTb8EE1yE4Mc4k2rF3zBwGA-rzBfdJOFI:1s7ba2:YpJtWhAOFbjSi5hwIHchKsfQpmmMgvjMf2nQVEN6GGc",
+    "expire_date": "2024-05-30T13:55:34.361Z"
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 1,
+  "fields": {
+    "name": "Банановые панкейки",
+    "text": "Самый вкусный и простой завтрак — банановые панкейки. Приготовление не займет у вас много времени. А если делать эти блинчики с детьми, процесс превратится в веселую игру.",
+    "author": 5,
+    "cooking_time": 13,
+    "image": "recipes/images/1_.jpg",
+    "pub_date": "2024-05-16T14:11:54.857Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 2,
+  "fields": {
+    "name": "Нежные творожные сырники",
+    "text": "Сырники — всегда отличный повод собрать семью за завтраком. Подавайте со сметаной, сгущенкой, медом или вареньем — в выходные можно все!",
+    "author": 5,
+    "cooking_time": 312,
+    "image": "recipes/images/2_.jpg",
+    "pub_date": "2024-05-16T14:12:41.126Z",
+    "tags": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 3,
+  "fields": {
+    "name": "Двухслойная творожная запеканка",
+    "text": "Нежнейший творожный десерт прекрасно подойдет для завтрака. В рецепте не используется мука, поэтому запеканка имеет легкую воздушную текстуру. В меру сладкий вкус напоминает подтаявшее мороженое пломбир.",
+    "author": 5,
+    "cooking_time": 313,
+    "image": "recipes/images/3_.jpg",
+    "pub_date": "2024-05-16T14:13:44.437Z",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 4,
+  "fields": {
+    "name": "Турецкая яичница чылбыр с йогуртом",
+    "text": "Необычный вариант яичницы. В Турции в приготовлении чылбыра используется местный продукт. В наших условиях попробуйте заменить турецкий йогурт на греческий.",
+    "author": 5,
+    "cooking_time": 31,
+    "image": "recipes/images/4_.jpg",
+    "pub_date": "2024-05-16T14:14:39.664Z",
+    "tags": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 5,
+  "fields": {
+    "name": "Брускетта с тунцом",
+    "text": "Такие брускетты быстро готовятся, а выглядят очень эффектно. Их можно подать к завтраку или в качестве закуски на праздничный стол.",
+    "author": 5,
+    "cooking_time": 121,
+    "image": "recipes/images/5_.jpg",
+    "pub_date": "2024-05-16T14:15:46.365Z",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 6,
+  "fields": {
+    "name": "Феттучине с куриной грудкой и вялеными помидорами",
+    "text": "В этом рецепте красиво все: необычная форма пасты, маринованная грудка, пикантный соус и присутствие вяленых помидоров. Подобную пасту можно заказать в хорошем ресторане. А отведать дома будет намного бюджетнее и уютнее.",
+    "author": 6,
+    "cooking_time": 21,
+    "image": "recipes/images/6_.jpg",
+    "pub_date": "2024-05-16T14:16:37.374Z",
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 7,
+  "fields": {
+    "name": "Паста Четыре сыра",
+    "text": "Конечно, я понимаю, что четыре сыра в одном блюде — роскошь, но тем, кто любит сыры, и тем, кто всю неделю тщательно считает свои калории, в воскресенье хочется похулиганить и съесть что-то насыщенное и жирное! — говорит Юлия Высоцкая.",
+    "author": 6,
+    "cooking_time": 21,
+    "image": "recipes/images/7_.jpg",
+    "pub_date": "2024-05-16T14:17:36.784Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 8,
+  "fields": {
+    "name": "Лазанья",
+    "text": "Рецепт лазаньи с доступным составом. Все продукты вы найдете в обычном супермаркете, а листы для лазаньи можно заказать в Интернете и хранить до подходящего случая.",
+    "author": 6,
+    "cooking_time": 212,
+    "image": "recipes/images/8_.jpg",
+    "pub_date": "2024-05-16T14:19:00.483Z",
+    "tags": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 9,
+  "fields": {
+    "name": "Сливочно-сырный суп с ветчиной",
+    "text": "Сырные супы обладают особым очарованием, они всегда необыкновенно вкусны. Конечно, здесь нужны хорошие продукты, и тогда это блюдо обязательно порадует и согреет в холодный день.",
+    "author": 6,
+    "cooking_time": 3131,
+    "image": "recipes/images/9_.jpg",
+    "pub_date": "2024-05-16T14:19:51.053Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 10,
+  "fields": {
+    "name": "Суп а-ля харчо",
+    "text": "Кто хоть однажды пробовал грузинскую кухню, навсегда станет ее поклонником. Самый известный грузинский суп харчо варят из говядины. Как любое национальное блюдо, харчо имеет много разновидностей. И несмотря на то, что варим этот суп мы не так, как в Грузии, все равно он получается вкусным.",
+    "author": 6,
+    "cooking_time": 8,
+    "image": "recipes/images/10_.jpg",
+    "pub_date": "2024-05-16T14:20:42.445Z",
+    "tags": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 11,
+  "fields": {
+    "name": "Острый креветочный суп",
+    "text": "Этот креветочный суп — вариант тайского блюда из морепродуктов «Том Ям Кунг», но без добавления пасты, которая используется для «Том Яма». Суп получается довольно пряным. Любителям острой азиатской пищи очень понравится.",
+    "author": 7,
+    "cooking_time": 978,
+    "image": "recipes/images/11_.jpg",
+    "pub_date": "2024-05-16T14:21:40.426Z",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 12,
+  "fields": {
+    "name": "Кутабы с сыром и зеленью",
+    "text": "В Азербайджане кутабы готовят чаще всего с мясом, требухой, тыквой и, конечно, зеленью. Зелень используется самая-самая разная, причем сразу в свежем виде. Лепешки по этому рецепту получаются особенно вкусными как в качестве закуски, так и на завтрак с чашкой сладкого чая.",
+    "author": 7,
+    "cooking_time": 756,
+    "image": "recipes/images/12_.jpg",
+    "pub_date": "2024-05-16T14:22:33.269Z",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 13,
+  "fields": {
+    "name": "Блины с начинкой из куриных сердечек и шампиньонов",
+    "text": "Когда еще найдется время, чтобы напечь тонких блинчиков и завернуть в них любимую начинку? Конечно же, в выходные! Фарш из куриных сердечек и шампиньонов, обжаренных с луком, очень сочный и сытный, но при этом достаточно диетический.",
+    "author": 7,
+    "cooking_time": 535,
+    "image": "recipes/images/13_.jpg",
+    "pub_date": "2024-05-16T14:23:22.601Z",
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 14,
+  "fields": {
+    "name": "Свиная вырезка с песто из шпината",
+    "text": "Соус песто из шпината с кедровыми орешками не только создает яркий насыщенный цвет, но и пропитывает свинину тонкими ароматами лета и солнца, пармезан придает пикантность. Чтобы у мяса получилась вкусная румяная корочка, перед запеканием его нужно смазать смесью дижонской горчицы и меда, посыпать пармезаном и зернами горчицы.",
+    "author": 7,
+    "cooking_time": 335,
+    "image": "recipes/images/14_.jpg",
+    "pub_date": "2024-05-16T14:24:22.054Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 15,
+  "fields": {
+    "name": "Чахохбили с мятой",
+    "text": "Чахохбили идеально подходит для обедов в теплом семейном кругу, особенно в холодное время года. Предлагаем приготовить это блюдо с мятой. Она дополняет привычный насыщенный острый вкус свежими и яркими нотками. Попробуйте, вы будете удивлены, насколько гармонично мята вписывается в это блюдо.",
+    "author": 7,
+    "cooking_time": 414,
+    "image": "recipes/images/15_.jpg",
+    "pub_date": "2024-05-16T14:25:19.854Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 16,
+  "fields": {
+    "name": "Фаршированные свиные отбивные с ягодным соусом",
+    "text": "Начинка получается мягкой, сочной, а розмарин и орегано придают ей потрясающий аромат. Подаются отбивные с ягодным соусом из клюквы и малины. Получается чудесное блюдо для семейного застолья.",
+    "author": 4,
+    "cooking_time": 41,
+    "image": "recipes/images/16_.jpg",
+    "pub_date": "2024-05-16T14:26:16.501Z",
+    "tags": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 17,
+  "fields": {
+    "name": "Тефтельки фламбе",
+    "text": "Огонь обогревает, остерегает и дарит радость созерцания. Холодным зимним вечером или же ранним утром порадует непередаваемый вкус блюд, опаленных огнем. Иная энергетика — попробуйте!",
+    "author": 4,
+    "cooking_time": 43,
+    "image": "recipes/images/17_.jpg",
+    "pub_date": "2024-05-16T14:27:03.505Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 18,
+  "fields": {
+    "name": "Утка с картофелем по-китайски",
+    "text": "Рецепт сочного блюда, на приготовления которого не потребуется много времени. Все запекается вместе: и утка, и гарнир в виде картофеля. Картошечка получается нежной и ароматной, а утка — с хрустящей корочкой. Минимум усилий — и вкусный ужин для всей семьи готов!",
+    "author": 4,
+    "cooking_time": 414,
+    "image": "recipes/images/18_.jpg",
+    "pub_date": "2024-05-16T14:28:14.223Z",
+    "tags": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 19,
+  "fields": {
+    "name": "Салат с фетой, мандарином, клюквой и орехами",
+    "text": "Легкий и яркий салат со сложным гармоничным вкусом — кисло-сладкая заправка, сладкий мандарин и кислая клюква, соленая фета, горьковатые салатные травы и орехи. Актуально для зимы.",
+    "author": 4,
+    "cooking_time": 432,
+    "image": "recipes/images/19_.jpg",
+    "pub_date": "2024-05-16T14:29:25.770Z",
+    "tags": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 20,
+  "fields": {
+    "name": "Греческий салат в сырной корзинке",
+    "text": "Это вариация классического греческого салата с интересным способом подачи. Сыр выбирайте на свое усмотрение — можно взять мягкий козий или сливочный. Лук тоже подойдет любой, но все же лучше здесь работает красный — он сладкий и мясистый. Неплохо добавить немного зеленого лука, петрушки, свежего тимьяна или орегано.",
+    "author": 4,
+    "cooking_time": 645,
+    "image": "recipes/images/20_.jpg",
+    "pub_date": "2024-05-16T14:30:26.437Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 1,
+  "fields": {
+    "name": "абрикосовое варенье",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 2,
+  "fields": {
+    "name": "абрикосовое пюре",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 3,
+  "fields": {
+    "name": "аджика",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 4,
+  "fields": {
+    "name": "барабулька",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 5,
+  "fields": {
+    "name": "баранки",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 6,
+  "fields": {
+    "name": "барбарис вяленый",
+    "measurement_unit": "ст. л."
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 7,
+  "fields": {
+    "name": "васаби",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 8,
+  "fields": {
+    "name": "винегрет",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 9,
+  "fields": {
+    "name": "винный камень",
+    "measurement_unit": "щепотка"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 10,
+  "fields": {
+    "name": "гвоздика молотая",
+    "measurement_unit": "по вкусу"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 11,
+  "fields": {
+    "name": "глазурь",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 12,
+  "fields": {
+    "name": "голец филе",
+    "measurement_unit": "шт."
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 13,
+  "fields": {
+    "name": "икра черная",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 14,
+  "fields": {
+    "name": "имбирь",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 15,
+  "fields": {
+    "name": "каджунская смесь специй",
+    "measurement_unit": "ст. л."
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 16,
+  "fields": {
+    "name": "лангустины",
+    "measurement_unit": "шт."
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 17,
+  "fields": {
+    "name": "лемонграсс (лимонное сорго)",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 18,
+  "fields": {
+    "name": "лосось стейки",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 19,
+  "fields": {
+    "name": "майоран свежий",
+    "measurement_unit": "по вкусу"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 20,
+  "fields": {
+    "name": "маковая масса",
+    "measurement_unit": "пачка"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 21,
+  "fields": {
+    "name": "малиновое варенье",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 22,
+  "fields": {
+    "name": "миндаль измельченный",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 23,
+  "fields": {
+    "name": "миндальный экстракт",
+    "measurement_unit": "капля"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 24,
+  "fields": {
+    "name": "молоко рисовое",
+    "measurement_unit": "мл"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 25,
+  "fields": {
+    "name": "мороженое пломбир",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 26,
+  "fields": {
+    "name": "овощная смесь",
+    "measurement_unit": "г"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 27,
+  "fields": {
+    "name": "панеттоне",
+    "measurement_unit": "шт."
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 28,
+  "fields": {
+    "name": "перец белый горошком",
+    "measurement_unit": "по вкусу"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 1,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 6,
+    "amount": 12
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 2,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 12,
+    "amount": 31
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 3,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 17,
+    "amount": 13
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 4,
+  "fields": {
+    "recipe": 2,
+    "ingredient": 19,
+    "amount": 21
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 5,
+  "fields": {
+    "recipe": 3,
+    "ingredient": 7,
+    "amount": 2120
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 6,
+  "fields": {
+    "recipe": 3,
+    "ingredient": 23,
+    "amount": 10
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 7,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 15,
+    "amount": 21
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 8,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 27,
+    "amount": 12
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 9,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 12,
+    "amount": 12
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 10,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 14,
+    "amount": 131
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 11,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 26,
+    "amount": 12
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 12,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 28,
+    "amount": 10
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 13,
+  "fields": {
+    "recipe": 6,
+    "ingredient": 17,
+    "amount": 312
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 14,
+  "fields": {
+    "recipe": 7,
+    "ingredient": 11,
+    "amount": 313
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 15,
+  "fields": {
+    "recipe": 7,
+    "ingredient": 21,
+    "amount": 131
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 16,
+  "fields": {
+    "recipe": 8,
+    "ingredient": 20,
+    "amount": 31
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 17,
+  "fields": {
+    "recipe": 8,
+    "ingredient": 15,
+    "amount": 1231
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 18,
+  "fields": {
+    "recipe": 8,
+    "ingredient": 9,
+    "amount": 31
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 19,
+  "fields": {
+    "recipe": 9,
+    "ingredient": 25,
+    "amount": 12
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 20,
+  "fields": {
+    "recipe": 9,
+    "ingredient": 13,
+    "amount": 313
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 21,
+  "fields": {
+    "recipe": 10,
+    "ingredient": 23,
+    "amount": 3123
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 22,
+  "fields": {
+    "recipe": 10,
+    "ingredient": 26,
+    "amount": 987
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 23,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 20,
+    "amount": 313
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 24,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 26,
+    "amount": 567
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 25,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 14,
+    "amount": 43
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 26,
+  "fields": {
+    "recipe": 12,
+    "ingredient": 19,
+    "amount": 32
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 27,
+  "fields": {
+    "recipe": 12,
+    "ingredient": 16,
+    "amount": 131
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 28,
+  "fields": {
+    "recipe": 13,
+    "ingredient": 10,
+    "amount": 432
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 29,
+  "fields": {
+    "recipe": 13,
+    "ingredient": 22,
+    "amount": 234
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 30,
+  "fields": {
+    "recipe": 14,
+    "ingredient": 20,
+    "amount": 32
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 31,
+  "fields": {
+    "recipe": 14,
+    "ingredient": 21,
+    "amount": 123
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 32,
+  "fields": {
+    "recipe": 14,
+    "ingredient": 3,
+    "amount": 321
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 33,
+  "fields": {
+    "recipe": 15,
+    "ingredient": 16,
+    "amount": 434
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 34,
+  "fields": {
+    "recipe": 15,
+    "ingredient": 1,
+    "amount": 343
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 35,
+  "fields": {
+    "recipe": 15,
+    "ingredient": 19,
+    "amount": 1
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 36,
+  "fields": {
+    "recipe": 16,
+    "ingredient": 22,
+    "amount": 313
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 37,
+  "fields": {
+    "recipe": 16,
+    "ingredient": 24,
+    "amount": 656
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 38,
+  "fields": {
+    "recipe": 17,
+    "ingredient": 13,
+    "amount": 32
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 39,
+  "fields": {
+    "recipe": 17,
+    "ingredient": 22,
+    "amount": 13
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 40,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 20,
+    "amount": 31
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 41,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 11,
+    "amount": 65
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 42,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 16,
+    "amount": 34
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 43,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 3,
+    "amount": 532
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 44,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 24,
+    "amount": 1
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 45,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 22,
+    "amount": 312
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 46,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 9,
+    "amount": 1231
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 47,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 18,
+    "amount": 31
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 48,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 25,
+    "amount": 32
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 49,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 25,
+    "amount": 32
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 50,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 27,
+    "amount": 123
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 51,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 5,
+    "amount": 765
+  }
+},
+{
+  "model": "recipes.tag",
+  "pk": 1,
+  "fields": {
+    "name": "завтрак",
+    "slug": "breakfast",
+    "color": "#0D0DFF"
+  }
+},
+{
+  "model": "recipes.tag",
+  "pk": 2,
+  "fields": {
+    "name": "обед",
+    "slug": "dinner",
+    "color": "#61FF75"
+  }
+},
+{
+  "model": "recipes.tag",
+  "pk": 3,
+  "fields": {
+    "name": "ужин",
+    "slug": "evening-meal",
+    "color": "#722B87"
+  }
+},
+{
+  "model": "users.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$NFRk0diia6x4Us89YCfYcL$SBLHbFPziOIXC4T46rbmiZhmb8HyrPHxkieGLDUi3rw=",
+    "last_login": "2024-05-16T13:55:34.357Z",
+    "is_superuser": true,
+    "username": "review",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-05-16T13:53:39.471Z",
+    "email": "review@admin.ru",
+    "first_name": "r",
+    "last_name": "r",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$XQDrgXruzzq1E6nG1qooW2$07f0sfUeK94pO0iV3TSU/16wOv65hrfogCsW3SaEZIo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "k1",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-05-16T13:57:16.384Z",
+    "email": "user1@mail.ru",
+    "first_name": "имя1",
+    "last_name": "фамилия1",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$5Yos2TP8LussBAXDzebyK2$/MA0aNX9R3vtO1TOQQr4WVTMK7MZYax2wz6d1dpA+ZY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "k2",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-05-16T13:57:34.111Z",
+    "email": "user2@mail.ru",
+    "first_name": "имя2",
+    "last_name": "фамилия2",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$M5cmMsMw9Y53SUrTQtqByO$uiRK2pibuASOvjlkSw4DzS7LIdmM/XF0NBDb1PtExZc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "k3",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-05-16T13:58:31.401Z",
+    "email": "user3@mail.ru",
+    "first_name": "имя3",
+    "last_name": "фамилия3",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

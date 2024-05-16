@@ -28,9 +28,7 @@ class RecipeFilter(FilterSet):
 
     def filter_shopping_cart(self, queryset, name, value):
         if bool(self.request.user.is_authenticated and value):
-            cart = Cart.objects.filter(owner=self.request.user).first()
-            if cart:
-                return queryset.filter(carts__owner=self.request.user)
+            return queryset.filter(carts__owner=self.request.user)
         return queryset
 
     def filter_is_favorited(self, queryset, name, value):

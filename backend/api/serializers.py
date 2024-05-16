@@ -101,7 +101,7 @@ class UserAuthorSubscribeSerializer(serializers.ModelSerializer):
         to_user = data['to_user']
         if from_user == to_user:
             raise ValidationError(
-                {'Ошибка': constants.MESSAGE_ERROR_SUBSCRIBE_YOURSELF}
+                {'errors': constants.MESSAGE_ERROR_SUBSCRIBE_YOURSELF}
             )
         return data
 
@@ -133,6 +133,7 @@ class AddToFavoriteSerializer(serializers.ModelSerializer):
         return serializer.data
 
 
+
 class AddToShoppingCart(serializers.ModelSerializer):
 
     class Meta:
@@ -141,7 +142,6 @@ class AddToShoppingCart(serializers.ModelSerializer):
             'recipe',
             'owner',
         )
-
     def to_representation(self, value):
         recipe = Recipe.objects.get(
             pk=self.initial_data['recipe'][constants.ZERO_INDEX])

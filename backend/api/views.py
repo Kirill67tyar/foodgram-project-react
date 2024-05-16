@@ -96,7 +96,7 @@ class UserViewSet(DjoserUserViewSet):
         if not quantity_deleted:
             raise ValidationError(
                 {
-                    'Ошибка': constants.MESSAGE_ERROR_DONT_SUBSCRIBE_USER
+                    'errors': constants.MESSAGE_ERROR_DONT_SUBSCRIBE_USER
                 }
             )
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -180,7 +180,7 @@ class RecipeModelViewSet(ModelViewSet):
         if not quantity_deleted:
             raise ValidationError(
                 {
-                    'Ошибка': constants.MESSAGE_ERROR_RECIPE_NOT_IN_FAVORITE
+                    'errors': constants.MESSAGE_ERROR_RECIPE_NOT_IN_FAVORITE
                 }
             )
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -196,7 +196,7 @@ class RecipeModelViewSet(ModelViewSet):
     def shopping_cart(self, request, pk):
         serializer = self.get_serializer(
             data={
-                'recipe': [int(pk), ],
+                'recipe': [pk, ],
                 'owner': request.user.pk,
             }
         )
@@ -213,7 +213,7 @@ class RecipeModelViewSet(ModelViewSet):
         if not quantity_deleted:
             raise ValidationError(
                 {
-                    'Ошибка': constants.MESSAGE_ERROR_RECIPE_NOT_IN_CART
+                    'errors': constants.MESSAGE_ERROR_RECIPE_NOT_IN_CART
                 }
             )
 

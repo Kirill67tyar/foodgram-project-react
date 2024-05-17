@@ -66,9 +66,13 @@ Docker Compose 3
 
    sudo docker compose -f docker-compose.production.yml exec backend python manage.py loaddata fixtures/db.json
 
+   sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/fixtures/media/. /media/
+
 или если запускали docker-compose.yml
 
    sudo docker compose exec backend python manage.py loaddata fixtures/db.json
+
+   sudo docker compose exec backend cp -r /app/fixtures/media/. /media/
 ```
 ## Как открыть доку
 ```

@@ -1,49 +1,179 @@
 [
 {
   "model": "admin.logentry",
-  "pk": 33,
+  "pk": 1,
   "fields": {
-    "action_time": "2024-05-16T13:55:55.183Z",
-    "user": 4,
-    "content_type": 14,
+    "action_time": "2024-05-17T06:29:23.488Z",
+    "user": 1,
+    "content_type": 12,
     "object_id": "1",
-    "object_repr": "username: KBM",
-    "action_flag": 3,
-    "change_message": ""
+    "object_repr": "завтрак",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 34,
+  "pk": 2,
   "fields": {
-    "action_time": "2024-05-16T13:58:09.018Z",
-    "user": 4,
-    "content_type": 14,
-    "object_id": "3",
-    "object_repr": "username: k3",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 35,
-  "fields": {
-    "action_time": "2024-05-16T13:58:26.234Z",
-    "user": 4,
-    "content_type": 14,
+    "action_time": "2024-05-17T06:29:57.247Z",
+    "user": 1,
+    "content_type": 12,
     "object_id": "2",
-    "object_repr": "username: user-1@ya.ru",
-    "action_flag": 3,
-    "change_message": ""
+    "object_repr": "обед",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 36,
+  "pk": 3,
   "fields": {
-    "action_time": "2024-05-16T14:11:54.861Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:30:31.644Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "ужин",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-05-17T06:31:57.269Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "абрикосовое пюре",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-05-17T06:32:16.767Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "базилик тайский",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-05-17T06:32:37.471Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "бараний окорок на косточке",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-05-17T06:32:54.014Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "бисквитная крошка",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-05-17T06:33:22.475Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "виноградное желе",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-05-17T06:33:50.418Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "гвоздика молотая",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-05-17T06:34:14.239Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "7",
+    "object_repr": "гратен",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-05-17T06:34:51.750Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "8",
+    "object_repr": "зефир",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-05-17T06:35:11.772Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "9",
+    "object_repr": "имбирное печенье",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-05-17T06:35:46.730Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "10",
+    "object_repr": "калинджи семена",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-05-17T06:41:18.296Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "1",
     "object_repr": "Банановые панкейки",
@@ -53,249 +183,340 @@
 },
 {
   "model": "admin.logentry",
-  "pk": 37,
+  "pk": 15,
   "fields": {
-    "action_time": "2024-05-16T14:12:41.132Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:42:45.822Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "2",
     "object_repr": "Нежные творожные сырники",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (4)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (4)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (5)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (6)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (7)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 38,
+  "pk": 16,
   "fields": {
-    "action_time": "2024-05-16T14:13:44.440Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:43:45.466Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "3",
     "object_repr": "Двухслойная творожная запеканка",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (5)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (6)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (8)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (9)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 39,
+  "pk": 17,
   "fields": {
-    "action_time": "2024-05-16T14:14:39.672Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:44:58.570Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "4",
     "object_repr": "Турецкая яичница чылбыр с йогуртом",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (7)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (8)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (10)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (11)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (12)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 40,
+  "pk": 18,
   "fields": {
-    "action_time": "2024-05-16T14:15:46.376Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:46:16.609Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "5",
     "object_repr": "Брускетта с тунцом",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (9)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (10)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (11)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (12)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (13)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (14)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (15)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (16)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (17)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 41,
+  "pk": 19,
   "fields": {
-    "action_time": "2024-05-16T14:16:37.381Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:50:51.118Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "username: user1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2024-05-17T06:51:30.280Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "username: user2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2024-05-17T06:51:59.066Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "username: user3",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2024-05-17T06:52:31.642Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "username: user4",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2024-05-17T06:53:09.194Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "username: user4",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2024-05-17T06:54:30.742Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "6",
     "object_repr": "Феттучине с куриной грудкой и вялеными помидорами",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (13)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (18)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (19)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 42,
+  "pk": 25,
   "fields": {
-    "action_time": "2024-05-16T14:17:36.792Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:55:28.444Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "7",
-    "object_repr": "Паста Четыре сыра",
+    "object_repr": "Паста «Четыре сыра»",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (14)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (15)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (20)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (21)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (22)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 43,
+  "pk": 26,
   "fields": {
-    "action_time": "2024-05-16T14:19:00.492Z",
-    "user": 4,
+    "action_time": "2024-05-17T06:56:23.985Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "8",
     "object_repr": "Лазанья",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (16)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (17)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (18)\"}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 44,
-  "fields": {
-    "action_time": "2024-05-16T14:19:51.061Z",
-    "user": 4,
-    "content_type": 11,
-    "object_id": "9",
-    "object_repr": "Сливочно-сырный суп с ветчиной",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (19)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (20)\"}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 45,
-  "fields": {
-    "action_time": "2024-05-16T14:20:42.450Z",
-    "user": 4,
-    "content_type": 11,
-    "object_id": "10",
-    "object_repr": "Суп а-ля харчо",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (21)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (22)\"}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 46,
-  "fields": {
-    "action_time": "2024-05-16T14:21:40.434Z",
-    "user": 4,
-    "content_type": 11,
-    "object_id": "11",
-    "object_repr": "Острый креветочный суп",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (23)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (24)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (25)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 47,
+  "pk": 27,
   "fields": {
-    "action_time": "2024-05-16T14:22:33.276Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:00:13.364Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "9",
+    "object_repr": "Сливочно-сырный суп с ветчиной",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (26)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (27)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (28)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (29)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (30)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (31)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (32)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (33)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (34)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (35)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2024-05-17T07:01:51.311Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "10",
+    "object_repr": "Суп а-ля харчо",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (36)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2024-05-17T07:02:46.599Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "11",
+    "object_repr": "Острый креветочный суп",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (37)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (38)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2024-05-17T07:04:18.042Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "12",
     "object_repr": "Кутабы с сыром и зеленью",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (26)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (27)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (39)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (40)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 48,
+  "pk": 31,
   "fields": {
-    "action_time": "2024-05-16T14:23:22.608Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:05:41.819Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "13",
     "object_repr": "Блины с начинкой из куриных сердечек и шампиньонов",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (28)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (29)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (41)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (42)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 49,
+  "pk": 32,
   "fields": {
-    "action_time": "2024-05-16T14:24:22.058Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:06:41.734Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "14",
     "object_repr": "Свиная вырезка с песто из шпината",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (30)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (31)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (32)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (43)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (44)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (45)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 50,
+  "pk": 33,
   "fields": {
-    "action_time": "2024-05-16T14:25:19.858Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:07:54.818Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "15",
     "object_repr": "Чахохбили с мятой",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (33)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (34)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (35)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (46)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (47)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (48)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (49)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 51,
+  "pk": 34,
   "fields": {
-    "action_time": "2024-05-16T14:26:16.505Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:08:55.539Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "16",
     "object_repr": "Фаршированные свиные отбивные с ягодным соусом",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (36)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (37)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (50)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (51)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (52)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 52,
+  "pk": 35,
   "fields": {
-    "action_time": "2024-05-16T14:27:03.513Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:09:33.818Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "17",
     "object_repr": "Тефтельки фламбе",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (38)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (39)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (53)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 53,
+  "pk": 36,
   "fields": {
-    "action_time": "2024-05-16T14:28:14.228Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:12:59.656Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "username: user4",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2024-05-17T07:13:58.605Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "18",
     "object_repr": "Утка с картофелем по-китайски",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (40)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (41)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (42)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (43)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (44)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (54)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (55)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 54,
+  "pk": 38,
   "fields": {
-    "action_time": "2024-05-16T14:29:25.777Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:14:53.825Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "19",
     "object_repr": "Салат с фетой, мандарином, клюквой и орехами",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (45)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (46)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (47)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (48)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (56)\"}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 55,
+  "pk": 39,
   "fields": {
-    "action_time": "2024-05-16T14:30:26.441Z",
-    "user": 4,
+    "action_time": "2024-05-17T07:15:38.724Z",
+    "user": 1,
     "content_type": 11,
     "object_id": "20",
     "object_repr": "Греческий салат в сырной корзинке",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (49)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (50)\"}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (51)\"}}]"
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredient\", \"object\": \"RecipeIngredient object (57)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2024-05-17T07:16:25.241Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "19",
+    "object_repr": "Салат с фетой, мандарином, клюквой и орехами",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0432\\u0442\\u043e\\u0440 \\u0440\\u0435\\u0446\\u0435\\u043f\\u0442\\u0430\"]}}]"
   }
 },
 {
@@ -554,7 +775,7 @@
   "model": "auth.permission",
   "pk": 29,
   "fields": {
-    "name": "Can add Заказ",
+    "name": "Can add Корзина",
     "content_type": 8,
     "codename": "add_cart"
   }
@@ -563,7 +784,7 @@
   "model": "auth.permission",
   "pk": 30,
   "fields": {
-    "name": "Can change Заказ",
+    "name": "Can change Корзина",
     "content_type": 8,
     "codename": "change_cart"
   }
@@ -572,7 +793,7 @@
   "model": "auth.permission",
   "pk": 31,
   "fields": {
-    "name": "Can delete Заказ",
+    "name": "Can delete Корзина",
     "content_type": 8,
     "codename": "delete_cart"
   }
@@ -581,7 +802,7 @@
   "model": "auth.permission",
   "pk": 32,
   "fields": {
-    "name": "Can view Заказ",
+    "name": "Can view Корзина",
     "content_type": 8,
     "codename": "view_cart"
   }
@@ -959,23 +1180,15 @@
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "jvjec4mbbtrkcb6kdykez62sem73stpz",
-  "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hBKhwZcuvcMZGYYpGpoUtpV491tky50-977f1MR16XEtckcx6SuCtTllxHyS-oh0hPrY9I81WUeSR-JPm3T9ynJ-3a2fwcFW9nXXciGbODUY7CEFkTAuiGj9wiQCTNTb8EE1yE4Mc4k2rF3zBwGA-rzBfdJOFI:1s7ba2:YpJtWhAOFbjSi5hwIHchKsfQpmmMgvjMf2nQVEN6GGc",
-    "expire_date": "2024-05-30T13:55:34.361Z"
-  }
-},
-{
   "model": "recipes.recipe",
   "pk": 1,
   "fields": {
     "name": "Банановые панкейки",
     "text": "Самый вкусный и простой завтрак — банановые панкейки. Приготовление не займет у вас много времени. А если делать эти блинчики с детьми, процесс превратится в веселую игру.",
-    "author": 5,
-    "cooking_time": 13,
-    "image": "recipes/images/1_.jpg",
-    "pub_date": "2024-05-16T14:11:54.857Z",
+    "author": 1,
+    "cooking_time": 12,
+    "image": "recipes/images/1__wy4Gqd5.jpg",
+    "pub_date": "2024-05-17T06:41:18.292Z",
     "tags": [
       1,
       2
@@ -988,13 +1201,13 @@
   "fields": {
     "name": "Нежные творожные сырники",
     "text": "Сырники — всегда отличный повод собрать семью за завтраком. Подавайте со сметаной, сгущенкой, медом или вареньем — в выходные можно все!",
-    "author": 5,
-    "cooking_time": 312,
-    "image": "recipes/images/2_.jpg",
-    "pub_date": "2024-05-16T14:12:41.126Z",
+    "author": 1,
+    "cooking_time": 30,
+    "image": "recipes/images/2__Tc438mS.jpg",
+    "pub_date": "2024-05-17T06:42:45.812Z",
     "tags": [
       1,
-      3
+      2
     ]
   }
 },
@@ -1004,12 +1217,12 @@
   "fields": {
     "name": "Двухслойная творожная запеканка",
     "text": "Нежнейший творожный десерт прекрасно подойдет для завтрака. В рецепте не используется мука, поэтому запеканка имеет легкую воздушную текстуру. В меру сладкий вкус напоминает подтаявшее мороженое пломбир.",
-    "author": 5,
-    "cooking_time": 313,
-    "image": "recipes/images/3_.jpg",
-    "pub_date": "2024-05-16T14:13:44.437Z",
+    "author": 1,
+    "cooking_time": 46,
+    "image": "recipes/images/3__a4Ip0Dd.jpg",
+    "pub_date": "2024-05-17T06:43:45.461Z",
     "tags": [
-      2
+      3
     ]
   }
 },
@@ -1019,10 +1232,10 @@
   "fields": {
     "name": "Турецкая яичница чылбыр с йогуртом",
     "text": "Необычный вариант яичницы. В Турции в приготовлении чылбыра используется местный продукт. В наших условиях попробуйте заменить турецкий йогурт на греческий.",
-    "author": 5,
-    "cooking_time": 31,
-    "image": "recipes/images/4_.jpg",
-    "pub_date": "2024-05-16T14:14:39.664Z",
+    "author": 1,
+    "cooking_time": 747,
+    "image": "recipes/images/4__eepxTMU.jpg",
+    "pub_date": "2024-05-17T06:44:58.565Z",
     "tags": [
       1,
       2,
@@ -1036,12 +1249,12 @@
   "fields": {
     "name": "Брускетта с тунцом",
     "text": "Такие брускетты быстро готовятся, а выглядят очень эффектно. Их можно подать к завтраку или в качестве закуски на праздничный стол.",
-    "author": 5,
-    "cooking_time": 121,
-    "image": "recipes/images/5_.jpg",
-    "pub_date": "2024-05-16T14:15:46.365Z",
+    "author": 1,
+    "cooking_time": 46,
+    "image": "recipes/images/5__ZUSdxdL.jpg",
+    "pub_date": "2024-05-17T06:46:16.605Z",
     "tags": [
-      1
+      2
     ]
   }
 },
@@ -1051,13 +1264,13 @@
   "fields": {
     "name": "Феттучине с куриной грудкой и вялеными помидорами",
     "text": "В этом рецепте красиво все: необычная форма пасты, маринованная грудка, пикантный соус и присутствие вяленых помидоров. Подобную пасту можно заказать в хорошем ресторане. А отведать дома будет намного бюджетнее и уютнее.",
-    "author": 6,
-    "cooking_time": 21,
-    "image": "recipes/images/6_.jpg",
-    "pub_date": "2024-05-16T14:16:37.374Z",
+    "author": 2,
+    "cooking_time": 24,
+    "image": "recipes/images/6__jGCEscB.jpg",
+    "pub_date": "2024-05-17T06:54:30.737Z",
     "tags": [
-      2,
-      3
+      1,
+      2
     ]
   }
 },
@@ -1065,15 +1278,16 @@
   "model": "recipes.recipe",
   "pk": 7,
   "fields": {
-    "name": "Паста Четыре сыра",
-    "text": "Конечно, я понимаю, что четыре сыра в одном блюде — роскошь, но тем, кто любит сыры, и тем, кто всю неделю тщательно считает свои калории, в воскресенье хочется похулиганить и съесть что-то насыщенное и жирное! — говорит Юлия Высоцкая.",
-    "author": 6,
-    "cooking_time": 21,
-    "image": "recipes/images/7_.jpg",
-    "pub_date": "2024-05-16T14:17:36.784Z",
+    "name": "Паста «Четыре сыра»",
+    "text": "«Конечно, я понимаю, что четыре сыра в одном блюде — роскошь, но тем, кто любит сыры, и тем, кто всю неделю тщательно считает свои калории, в воскресенье хочется похулиганить и съесть что-то насыщенное и жирное!» — говорит Юлия Высоцкая.",
+    "author": 2,
+    "cooking_time": 42,
+    "image": "recipes/images/7__gUuUg98.jpg",
+    "pub_date": "2024-05-17T06:55:28.440Z",
     "tags": [
       1,
-      2
+      2,
+      3
     ]
   }
 },
@@ -1083,13 +1297,12 @@
   "fields": {
     "name": "Лазанья",
     "text": "Рецепт лазаньи с доступным составом. Все продукты вы найдете в обычном супермаркете, а листы для лазаньи можно заказать в Интернете и хранить до подходящего случая.",
-    "author": 6,
-    "cooking_time": 212,
-    "image": "recipes/images/8_.jpg",
-    "pub_date": "2024-05-16T14:19:00.483Z",
+    "author": 2,
+    "cooking_time": 856,
+    "image": "recipes/images/8__Bd4TF69.jpg",
+    "pub_date": "2024-05-17T06:56:23.982Z",
     "tags": [
-      1,
-      3
+      2
     ]
   }
 },
@@ -1099,13 +1312,13 @@
   "fields": {
     "name": "Сливочно-сырный суп с ветчиной",
     "text": "Сырные супы обладают особым очарованием, они всегда необыкновенно вкусны. Конечно, здесь нужны хорошие продукты, и тогда это блюдо обязательно порадует и согреет в холодный день.",
-    "author": 6,
-    "cooking_time": 3131,
-    "image": "recipes/images/9_.jpg",
-    "pub_date": "2024-05-16T14:19:51.053Z",
+    "author": 2,
+    "cooking_time": 42,
+    "image": "recipes/images/9__Rg6aEHU.jpg",
+    "pub_date": "2024-05-17T07:00:13.359Z",
     "tags": [
-      1,
-      2
+      2,
+      3
     ]
   }
 },
@@ -1115,14 +1328,13 @@
   "fields": {
     "name": "Суп а-ля харчо",
     "text": "Кто хоть однажды пробовал грузинскую кухню, навсегда станет ее поклонником. Самый известный грузинский суп харчо варят из говядины. Как любое национальное блюдо, харчо имеет много разновидностей. И несмотря на то, что варим этот суп мы не так, как в Грузии, все равно он получается вкусным.",
-    "author": 6,
-    "cooking_time": 8,
-    "image": "recipes/images/10_.jpg",
-    "pub_date": "2024-05-16T14:20:42.445Z",
+    "author": 3,
+    "cooking_time": 3213,
+    "image": "recipes/images/10__JeO8o81.jpg",
+    "pub_date": "2024-05-17T07:01:51.305Z",
     "tags": [
       1,
-      2,
-      3
+      2
     ]
   }
 },
@@ -1132,12 +1344,13 @@
   "fields": {
     "name": "Острый креветочный суп",
     "text": "Этот креветочный суп — вариант тайского блюда из морепродуктов «Том Ям Кунг», но без добавления пасты, которая используется для «Том Яма». Суп получается довольно пряным. Любителям острой азиатской пищи очень понравится.",
-    "author": 7,
-    "cooking_time": 978,
-    "image": "recipes/images/11_.jpg",
-    "pub_date": "2024-05-16T14:21:40.426Z",
+    "author": 3,
+    "cooking_time": 31,
+    "image": "recipes/images/11__G9uoDse.jpg",
+    "pub_date": "2024-05-17T07:02:46.595Z",
     "tags": [
-      2
+      1,
+      3
     ]
   }
 },
@@ -1147,12 +1360,12 @@
   "fields": {
     "name": "Кутабы с сыром и зеленью",
     "text": "В Азербайджане кутабы готовят чаще всего с мясом, требухой, тыквой и, конечно, зеленью. Зелень используется самая-самая разная, причем сразу в свежем виде. Лепешки по этому рецепту получаются особенно вкусными как в качестве закуски, так и на завтрак с чашкой сладкого чая.",
-    "author": 7,
-    "cooking_time": 756,
-    "image": "recipes/images/12_.jpg",
-    "pub_date": "2024-05-16T14:22:33.269Z",
+    "author": 3,
+    "cooking_time": 75,
+    "image": "recipes/images/12__RkWm8MW.jpg",
+    "pub_date": "2024-05-17T07:04:18.037Z",
     "tags": [
-      1
+      2
     ]
   }
 },
@@ -1162,13 +1375,13 @@
   "fields": {
     "name": "Блины с начинкой из куриных сердечек и шампиньонов",
     "text": "Когда еще найдется время, чтобы напечь тонких блинчиков и завернуть в них любимую начинку? Конечно же, в выходные! Фарш из куриных сердечек и шампиньонов, обжаренных с луком, очень сочный и сытный, но при этом достаточно диетический.",
-    "author": 7,
-    "cooking_time": 535,
-    "image": "recipes/images/13_.jpg",
-    "pub_date": "2024-05-16T14:23:22.601Z",
+    "author": 3,
+    "cooking_time": 43,
+    "image": "recipes/images/13__naxhHQG.jpg",
+    "pub_date": "2024-05-17T07:05:41.816Z",
     "tags": [
-      2,
-      3
+      1,
+      2
     ]
   }
 },
@@ -1178,10 +1391,10 @@
   "fields": {
     "name": "Свиная вырезка с песто из шпината",
     "text": "Соус песто из шпината с кедровыми орешками не только создает яркий насыщенный цвет, но и пропитывает свинину тонкими ароматами лета и солнца, пармезан придает пикантность. Чтобы у мяса получилась вкусная румяная корочка, перед запеканием его нужно смазать смесью дижонской горчицы и меда, посыпать пармезаном и зернами горчицы.",
-    "author": 7,
-    "cooking_time": 335,
-    "image": "recipes/images/14_.jpg",
-    "pub_date": "2024-05-16T14:24:22.054Z",
+    "author": 4,
+    "cooking_time": 43,
+    "image": "recipes/images/14__wCssqP1.jpg",
+    "pub_date": "2024-05-17T07:06:41.729Z",
     "tags": [
       1,
       2
@@ -1194,10 +1407,10 @@
   "fields": {
     "name": "Чахохбили с мятой",
     "text": "Чахохбили идеально подходит для обедов в теплом семейном кругу, особенно в холодное время года. Предлагаем приготовить это блюдо с мятой. Она дополняет привычный насыщенный острый вкус свежими и яркими нотками. Попробуйте, вы будете удивлены, насколько гармонично мята вписывается в это блюдо.",
-    "author": 7,
-    "cooking_time": 414,
-    "image": "recipes/images/15_.jpg",
-    "pub_date": "2024-05-16T14:25:19.854Z",
+    "author": 4,
+    "cooking_time": 543,
+    "image": "recipes/images/15__YdQWNyY.jpg",
+    "pub_date": "2024-05-17T07:07:54.813Z",
     "tags": [
       1,
       2
@@ -1211,13 +1424,11 @@
     "name": "Фаршированные свиные отбивные с ягодным соусом",
     "text": "Начинка получается мягкой, сочной, а розмарин и орегано придают ей потрясающий аромат. Подаются отбивные с ягодным соусом из клюквы и малины. Получается чудесное блюдо для семейного застолья.",
     "author": 4,
-    "cooking_time": 41,
-    "image": "recipes/images/16_.jpg",
-    "pub_date": "2024-05-16T14:26:16.501Z",
+    "cooking_time": 42,
+    "image": "recipes/images/16__s3t9BlL.jpg",
+    "pub_date": "2024-05-17T07:08:55.536Z",
     "tags": [
-      1,
-      2,
-      3
+      2
     ]
   }
 },
@@ -1228,12 +1439,13 @@
     "name": "Тефтельки фламбе",
     "text": "Огонь обогревает, остерегает и дарит радость созерцания. Холодным зимним вечером или же ранним утром порадует непередаваемый вкус блюд, опаленных огнем. Иная энергетика — попробуйте!",
     "author": 4,
-    "cooking_time": 43,
-    "image": "recipes/images/17_.jpg",
-    "pub_date": "2024-05-16T14:27:03.505Z",
+    "cooking_time": 42,
+    "image": "recipes/images/17__wCaRPPd.jpg",
+    "pub_date": "2024-05-17T07:09:33.813Z",
     "tags": [
       1,
-      2
+      2,
+      3
     ]
   }
 },
@@ -1243,13 +1455,11 @@
   "fields": {
     "name": "Утка с картофелем по-китайски",
     "text": "Рецепт сочного блюда, на приготовления которого не потребуется много времени. Все запекается вместе: и утка, и гарнир в виде картофеля. Картошечка получается нежной и ароматной, а утка — с хрустящей корочкой. Минимум усилий — и вкусный ужин для всей семьи готов!",
-    "author": 4,
-    "cooking_time": 414,
-    "image": "recipes/images/18_.jpg",
-    "pub_date": "2024-05-16T14:28:14.223Z",
+    "author": 6,
+    "cooking_time": 5342,
+    "image": "recipes/images/18__uQj6op4.jpg",
+    "pub_date": "2024-05-17T07:13:58.602Z",
     "tags": [
-      1,
-      2,
       3
     ]
   }
@@ -1260,10 +1470,10 @@
   "fields": {
     "name": "Салат с фетой, мандарином, клюквой и орехами",
     "text": "Легкий и яркий салат со сложным гармоничным вкусом — кисло-сладкая заправка, сладкий мандарин и кислая клюква, соленая фета, горьковатые салатные травы и орехи. Актуально для зимы.",
-    "author": 4,
-    "cooking_time": 432,
-    "image": "recipes/images/19_.jpg",
-    "pub_date": "2024-05-16T14:29:25.770Z",
+    "author": 6,
+    "cooking_time": 53,
+    "image": "recipes/images/19__pdVljQj.jpg",
+    "pub_date": "2024-05-17T07:14:53.821Z",
     "tags": [
       1,
       3
@@ -1276,10 +1486,10 @@
   "fields": {
     "name": "Греческий салат в сырной корзинке",
     "text": "Это вариация классического греческого салата с интересным способом подачи. Сыр выбирайте на свое усмотрение — можно взять мягкий козий или сливочный. Лук тоже подойдет любой, но все же лучше здесь работает красный — он сладкий и мясистый. Неплохо добавить немного зеленого лука, петрушки, свежего тимьяна или орегано.",
-    "author": 4,
-    "cooking_time": 645,
-    "image": "recipes/images/20_.jpg",
-    "pub_date": "2024-05-16T14:30:26.437Z",
+    "author": 6,
+    "cooking_time": 6534,
+    "image": "recipes/images/20__wC45pky.jpg",
+    "pub_date": "2024-05-17T07:15:38.717Z",
     "tags": [
       1,
       2
@@ -1290,7 +1500,7 @@
   "model": "recipes.ingredient",
   "pk": 1,
   "fields": {
-    "name": "абрикосовое варенье",
+    "name": "абрикосовое пюре",
     "measurement_unit": "г"
   }
 },
@@ -1298,23 +1508,23 @@
   "model": "recipes.ingredient",
   "pk": 2,
   "fields": {
-    "name": "абрикосовое пюре",
-    "measurement_unit": "г"
+    "name": "базилик тайский",
+    "measurement_unit": "горсть"
   }
 },
 {
   "model": "recipes.ingredient",
   "pk": 3,
   "fields": {
-    "name": "аджика",
-    "measurement_unit": "г"
+    "name": "бараний окорок на косточке",
+    "measurement_unit": "кусок"
   }
 },
 {
   "model": "recipes.ingredient",
   "pk": 4,
   "fields": {
-    "name": "барабулька",
+    "name": "бисквитная крошка",
     "measurement_unit": "г"
   }
 },
@@ -1322,45 +1532,13 @@
   "model": "recipes.ingredient",
   "pk": 5,
   "fields": {
-    "name": "баранки",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 6,
-  "fields": {
-    "name": "барбарис вяленый",
+    "name": "виноградное желе",
     "measurement_unit": "ст. л."
   }
 },
 {
   "model": "recipes.ingredient",
-  "pk": 7,
-  "fields": {
-    "name": "васаби",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 8,
-  "fields": {
-    "name": "винегрет",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 9,
-  "fields": {
-    "name": "винный камень",
-    "measurement_unit": "щепотка"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 10,
+  "pk": 6,
   "fields": {
     "name": "гвоздика молотая",
     "measurement_unit": "по вкусу"
@@ -1368,146 +1546,34 @@
 },
 {
   "model": "recipes.ingredient",
-  "pk": 11,
+  "pk": 7,
   "fields": {
-    "name": "глазурь",
+    "name": "гратен",
+    "measurement_unit": "кг"
+  }
+},
+{
+  "model": "recipes.ingredient",
+  "pk": 8,
+  "fields": {
+    "name": "зефир",
     "measurement_unit": "г"
   }
 },
 {
   "model": "recipes.ingredient",
-  "pk": 12,
+  "pk": 9,
   "fields": {
-    "name": "голец филе",
-    "measurement_unit": "шт."
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 13,
-  "fields": {
-    "name": "икра черная",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 14,
-  "fields": {
-    "name": "имбирь",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 15,
-  "fields": {
-    "name": "каджунская смесь специй",
-    "measurement_unit": "ст. л."
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 16,
-  "fields": {
-    "name": "лангустины",
-    "measurement_unit": "шт."
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 17,
-  "fields": {
-    "name": "лемонграсс (лимонное сорго)",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 18,
-  "fields": {
-    "name": "лосось стейки",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 19,
-  "fields": {
-    "name": "майоран свежий",
+    "name": "имбирное печенье",
     "measurement_unit": "по вкусу"
   }
 },
 {
   "model": "recipes.ingredient",
-  "pk": 20,
+  "pk": 10,
   "fields": {
-    "name": "маковая масса",
-    "measurement_unit": "пачка"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 21,
-  "fields": {
-    "name": "малиновое варенье",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 22,
-  "fields": {
-    "name": "миндаль измельченный",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 23,
-  "fields": {
-    "name": "миндальный экстракт",
-    "measurement_unit": "капля"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 24,
-  "fields": {
-    "name": "молоко рисовое",
-    "measurement_unit": "мл"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 25,
-  "fields": {
-    "name": "мороженое пломбир",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 26,
-  "fields": {
-    "name": "овощная смесь",
-    "measurement_unit": "г"
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 27,
-  "fields": {
-    "name": "панеттоне",
-    "measurement_unit": "шт."
-  }
-},
-{
-  "model": "recipes.ingredient",
-  "pk": 28,
-  "fields": {
-    "name": "перец белый горошком",
-    "measurement_unit": "по вкусу"
+    "name": "калинджи семена",
+    "measurement_unit": "ч. л."
   }
 },
 {
@@ -1516,7 +1582,7 @@
   "fields": {
     "recipe": 1,
     "ingredient": 6,
-    "amount": 12
+    "amount": 21
   }
 },
 {
@@ -1524,8 +1590,8 @@
   "pk": 2,
   "fields": {
     "recipe": 1,
-    "ingredient": 12,
-    "amount": 31
+    "ingredient": 10,
+    "amount": 12
   }
 },
 {
@@ -1533,8 +1599,8 @@
   "pk": 3,
   "fields": {
     "recipe": 1,
-    "ingredient": 17,
-    "amount": 13
+    "ingredient": 2,
+    "amount": 390
   }
 },
 {
@@ -1542,431 +1608,485 @@
   "pk": 4,
   "fields": {
     "recipe": 2,
-    "ingredient": 19,
-    "amount": 21
+    "ingredient": 3,
+    "amount": 31
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 5,
   "fields": {
-    "recipe": 3,
-    "ingredient": 7,
-    "amount": 2120
+    "recipe": 2,
+    "ingredient": 8,
+    "amount": 54
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 6,
   "fields": {
-    "recipe": 3,
-    "ingredient": 23,
-    "amount": 10
+    "recipe": 2,
+    "ingredient": 7,
+    "amount": 90
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 7,
   "fields": {
-    "recipe": 4,
-    "ingredient": 15,
-    "amount": 21
+    "recipe": 2,
+    "ingredient": 9,
+    "amount": 63
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 8,
   "fields": {
-    "recipe": 4,
-    "ingredient": 27,
-    "amount": 12
+    "recipe": 3,
+    "ingredient": 8,
+    "amount": 535
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 9,
   "fields": {
-    "recipe": 5,
-    "ingredient": 12,
-    "amount": 12
+    "recipe": 3,
+    "ingredient": 1,
+    "amount": 234
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 10,
   "fields": {
-    "recipe": 5,
-    "ingredient": 14,
-    "amount": 131
+    "recipe": 4,
+    "ingredient": 7,
+    "amount": 543
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 11,
   "fields": {
-    "recipe": 5,
-    "ingredient": 26,
-    "amount": 12
+    "recipe": 4,
+    "ingredient": 4,
+    "amount": 35
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 12,
   "fields": {
-    "recipe": 5,
-    "ingredient": 28,
-    "amount": 10
+    "recipe": 4,
+    "ingredient": 9,
+    "amount": 767
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 13,
   "fields": {
-    "recipe": 6,
-    "ingredient": 17,
-    "amount": 312
+    "recipe": 5,
+    "ingredient": 10,
+    "amount": 32
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 14,
   "fields": {
-    "recipe": 7,
-    "ingredient": 11,
-    "amount": 313
+    "recipe": 5,
+    "ingredient": 5,
+    "amount": 13
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 15,
   "fields": {
-    "recipe": 7,
-    "ingredient": 21,
-    "amount": 131
+    "recipe": 5,
+    "ingredient": 2,
+    "amount": 42
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 16,
   "fields": {
-    "recipe": 8,
-    "ingredient": 20,
-    "amount": 31
+    "recipe": 5,
+    "ingredient": 9,
+    "amount": 24
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 17,
   "fields": {
-    "recipe": 8,
-    "ingredient": 15,
-    "amount": 1231
+    "recipe": 5,
+    "ingredient": 7,
+    "amount": 42
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 18,
   "fields": {
-    "recipe": 8,
-    "ingredient": 9,
-    "amount": 31
+    "recipe": 6,
+    "ingredient": 5,
+    "amount": 13
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 19,
   "fields": {
-    "recipe": 9,
-    "ingredient": 25,
-    "amount": 12
+    "recipe": 6,
+    "ingredient": 4,
+    "amount": 31
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 20,
   "fields": {
-    "recipe": 9,
-    "ingredient": 13,
-    "amount": 313
+    "recipe": 7,
+    "ingredient": 3,
+    "amount": 31
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 21,
   "fields": {
-    "recipe": 10,
-    "ingredient": 23,
-    "amount": 3123
+    "recipe": 7,
+    "ingredient": 10,
+    "amount": 23
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 22,
   "fields": {
-    "recipe": 10,
-    "ingredient": 26,
-    "amount": 987
+    "recipe": 7,
+    "ingredient": 5,
+    "amount": 13
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 23,
   "fields": {
-    "recipe": 11,
-    "ingredient": 20,
-    "amount": 313
+    "recipe": 8,
+    "ingredient": 2,
+    "amount": 432
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 24,
   "fields": {
-    "recipe": 11,
-    "ingredient": 26,
-    "amount": 567
+    "recipe": 8,
+    "ingredient": 9,
+    "amount": 14
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 25,
   "fields": {
-    "recipe": 11,
-    "ingredient": 14,
-    "amount": 43
+    "recipe": 8,
+    "ingredient": 5,
+    "amount": 54
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 26,
   "fields": {
-    "recipe": 12,
-    "ingredient": 19,
-    "amount": 32
+    "recipe": 9,
+    "ingredient": 1,
+    "amount": 432
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 27,
   "fields": {
-    "recipe": 12,
-    "ingredient": 16,
-    "amount": 131
+    "recipe": 9,
+    "ingredient": 5,
+    "amount": 12
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 28,
   "fields": {
-    "recipe": 13,
-    "ingredient": 10,
-    "amount": 432
+    "recipe": 9,
+    "ingredient": 4,
+    "amount": 32
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 29,
   "fields": {
-    "recipe": 13,
-    "ingredient": 22,
-    "amount": 234
+    "recipe": 9,
+    "ingredient": 7,
+    "amount": 42
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 30,
   "fields": {
-    "recipe": 14,
-    "ingredient": 20,
-    "amount": 32
+    "recipe": 9,
+    "ingredient": 2,
+    "amount": 123
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 31,
   "fields": {
-    "recipe": 14,
-    "ingredient": 21,
-    "amount": 123
+    "recipe": 9,
+    "ingredient": 3,
+    "amount": 423
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 32,
   "fields": {
-    "recipe": 14,
-    "ingredient": 3,
-    "amount": 321
+    "recipe": 9,
+    "ingredient": 6,
+    "amount": 13
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 33,
   "fields": {
-    "recipe": 15,
-    "ingredient": 16,
-    "amount": 434
+    "recipe": 9,
+    "ingredient": 8,
+    "amount": 32
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 34,
   "fields": {
-    "recipe": 15,
-    "ingredient": 1,
-    "amount": 343
+    "recipe": 9,
+    "ingredient": 10,
+    "amount": 54
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 35,
   "fields": {
-    "recipe": 15,
-    "ingredient": 19,
-    "amount": 1
+    "recipe": 9,
+    "ingredient": 9,
+    "amount": 34
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 36,
   "fields": {
-    "recipe": 16,
-    "ingredient": 22,
-    "amount": 313
+    "recipe": 10,
+    "ingredient": 7,
+    "amount": 321
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 37,
   "fields": {
-    "recipe": 16,
-    "ingredient": 24,
-    "amount": 656
+    "recipe": 11,
+    "ingredient": 9,
+    "amount": 32
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 38,
   "fields": {
-    "recipe": 17,
-    "ingredient": 13,
-    "amount": 32
+    "recipe": 11,
+    "ingredient": 8,
+    "amount": 14
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 39,
   "fields": {
-    "recipe": 17,
-    "ingredient": 22,
-    "amount": 13
+    "recipe": 12,
+    "ingredient": 5,
+    "amount": 534
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 40,
   "fields": {
-    "recipe": 18,
-    "ingredient": 20,
-    "amount": 31
+    "recipe": 12,
+    "ingredient": 1,
+    "amount": 123
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 41,
   "fields": {
-    "recipe": 18,
-    "ingredient": 11,
-    "amount": 65
+    "recipe": 13,
+    "ingredient": 6,
+    "amount": 423
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 42,
   "fields": {
-    "recipe": 18,
-    "ingredient": 16,
-    "amount": 34
+    "recipe": 13,
+    "ingredient": 9,
+    "amount": 123
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 43,
   "fields": {
-    "recipe": 18,
-    "ingredient": 3,
-    "amount": 532
+    "recipe": 14,
+    "ingredient": 10,
+    "amount": 45
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 44,
   "fields": {
-    "recipe": 18,
-    "ingredient": 24,
-    "amount": 1
+    "recipe": 14,
+    "ingredient": 7,
+    "amount": 321
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 45,
   "fields": {
-    "recipe": 19,
-    "ingredient": 22,
-    "amount": 312
+    "recipe": 14,
+    "ingredient": 6,
+    "amount": 32
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 46,
   "fields": {
-    "recipe": 19,
-    "ingredient": 9,
-    "amount": 1231
+    "recipe": 15,
+    "ingredient": 3,
+    "amount": 32
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 47,
   "fields": {
-    "recipe": 19,
-    "ingredient": 18,
-    "amount": 31
+    "recipe": 15,
+    "ingredient": 4,
+    "amount": 123
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 48,
   "fields": {
-    "recipe": 19,
-    "ingredient": 25,
-    "amount": 32
+    "recipe": 15,
+    "ingredient": 6,
+    "amount": 54
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 49,
   "fields": {
-    "recipe": 20,
-    "ingredient": 25,
-    "amount": 32
+    "recipe": 15,
+    "ingredient": 2,
+    "amount": 14
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 50,
   "fields": {
-    "recipe": 20,
-    "ingredient": 27,
-    "amount": 123
+    "recipe": 16,
+    "ingredient": 10,
+    "amount": 42
   }
 },
 {
   "model": "recipes.recipeingredient",
   "pk": 51,
   "fields": {
-    "recipe": 20,
+    "recipe": 16,
+    "ingredient": 6,
+    "amount": 14
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 52,
+  "fields": {
+    "recipe": 16,
+    "ingredient": 4,
+    "amount": 42
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 53,
+  "fields": {
+    "recipe": 17,
     "ingredient": 5,
-    "amount": 765
+    "amount": 31
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 54,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 8,
+    "amount": 2443
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 55,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 3,
+    "amount": 31
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 56,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 4,
+    "amount": 41
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 57,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 7,
+    "amount": 32
   }
 },
 {
@@ -1975,7 +2095,7 @@
   "fields": {
     "name": "завтрак",
     "slug": "breakfast",
-    "color": "#0D0DFF"
+    "color": "#FF0000"
   }
 },
 {
@@ -1983,8 +2103,8 @@
   "pk": 2,
   "fields": {
     "name": "обед",
-    "slug": "dinner",
-    "color": "#61FF75"
+    "slug": "lunch",
+    "color": "#76FF32"
   }
 },
 {
@@ -1992,21 +2112,21 @@
   "pk": 3,
   "fields": {
     "name": "ужин",
-    "slug": "evening-meal",
-    "color": "#722B87"
+    "slug": "dinner",
+    "color": "#9914D2"
   }
 },
 {
   "model": "users.user",
-  "pk": 4,
+  "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$260000$NFRk0diia6x4Us89YCfYcL$SBLHbFPziOIXC4T46rbmiZhmb8HyrPHxkieGLDUi3rw=",
-    "last_login": "2024-05-16T13:55:34.357Z",
+    "password": "pbkdf2_sha256$260000$XjTHz94a9xDrX3H1VNsUkV$cGLiBiHsja4wGDS/3cLPpS/pMR6s5Bi6akMmaIU946s=",
+    "last_login": "2024-05-17T06:49:26.877Z",
     "is_superuser": true,
     "username": "review",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2024-05-16T13:53:39.471Z",
+    "date_joined": "2024-05-17T06:27:06.039Z",
     "email": "review@admin.ru",
     "first_name": "r",
     "last_name": "r",
@@ -2016,18 +2136,54 @@
 },
 {
   "model": "users.user",
-  "pk": 5,
+  "pk": 2,
   "fields": {
-    "password": "pbkdf2_sha256$260000$XQDrgXruzzq1E6nG1qooW2$07f0sfUeK94pO0iV3TSU/16wOv65hrfogCsW3SaEZIo=",
+    "password": "alskdjfhg",
     "last_login": null,
     "is_superuser": false,
-    "username": "k1",
+    "username": "user1",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2024-05-16T13:57:16.384Z",
+    "date_joined": "2024-05-17T06:49:37Z",
     "email": "user1@mail.ru",
-    "first_name": "имя1",
-    "last_name": "фамилия1",
+    "first_name": "user1",
+    "last_name": "user1",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 3,
+  "fields": {
+    "password": "alskdjfhg",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user2",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-05-17T06:50:51Z",
+    "email": "user2@mail.ru",
+    "first_name": "user2",
+    "last_name": "user2",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 4,
+  "fields": {
+    "password": "alskdjfhg",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user3",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-05-17T06:51:30Z",
+    "email": "user3@mail.ru",
+    "first_name": "user3",
+    "last_name": "user3",
     "groups": [],
     "user_permissions": []
   }
@@ -2036,34 +2192,16 @@
   "model": "users.user",
   "pk": 6,
   "fields": {
-    "password": "pbkdf2_sha256$260000$5Yos2TP8LussBAXDzebyK2$/MA0aNX9R3vtO1TOQQr4WVTMK7MZYax2wz6d1dpA+ZY=",
+    "password": "alskdjfhg",
     "last_login": null,
     "is_superuser": false,
-    "username": "k2",
+    "username": "user4",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2024-05-16T13:57:34.111Z",
-    "email": "user2@mail.ru",
-    "first_name": "имя2",
-    "last_name": "фамилия2",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "users.user",
-  "pk": 7,
-  "fields": {
-    "password": "pbkdf2_sha256$260000$M5cmMsMw9Y53SUrTQtqByO$uiRK2pibuASOvjlkSw4DzS7LIdmM/XF0NBDb1PtExZc=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "k3",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2024-05-16T13:58:31.401Z",
-    "email": "user3@mail.ru",
-    "first_name": "имя3",
-    "last_name": "фамилия3",
+    "date_joined": "2024-05-17T07:12:21Z",
+    "email": "user4@mail.ru",
+    "first_name": "user4",
+    "last_name": "user4",
     "groups": [],
     "user_permissions": []
   }

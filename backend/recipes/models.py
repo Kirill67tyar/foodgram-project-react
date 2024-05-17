@@ -152,25 +152,24 @@ class Tag(models.Model):
 
 
 class Cart(models.Model):
-    owner = models.OneToOneField(
+    owner = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
         verbose_name='Заказчик',
     )
-    recipe = models.ManyToManyField(
+    recipes = models.ManyToManyField(
         to=Recipe,
-        related_name='carts',
         verbose_name='Рецепты'
     )
 
     class Meta:
-        verbose_name = 'Заказ'
-        verbose_name_plural = 'Заказы'
+        verbose_name = 'Корзина'
+        verbose_name_plural = 'Корзины'
         ordering = ('pk',)
-        default_related_name = 'orders'
+        default_related_name = 'carts'
 
     def __str__(self):
-        return f'Заказ - {self.pk}'
+        return f'Корзина - {self.pk}'
 
 
 class Favorite(models.Model):

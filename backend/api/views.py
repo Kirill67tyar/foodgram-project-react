@@ -11,13 +11,13 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 from rest_framework import status
 from rest_framework.decorators import action
-from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.serializers import ValidationError
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from api.filters import IngredientFilter, RecipeFilter
+from api.pagination import PageNumberWithLimitPagination
 from api.permissions import IsAuthenticatedAndAuthorOrReadOnly
 from api.serializers import (AddToFavoriteSerializer, AddToShoppingCart,
                              IngredientModelSerializer,
@@ -34,7 +34,7 @@ User = get_user_model()
 
 class UserViewSet(DjoserUserViewSet):
     permission_classes = (AllowAny,)
-    pagination_class = LimitOffsetPagination
+    pagination_class = PageNumberWithLimitPagination
 
     def get_permissions(self):
         if self.action == 'me':
@@ -119,7 +119,7 @@ class IngredientReadOnlyModelViewSet(ReadOnlyModelViewSet):
 
 class RecipeModelViewSet(ModelViewSet):
     permission_classes = (IsAuthenticatedAndAuthorOrReadOnly,)
-    pagination_class = LimitOffsetPagination
+    pagination_class = PageNumberWithLimitPagination
     filter_backends = (DjangoFilterBackend,)
     filterset_class = RecipeFilter
     filterset_fields = (
@@ -196,7 +196,7 @@ class RecipeModelViewSet(ModelViewSet):
     def shopping_cart(self, request, pk):
         serializer = self.get_serializer(
             data={
-                'recipe': [pk, ],
+                'recipes': [pk, ],
                 'owner': request.user.pk,
             }
         )
@@ -208,7 +208,7 @@ class RecipeModelViewSet(ModelViewSet):
     def delete_shopping_cart(self, request, pk=None):
         quantity_deleted, _ = Cart.objects.filter(
             owner=request.user,
-            recipe=self.get_object(),
+            recipes=self.get_object(),
         ).delete()
         if not quantity_deleted:
             raise ValidationError(
@@ -222,9 +222,9 @@ class RecipeModelViewSet(ModelViewSet):
     def generate_pdf_document(self, ingredient_cart_lst, cart):
         data_for_output = [
             [
-                ingrdient['ingredients__name'],
-                (f'{ingrdient["total_amount"]}'
-                 f'{ingrdient["ingredients__measurement_unit"]}')
+                ingrdient['name'],
+                (f'{ingrdient["total_amount"]} '
+                 f'{ingrdient["measurement_unit"]}')
             ]
             for ingrdient in ingredient_cart_lst
         ]
@@ -275,9 +275,13 @@ class RecipeModelViewSet(ModelViewSet):
         cart = Cart.objects.filter(owner=user).first()
         if not cart:
             return HttpResponse(status=200)
-        ingredient_cart_lst = list(cart.recipe.values(
-            'ingredients__name', 'ingredients__measurement_unit'
-        ).annotate(total_amount=Sum('recipeingredient__amount')))
+        ingredient_cart_lst = list(Ingredient.objects.filter(
+            recipes__carts__owner=user
+        ).values(
+            'name', 'measurement_unit'
+        ).annotate(
+            total_amount=Sum('recipeingredient__amount')
+        ))
         response = self.generate_pdf_document(
             ingredient_cart_lst,
             cart,

@@ -24,6 +24,10 @@ MESSAGE_ERROR_RECIPE_ALREADY_IN_FAVORITE = (
     'Ошибка: рецепт уже добавлен в избранное'
     'Нельзя добавить в избранное дважды.'
 )
+MESSAGE_ERROR_RECIPE_ALREADY_IN_CART = (
+    'Ошибка: рецепт уже добавлен в корзину'
+    'Нельзя добавить в избранное дважды.'
+)
 MESSAGE_ERROR_DONT_SUBSCRIBE_USER = 'вы не подписаны на этого пользователя'
 MESSAGE_ERROR_RECIPE_NOT_IN_FAVORITE = 'Рецепт не был добавлен в избранное'
 MESSAGE_ERROR_RECIPE_NOT_IN_CART = 'Рецепт не был добавлен в корзину'

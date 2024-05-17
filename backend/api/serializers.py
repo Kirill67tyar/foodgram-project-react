@@ -138,13 +138,22 @@ class AddToShoppingCart(serializers.ModelSerializer):
     class Meta:
         model = Cart
         fields = (
-            'recipe',
+            'recipes',
             'owner',
         )
 
+    def validate(self, data):
+        recipes = data['recipes']
+        user = data['owner']
+        if Cart.objects.filter(owner=user, recipes__in=recipes).exists():
+            raise ValidationError(
+                {'errors': constants.MESSAGE_ERROR_RECIPE_ALREADY_IN_CART}
+            )
+        return data
+
     def to_representation(self, value):
         recipe = Recipe.objects.get(
-            pk=self.initial_data['recipe'][constants.ZERO_INDEX])
+            pk=self.initial_data['recipes'][constants.ZERO_INDEX])
         serializer = RecipeToFavoriteModelSerializer(recipe)
         serializer.context['request'] = self.context['request']
         return serializer.data
@@ -245,7 +254,7 @@ class RecipeReadModelSerializer(serializers.ModelSerializer):
             self.context.get('request')
             and self.context['request'].user.is_authenticated
             and Cart.objects.filter(
-                recipe=obj,
+                recipes=obj,
                 owner=self.context['request'].user,
             ).exists()
         )

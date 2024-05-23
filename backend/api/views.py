@@ -29,6 +29,7 @@ from foodgram_backend import constants
 from recipes.models import Cart, Favorite, Ingredient, Recipe, Tag
 from users.models import Follow
 
+
 User = get_user_model()
 
 

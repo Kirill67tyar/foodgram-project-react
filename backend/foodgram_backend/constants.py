@@ -5,6 +5,7 @@ TAGS_REQUIRED_FIELD = 'Теги являются обязательным пол
 NON_EXISTENT_ELEMENTS = 'Несуществующие элементы'
 FONT_NAME = 'JetBrainsMono-Regular'
 FONT_PATH = '/app/fonts/JetBrainsMono-Regular.ttf'  # рабочая директория
+# FONT_PATH = '/home/kirill/Документы/job/projects/training_proj/yandex-practicum/projects/final_proj/foodgram-project-react/backend/fonts/JetBrainsMono-Regular.ttf'
 MAX_LENGTH_NAME = 200
 MAX_LENGTH_USER_NAME = 150
 MIN_VALUE_FOR_VALIDATOR = 1

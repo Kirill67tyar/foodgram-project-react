@@ -4,6 +4,7 @@ volumes:
   pg_data_foodgram:
   static_foodgram:
   media_foodgram:
+  media_fixtures_foodgram:
     
 services:
 

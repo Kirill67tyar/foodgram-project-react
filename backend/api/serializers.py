@@ -143,17 +143,19 @@ class AddToShoppingCart(serializers.ModelSerializer):
         )
 
     def validate(self, data):
-        recipes = data['recipes']
+        self.recipes = data['recipes']
+        # recipes = data['recipes']
         user = data['owner']
-        if Cart.objects.filter(owner=user, recipes__in=recipes).exists():
+        if Cart.objects.filter(owner=user, recipes__in=self.recipes).exists():
             raise ValidationError(
                 {'errors': constants.MESSAGE_ERROR_RECIPE_ALREADY_IN_CART}
             )
         return data
 
     def to_representation(self, value):
-        recipe = Recipe.objects.get(
-            pk=self.initial_data['recipes'][constants.ZERO_INDEX])
+        # recipe = Recipe.objects.get(
+        #     pk=self.initial_data['recipes'][constants.ZERO_INDEX])
+        recipe = self.recipes[constants.ZERO_INDEX]
         serializer = RecipeToFavoriteModelSerializer(recipe)
         serializer.context['request'] = self.context['request']
         return serializer.data

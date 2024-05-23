@@ -75,6 +75,12 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', 5432),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -109,7 +115,7 @@ STATIC_ROOT = BASE_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/media'  # рабочая директрия
-
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # временная директрия
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
